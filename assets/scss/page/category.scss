@@ -1,0 +1,74 @@
+.post-list {
+  .header {
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  .list-wrapper {
+    padding: 2rem;
+    color: white;
+    border-radius: 4px;
+    background-color: #222;
+
+    .category {
+      font-size: 5rem;
+      font-weight: bold;
+      border-bottom: 1px solid #444;
+      padding-bottom: 1rem;
+      margin-bottom: 3rem;
+      color: $sub-color;
+    }
+
+    .post-list {
+      .post {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+
+        .title {
+          font-size: 2rem;
+          color: #ccc;
+
+          &:hover {
+            color: $key-color;
+            font-weight: bold;
+          }
+        }
+
+        .tag {
+          display: flex;
+          margin-left: 2rem;
+          &__item {
+            font-size: 1.4rem;
+            margin-right: 0.7rem;
+            color: #222;
+            background-color: #82d1d1;
+            border-radius: 4px;
+            padding: 0.1em 0.5em;
+            line-height: normal;
+          }
+        }
+
+        .date {
+          display: flex;
+          align-items: center;
+          font-size: 1.4rem;
+          color: #9f9f9f;
+          line-height: normal;
+          margin-left: auto;
+
+          .calendar-ico {
+            height: 1.3rem;
+            margin-right: 0.4rem;
+            filter: invert(1) brightness(0.7);
+          }
+        }
+      }
+    }
+  }
+}
