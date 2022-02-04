@@ -32,7 +32,7 @@
 
         .title {
           font-size: 2rem;
-          color: #ccc;
+          color: white;
 
           &:hover {
             color: $key-color;
@@ -46,8 +46,8 @@
           &__item {
             font-size: 1.4rem;
             margin-right: 0.7rem;
-            color: #222;
-            background-color: #82d1d1;
+            color: #ddd;
+            background-color: $key-color;
             border-radius: 4px;
             padding: 0.1em 0.5em;
             line-height: normal;

@@ -8,3 +8,11 @@
     </article>
   </main>
 </template>
+
+<script>
+export default {
+  async asyncData(app) {
+    console.log(app.store.state);
+  },
+};
+</script>

@@ -32,7 +32,7 @@ export default {
   async asyncData({ route, $content }) {
     const postList = await $content(route.path, { deep: true })
       .only(["title", "path", "tags", "createdAt"])
-      .sortBy("createdAt")
+      .sortBy("createdAt", "desc")
       .fetch();
 
     return { postList };
