@@ -4,28 +4,35 @@
       <a :href="post.dir" class="category">{{ post.category }}</a>
       <h1 class="title">{{ post.title }}</h1>
 
-      <ul class="tag">
-        <li class="tag__item" v-for="tag of post.tags" :key="tag">{{ tag }}</li>
-      </ul>
-
       <div class="date">
         <div class="created-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>Created : {{ post.createdAt }}</span>
+          <span>생성일 - {{ post.createdAt }}</span>
         </div>
 
         <div class="upated-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>Updated : {{ post.updatedAt }}</span>
+          <span>수정일 - {{ post.updatedAt }}</span>
         </div>
       </div>
     </div>
-    <div class="cover-img" v-if="post.coverImg">
-      <img :src="post.coverImg" alt="Cover Image" />
-    </div>
+
     <article class="post">
       <div class="toc"></div>
       <div class="content">
+        <div class="tag" v-if="post.tags">
+          <img class="tag__ico" src="@/assets/images/tag.svg" alt="tag" />
+          <ul class="tag__list">
+            <li class="tag__item" v-for="tag of post.tags" :key="tag">
+              {{ tag }}
+            </li>
+          </ul>
+        </div>
+
+        <div class="cover-img" v-if="post.coverImg">
+          <img :src="post.coverImg" alt="Cover Image" />
+        </div>
+
         <nuxt-content :document="post" />
       </div>
     </article>

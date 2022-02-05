@@ -15,8 +15,16 @@
 }
 
 @font-face {
-  font-family: "EliceDigitalBaeum_Bold";
+  font-family: "EliceDigitalBaeum";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff")
+    format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "EliceDigitalBaeum";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Regular.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -31,6 +39,5 @@ html,
 body,
 button,
 input {
-  font-family: "GangwonEdu", "EliceDigitalBaeum_Bold", "Noto Sans KR",
-    sans-serif;
+  font-family: "EliceDigitalBaeum_Bold", "Noto Sans KR", sans-serif;
 }

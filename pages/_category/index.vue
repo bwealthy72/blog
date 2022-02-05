@@ -30,7 +30,9 @@
 <script>
 export default {
   async asyncData({ route, $content }) {
-    const postList = await $content(route.path, { deep: true })
+    const path = route.path.split("/").slice(0, 2).join("/");
+
+    const postList = await $content(path, { deep: true })
       .only(["title", "path", "tags", "createdAt"])
       .sortBy("createdAt", "desc")
       .fetch();
