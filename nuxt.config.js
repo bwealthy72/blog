@@ -32,7 +32,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxt/image"],
+  buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -83,6 +83,15 @@ export default {
       // addCategory("css", "CSS");
       // addCategory("js", "Javascript");
       addCategory("tips", "Tips");
+    },
+  },
+
+  generate: {
+    async routes() {
+      const { $content } = require("@nuxt/content");
+      const files = await $content({ deep: true }).only(["path"]).fetch();
+
+      return files.map((file) => (file.path === "/index" ? "/" : file.path));
     },
   },
 };
