@@ -45,6 +45,7 @@
       margin-top: 2rem;
       margin-left: auto;
       font-size: 1.4rem;
+      text-align: right;
 
       &-ico {
         height: 1rem;
@@ -53,6 +54,17 @@
       }
     }
   }
+
+  .cover-img {
+    padding: 2rem 5rem;
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  }
+
   .post {
     background-color: #222;
     border: 1px solid #444;
@@ -74,6 +86,26 @@
       li {
         line-height: 1.5em;
       }
+    }
+
+    img {
+      width: 80%;
+      border-radius: 4px;
+      margin: 3rem auto;
+      display: flex;
+    }
+
+    hr {
+      width: 30%;
+      margin: 5rem auto;
+      border-color: #444;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      font-size: 3em;
+      font-weight: bold;
     }
   }
 }

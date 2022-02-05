@@ -11,8 +11,6 @@
 
 <script>
 export default {
-  async asyncData(app) {
-    console.log(app.store.state);
-  },
+  async asyncData(app) {},
 };
 </script>

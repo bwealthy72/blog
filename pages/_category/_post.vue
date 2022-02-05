@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="cover-img" v-if="post.coverImg">
-      <img src="" alt="" />
+      <img :src="post.coverImg" alt="Cover Image" />
     </div>
     <article class="post">
       <div class="toc"></div>
@@ -40,10 +40,8 @@ export default {
     post.updatedAt = $dateFormat(new Date(post.updatedAt));
     post.dir = route.path.split("/").slice(0, 2).join("/");
     post.category = store.state.routePaths[post.dir];
-    console.log(post);
 
     return { post };
   },
-  methods: {},
 };
 </script>
