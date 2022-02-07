@@ -40,6 +40,8 @@ export default {
     "@nuxt/content",
     // https://sitemap.nuxtjs.org/guide/setup
     "@nuxtjs/sitemap",
+    // https://www.npmjs.com/package/@nuxtjs/robots
+    "@nuxtjs/robots",
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
