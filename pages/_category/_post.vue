@@ -42,7 +42,12 @@
 <script>
 export default {
   async asyncData({ store, route, $content, $dateFormat }) {
-    const post = await $content(decodeURI(route.path)).fetch();
+    let path = route.path;
+    if (path[path.length - 1] === "/") {
+      path = decodeURI(path.split("/").slice(0, -1).join("/"));
+    }
+
+    const post = await $content(path).fetch();
     post.createdAt = $dateFormat(new Date(post.createdAt));
     post.updatedAt = $dateFormat(new Date(post.updatedAt));
     post.dir = route.path.split("/").slice(0, 2).join("/");

@@ -56,6 +56,8 @@
     .tag {
       display: flex;
       align-items: center;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
       &__ico {
         height: 1.2rem;
         margin-right: 1rem;
@@ -92,7 +94,7 @@
     .nuxt-content {
       p {
         margin-bottom: 1rem;
-        line-height: 1.5em;
+        line-height: 2;
       }
 
       ol,
@@ -100,7 +102,7 @@
         padding-left: 2rem;
         list-style: revert;
         li {
-          line-height: 1.5em;
+          line-height: 1.5;
         }
       }
 
@@ -118,10 +120,43 @@
       }
 
       h2 {
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-        font-size: 3em;
+        font-size: 1.6em;
         font-weight: bold;
+        margin-top: 7rem;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid #4b4b4b;
+      }
+
+      h3 {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-top: 5rem;
+        margin-bottom: 2rem;
+        border-left: 4px solid $key-color;
+        color: #ddd;
+        padding-left: 1.5rem;
+        line-height: 1.4;
+      }
+
+      .nuxt-content-highlight {
+        position: relative;
+
+        .filename {
+          background-color: #282a36;
+          padding: 0.5em 1em;
+          font-weight: bold;
+          border-radius: 4px 4px 0 0;
+          border-bottom: 2px solid #545a74;
+          display: block;
+          width: fit-content;
+        }
+
+        pre[class*="language-"] {
+          margin-top: 0;
+          border-radius: 0 repeat(3, 4px);
+          font-size: 1.5rem;
+        }
       }
     }
   }

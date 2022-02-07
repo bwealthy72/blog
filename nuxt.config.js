@@ -38,6 +38,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     "@nuxt/content",
+    // https://sitemap.nuxtjs.org/guide/setup
+    "@nuxtjs/sitemap",
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -83,6 +85,16 @@ export default {
       // addCategory("css", "CSS");
       // addCategory("js", "Javascript");
       addCategory("tips", "Tips");
+      addCategory("blog", "Blog");
+    },
+  },
+
+  sitemap: {
+    hostname: "https://www.blogwealthy.com/",
+    defaults: {
+      changefreq: "daily",
+      priority: 1,
+      lastmod: new Date(),
     },
   },
 
