@@ -1,5 +1,5 @@
 ---
-title: robots txt 추가하기
+title: NuxtJS robots txt 추가하기
 tags:
   - robots.txt
   - nuxt

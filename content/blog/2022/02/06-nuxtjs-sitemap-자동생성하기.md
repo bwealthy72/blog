@@ -1,5 +1,5 @@
 ---
-title: nuxt sitemap 자동생성하기
+title: NuxtJS sitemap 자동생성하기
 tags:
   - nuxt
   - sitemap

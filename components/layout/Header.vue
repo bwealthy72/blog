@@ -1,8 +1,8 @@
 <template>
   <header class="site-header">
-    <div class="site-logo">
+    <a href="/" class="site-logo">
       <img src="~/assets/images/logo.png" alt="" />
-    </div>
+    </a>
     <Search></Search>
     <Navigation></Navigation>
   </header>

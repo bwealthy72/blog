@@ -1,5 +1,7 @@
 <template>
-  <nuxt-img :src="src"></nuxt-img>
+  <a :href="src">
+    <nuxt-img :src="src"></nuxt-img>
+  </a>
 </template>
 
 <script>
