@@ -53,109 +53,115 @@
     word-break: break-all;
     color: #ddd;
 
-    .tag {
-      display: flex;
-      align-items: center;
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-      &__ico {
-        height: 1.2rem;
-        margin-right: 1rem;
-      }
-
-      &__list {
-        display: flex;
-      }
-
-      &__item {
-        background-color: #444;
-        color: bisque;
-        font-size: 1.4rem;
-        margin-right: 0.5em;
-        padding: 0.2em 0.5em;
-        font-weight: bold;
-        border-radius: 6px;
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+    .ad-wrapper {
+      height: 90px;
     }
 
-    .cover-img {
-      padding: 2rem 5rem;
-      img {
-        width: 100%;
-        max-height: 300px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
-    }
-
-    .nuxt-content {
-      p {
-        margin-bottom: 1rem;
-        line-height: 2;
-      }
-
-      ol,
-      ul {
-        padding-left: 2rem;
-        list-style: revert;
-        li {
-          line-height: 1.5;
-        }
-      }
-
-      img {
-        width: 80%;
-        border-radius: 4px;
-        margin: 3rem auto;
+    .content {
+      .tags {
         display: flex;
-      }
-
-      hr {
-        width: 30%;
-        margin: 5rem auto;
-        border-color: #444;
-      }
-
-      h2 {
-        font-size: 1.6em;
-        font-weight: bold;
-        margin-top: 7rem;
-        padding-bottom: 1.5rem;
+        align-items: center;
+        margin-top: 1rem;
         margin-bottom: 2rem;
-        border-bottom: 1px solid #4b4b4b;
-      }
+        &__ico {
+          height: 1.2rem;
+          margin-right: 1rem;
+        }
 
-      h3 {
-        font-size: 1.2em;
-        font-weight: 700;
-        margin-top: 5rem;
-        margin-bottom: 2rem;
-        border-left: 4px solid $key-color;
-        color: #ddd;
-        padding-left: 1.5rem;
-        line-height: 1.4;
-      }
+        &__list {
+          display: flex;
+        }
 
-      .nuxt-content-highlight {
-        position: relative;
-
-        .filename {
-          background-color: #282a36;
-          padding: 0.5em 1em;
+        &__item {
+          background-color: #444;
+          color: bisque;
+          font-size: 1.4rem;
+          margin-right: 0.5em;
+          padding: 0.2em 0.5em;
           font-weight: bold;
-          border-radius: 4px 4px 0 0;
-          border-bottom: 2px solid #545a74;
-          display: block;
-          width: fit-content;
+          border-radius: 6px;
+          &:last-child {
+            margin-right: 0;
+          }
+        }
+      }
+
+      .cover-img {
+        padding: 2rem 5rem;
+        img {
+          width: 100%;
+          max-height: 300px;
+          object-fit: cover;
+          border-radius: 8px;
+        }
+      }
+
+      .nuxt-content {
+        p {
+          margin-bottom: 1rem;
+          line-height: 2;
         }
 
-        pre[class*="language-"] {
-          margin-top: 0;
-          border-radius: 0 repeat(3, 4px);
-          font-size: 1.5rem;
+        ol,
+        ul {
+          padding-left: 2rem;
+          list-style: revert;
+          li {
+            line-height: 1.5;
+          }
+        }
+
+        img {
+          width: 80%;
+          border-radius: 4px;
+          margin: 3rem auto;
+          display: flex;
+        }
+
+        hr {
+          width: 30%;
+          margin: 5rem auto;
+          border-color: #444;
+        }
+
+        h2 {
+          font-size: 1.6em;
+          font-weight: bold;
+          margin-top: 7rem;
+          padding-bottom: 1.5rem;
+          margin-bottom: 2rem;
+          border-bottom: 1px solid #4b4b4b;
+        }
+
+        h3 {
+          font-size: 1.2em;
+          font-weight: 700;
+          margin-top: 5rem;
+          margin-bottom: 2rem;
+          border-left: 4px solid $key-color;
+          color: #ddd;
+          padding-left: 1.5rem;
+          line-height: 1.4;
+        }
+
+        .nuxt-content-highlight {
+          position: relative;
+
+          .filename {
+            background-color: #282a36;
+            padding: 0.5em 1em;
+            font-weight: bold;
+            border-radius: 4px 4px 0 0;
+            border-bottom: 2px solid #545a74;
+            display: block;
+            width: fit-content;
+          }
+
+          pre[class*="language-"] {
+            margin-top: 0;
+            border-radius: 0 repeat(3, 4px);
+            font-size: 1.5rem;
+          }
         }
       }
     }

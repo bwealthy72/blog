@@ -1,6 +1,10 @@
 <template>
   <main class="post-list">
-    <div class="header">공사중</div>
+    <div class="header">
+      <div class="ad-wrapper">
+        <Ad adslot="5158734436"></Ad>
+      </div>
+    </div>
     <article class="list-wrapper">
       <h1 class="category">{{ $route.name }}</h1>
       <ul class="post-list">

@@ -18,12 +18,15 @@
     </div>
 
     <article class="post">
+      <div class="ad-wrapper">
+        <Ad adslot="3845475151"></Ad>
+      </div>
       <div class="toc"></div>
       <div class="content">
-        <div class="tag" v-if="post.tags">
-          <img class="tag__ico" src="@/assets/images/tag.svg" alt="tag" />
-          <ul class="tag__list">
-            <li class="tag__item" v-for="tag of post.tags" :key="tag">
+        <div class="tags" v-if="post.tags">
+          <img class="tags__ico" src="@/assets/images/tag.svg" alt="tag" />
+          <ul class="tags__list">
+            <li class="tags__item" v-for="tag of post.tags" :key="tag">
               {{ tag }}
             </li>
           </ul>

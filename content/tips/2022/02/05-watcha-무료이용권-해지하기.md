@@ -43,5 +43,3 @@ tags:
 드디어 해지 완료..! 그래도 남은 기간 동안 볼 수 있다.
 
 <post-img src="/images/05-watcha-무료이용권-해지하기/220205-153105.png"></post-img>
-
-## iPhone에서 Watcha 해지하기
