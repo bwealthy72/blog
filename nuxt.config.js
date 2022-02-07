@@ -32,7 +32,12 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxt/image"],
+  buildModules: ["@nuxt/image", "@nuxtjs/moment"],
+
+  // https://www.npmjs.com/package/@nuxtjs/moment
+  moment: {
+    timezone: true,
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
