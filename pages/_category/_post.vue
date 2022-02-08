@@ -39,11 +39,44 @@
         <nuxt-content :document="post" />
       </div>
     </article>
+    <div class="comments">
+      <script
+        src="https://utteranc.es/client.js"
+        repo="bwealthy72/blog"
+        issue-term="title"
+        label="Comment"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async
+      ></script>
+    </div>
   </main>
 </template>
 
 <script>
 export default {
+  head() {
+    let desc;
+    if (this.post.description) {
+      desc = this.post.description;
+    } else {
+      try {
+        desc = this.post.body.children[0].children[0].value;
+      } catch {}
+    }
+
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: desc,
+        },
+      ],
+    };
+  },
+
   async asyncData({ store, route, $content, $dateFormat }) {
     let path = route.path;
     if (path[path.length - 1] === "/") {

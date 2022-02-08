@@ -10,7 +10,7 @@ tags:
 1. Desktop에서 Watcha 해지하기
 2. iPhone에서 Watcha 해지하기
 
-<!-- more -->
+<!--more-->
 
 ---
 

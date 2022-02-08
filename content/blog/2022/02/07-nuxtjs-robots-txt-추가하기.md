@@ -1,12 +1,14 @@
 ---
 title: NuxtJS robots txt 추가하기
 tags:
-  - robots.txt
   - nuxt
+  - robots.txt
   - seo
 ---
 
 나무위키(?)에 의하면 나의 사이트를 크롤링하는 로봇들을 제어하기 위한 규약같은 것이라고 한다. 블로그를 운영하는 것이다 보니 딱히 막을 것도 없겠지만 네이버 서치 어드바이저가 넣으라고 느낌표를 똭 표시하는데 이런 건 못참지!
+
+<!--more-->
 
 ## nuxtjs/robots
 

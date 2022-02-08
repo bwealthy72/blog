@@ -104,7 +104,7 @@
 
         ol,
         ul {
-          padding-left: 2rem;
+          padding-left: 3rem;
           list-style: revert;
           li {
             line-height: 1.5;
@@ -142,6 +142,19 @@
           color: #ddd;
           padding-left: 1.5rem;
           line-height: 1.4;
+        }
+
+        a {
+          color: $key-color;
+          &:hover {
+            text-shadow: 1px 1px 1px blue;
+            text-decoration: underline;
+            font-weight: bold;
+          }
+        }
+
+        strong {
+          color: $sub-color;
         }
 
         .nuxt-content-highlight {

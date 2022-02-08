@@ -8,7 +8,7 @@ tags:
 
 Nuxt로 블로그를 만들었다. 검색 엔진들에 사이트맵을 제출해주어야 내 사이트를 좀 더 효율적으로 크롤링 해준다. ([구글이 그랬다.](https://developers.google.com/search/docs/advanced/sitemaps/overview?hl=ko)) 따라서 이를 위해 포스트 페이지마다 사이트맵을 작성해야하지만 이건 아주 귀찮은 일..그래서 Nuxt에 자동으로 생성해주는 게 없을까 찾아보니 다행히도 있었다.
 
-<!-- more -->
+<!--more-->
 
 ## nuxt/sitemap
 

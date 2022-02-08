@@ -1,8 +1,14 @@
 ---
 title: NuxtJS Netlify createdAt 날짜 유지하기
+tags:
+  - nuxt
+  - netlify
+  - nuxt/content
 ---
 
 nuxt/content를 사용하다보면 마크다운 파일을 생성했을 때 자동으로 createdAt, updatedAt이 생성된다. 그런데 Netlify에 올리는 순간 그 때 그 시간대로 값이 바뀌게 된다. 그래서 모든 포스팅이 배포한 날짜에 만들어진 것처럼 되서 불편하다. 이를 고치는 방법에 대해 알아봤다.
+
+<!--more-->
 
 이 글은 [How to keep createdAt and updatedAt dates consistent in Nuxt Content](https://miracleio.me/blog/how-to-configure-consistent-createdat-and-updatedat-dates) 기반으로 썼다.
 
