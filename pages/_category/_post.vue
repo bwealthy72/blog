@@ -55,27 +55,27 @@
 
 <script>
 export default {
-  head() {
-    let desc;
-    if (this.post.description) {
-      desc = this.post.description;
-    } else {
-      try {
-        desc = this.post.body.children[0].children[0].value;
-      } catch {}
-    }
+  // head() {
+  //   let desc;
+  //   if (this.post.description) {
+  //     desc = this.post.description;
+  //   } else {
+  //     try {
+  //       desc = this.post.body.children[0].children[0].value;
+  //     } catch {}
+  //   }
 
-    return {
-      title: this.post.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: desc,
-        },
-      ],
-    };
-  },
+  //   return {
+  //     title: this.post.title,
+  //     meta: [
+  //       {
+  //         hid: "description",
+  //         name: "description",
+  //         content: desc,
+  //       },
+  //     ],
+  //   };
+  // },
 
   async asyncData({ store, route, $content, $dateFormat }) {
     let path = route.path;
