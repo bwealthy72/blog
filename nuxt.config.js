@@ -61,6 +61,14 @@ export default {
         name: "twitter:image",
         content: "https://www.blogwealthy.com/logo.png",
       },
+      {
+        name: "naver-site-verification",
+        content: process.env.NAVER_SITE_VERIFICATION,
+      },
+      {
+        name: "google-site-verification",
+        content: process.env.GOOGLE_SITE_VERIFICATION,
+      },
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
