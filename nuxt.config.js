@@ -63,11 +63,11 @@ export default {
       },
       {
         name: "naver-site-verification",
-        content: process.env.NAVER_SITE_VERIFICATION,
+        content: "54004839529af92189883c24186cf4f461c357d1",
       },
       {
         name: "google-site-verification",
-        content: process.env.GOOGLE_SITE_VERIFICATION,
+        content: "nuVt3j9_boL7DPlserZqpS5CpTfVa0CXQ2nbWSVajko",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
