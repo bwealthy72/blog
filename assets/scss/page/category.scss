@@ -1,4 +1,4 @@
-.post-list {
+.post-list-wrapper {
   .header {
     height: 300px;
     color: white;
@@ -8,13 +8,13 @@
     font-size: 2rem;
   }
 
-  .list-wrapper {
+  .content {
     padding: 2rem;
     color: white;
     border-radius: 4px;
     background-color: #222;
 
-    .category {
+    .title {
       font-size: 5rem;
       font-weight: bold;
       border-bottom: 1px solid #444;
@@ -25,49 +25,69 @@
       text-shadow: 3px 3px 4px black;
     }
 
-    .post-list {
-      .post {
+    .post-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+
+      &__title {
+        font-size: 2rem;
+        color: white;
+
+        &:hover {
+          color: $sub-color;
+        }
+      }
+
+      &__tag {
+        display: flex;
+        margin-left: auto;
+        .tag-item {
+          font-size: 1.5rem;
+          margin-right: 0.7rem;
+          color: #ddd;
+          background-color: $key-color;
+          border-radius: 4px;
+          padding: 0.1em 0.5em;
+          line-height: normal;
+          white-space: nowrap;
+        }
+      }
+
+      &__date {
         display: flex;
         align-items: center;
-        margin-bottom: 1rem;
-        line-height: 1.4;
+        font-size: 1.4rem;
+        color: #9f9f9f;
+        line-height: normal;
+        margin-left: 0.5rem;
 
-        .title {
-          font-size: 2rem;
-          color: white;
+        .calendar-ico {
+          height: 1.3rem;
+          margin-right: 0.4rem;
+          filter: invert(1) brightness(0.7);
+        }
+      }
+    }
+  }
+}
 
-          &:hover {
+@media (max-width: 800px) {
+  .post-list-wrapper {
+    .content {
+      .post-item {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 3rem;
+        &__tag {
+          margin-left: 0;
+
+          .tag-item {
+            font-size: 1.5rem;
+            background-color: transparent;
             color: $key-color;
-            font-weight: bold;
-          }
-        }
-
-        .tag {
-          display: flex;
-          margin-left: 2rem;
-          &__item {
-            font-size: 1.4rem;
-            margin-right: 0.7rem;
-            color: #ddd;
-            background-color: $key-color;
-            border-radius: 4px;
-            padding: 0.1em 0.5em;
-            line-height: normal;
-          }
-        }
-
-        .date {
-          display: flex;
-          align-items: center;
-          font-size: 1.4rem;
-          color: #9f9f9f;
-          line-height: normal;
-          margin-left: auto;
-
-          .calendar-ico {
-            height: 1.3rem;
-            margin-right: 0.4rem;
-            filter: invert(1) brightness(0.7);
+            padding: 0;
           }
         }
       }

@@ -55,27 +55,68 @@
 
 <script>
 export default {
-  // head() {
-  //   let desc;
-  //   if (this.post.description) {
-  //     desc = this.post.description;
-  //   } else {
-  //     try {
-  //       desc = this.post.body.children[0].children[0].value;
-  //     } catch {}
-  //   }
-
-  //   return {
-  //     title: this.post.title,
-  //     meta: [
-  //       {
-  //         hid: "description",
-  //         name: "description",
-  //         content: desc,
-  //       },
-  //     ],
-  //   };
-  // },
+  head() {
+    const hostURL = "https://www.blogwealthy.com";
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          property: "description",
+          content: this.post.description,
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.post.title,
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "website",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.post.coverImg
+            ? hostURL + this.post.coverImg
+            : hostURL + "/logo.png",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: hostURL + this.post.path,
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.post.title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: this.post.coverImg
+            ? hostURL + this.post.coverImg
+            : hostURL + "/logo.png",
+        },
+      ],
+    };
+  },
 
   async asyncData({ store, route, $content, $dateFormat }) {
     let path = route.path;

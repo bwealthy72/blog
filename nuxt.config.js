@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "부자가 될 프론트엔드 개발자",
+    title: "BWealthy의 부자 일기",
     htmlAttrs: {
       lang: "ko",
     },
@@ -13,9 +13,53 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
-        name: "description",
-        content:
-          "부자가 될 꿈을 꾸며 오늘도 열심히 사는 프론트엔드 개발자입니다.",
+        property: "description",
+        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "BWealthy의 부자 일기",
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "https://www.blogwealthy.com/logo.png",
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://www.blogwealthy.com/",
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "BWealthy의 부자 일기",
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "https://www.blogwealthy.com/logo.png",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
