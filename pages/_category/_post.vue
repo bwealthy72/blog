@@ -62,7 +62,7 @@ export default {
       meta: [
         {
           hid: "description",
-          property: "description",
+          name: "description",
           content: this.post.description,
         },
         {

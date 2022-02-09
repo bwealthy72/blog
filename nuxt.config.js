@@ -13,7 +13,7 @@ export default {
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
-        property: "description",
+        name: "description",
         content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
       },
       {
