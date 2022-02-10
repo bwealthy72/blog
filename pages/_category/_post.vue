@@ -57,6 +57,9 @@
 export default {
   head() {
     const hostURL = "https://www.blogwealthy.com";
+    const imgURL = this.post.coverImg
+      ? encodeURI(hostURL + this.post.coverImg)
+      : hostURL + "/logo.png";
     return {
       title: this.post.title,
       meta: [
@@ -78,23 +81,17 @@ export default {
         {
           hid: "og:image",
           property: "og:image",
-          content: this.post.coverImg
-            ? hostURL + this.post.coverImg
-            : hostURL + "/logo.png",
+          content: imgURL,
         },
         {
           hid: "og:image:secure_url",
           property: "og:image:secure_url",
-          content: this.post.coverImg
-            ? hostURL + this.post.coverImg
-            : hostURL + "/logo.png",
+          content: imgURL,
         },
         {
           hid: "og:image:secure_url",
           property: "og:image:secure_url",
-          content: this.post.coverImg
-            ? hostURL + this.post.coverImg
-            : hostURL + "/logo.png",
+          content: imgURL,
         },
         {
           hid: "og:image:alt",
@@ -104,7 +101,7 @@ export default {
         {
           hid: "og:url",
           property: "og:url",
-          content: hostURL + this.post.path,
+          content: encodeURI(hostURL + this.post.path),
         },
         {
           hid: "og:description",
@@ -129,9 +126,7 @@ export default {
         {
           hid: "twitter:image",
           name: "twitter:image",
-          content: this.post.coverImg
-            ? hostURL + this.post.coverImg
-            : hostURL + "/logo.png",
+          content: imgURL,
         },
       ],
     };
