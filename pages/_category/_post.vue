@@ -70,42 +70,42 @@ export default {
         },
         {
           hid: "og:title",
-          property: "og:title",
+          name: "og:title",
           content: this.post.title,
         },
         {
           hid: "og:type",
-          property: "og:type",
+          name: "og:type",
           content: "article",
         },
         {
           hid: "og:image",
-          property: "og:image",
+          name: "og:image",
           content: imgURL,
         },
         {
           hid: "og:image:secure_url",
-          property: "og:image:secure_url",
+          name: "og:image:secure_url",
           content: imgURL,
         },
         {
           hid: "og:image:secure_url",
-          property: "og:image:secure_url",
+          name: "og:image:secure_url",
           content: imgURL,
         },
         {
           hid: "og:image:alt",
-          property: "og:image:alt",
+          name: "og:image:alt",
           content: this.post.title,
         },
         {
           hid: "og:url",
-          property: "og:url",
+          name: "og:url",
           content: encodeURI(hostURL + this.post.path),
         },
         {
           hid: "og:description",
-          property: "og:description",
+          name: "og:description",
           content: this.post.description,
         },
         {

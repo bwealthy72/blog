@@ -77,7 +77,7 @@ NuxtJS에선 `head`를 추가해주는 기능이 있어서 손쉽게 `meta`를 �
 
 ### nuxt.config.js
 
-전체 페이지에 적용할 내용이기 때문에 수동으로 넣어준다.
+전체 페이지에 적용할 내용이기 때문에 수동으로 넣어준다. `og:`가 들어간 태그들에는 `property` 키워드를 사용하는데
 
 ```js [nuxt.config.js]
 export default {

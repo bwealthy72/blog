@@ -18,27 +18,27 @@ export default {
       },
       {
         hid: "og:title",
-        property: "og:title",
+        name: "og:title",
         content: "BWealthy의 부자 일기",
       },
       {
         hid: "og:type",
-        property: "og:type",
+        name: "og:type",
         content: "website",
       },
       {
         hid: "og:image",
-        property: "og:image",
+        name: "og:image",
         content: "https://www.blogwealthy.com/logo.png",
       },
       {
         hid: "og:url",
-        property: "og:url",
+        name: "og:url",
         content: "https://www.blogwealthy.com/",
       },
       {
         hid: "og:description",
-        property: "og:description",
+        name: "og:description",
         content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
       },
       {
