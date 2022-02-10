@@ -73,7 +73,7 @@ export default {
         {
           hid: "og:type",
           property: "og:type",
-          content: "website",
+          content: "article",
         },
         {
           hid: "og:image",
@@ -81,6 +81,25 @@ export default {
           content: this.post.coverImg
             ? hostURL + this.post.coverImg
             : hostURL + "/logo.png",
+        },
+        {
+          hid: "og:image:secure_url",
+          property: "og:image:secure_url",
+          content: this.post.coverImg
+            ? hostURL + this.post.coverImg
+            : hostURL + "/logo.png",
+        },
+        {
+          hid: "og:image:secure_url",
+          property: "og:image:secure_url",
+          content: this.post.coverImg
+            ? hostURL + this.post.coverImg
+            : hostURL + "/logo.png",
+        },
+        {
+          hid: "og:image:alt",
+          property: "og:image:alt",
+          content: this.post.title,
         },
         {
           hid: "og:url",

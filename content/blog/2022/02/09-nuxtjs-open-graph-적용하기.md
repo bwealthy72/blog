@@ -4,6 +4,7 @@ tags:
   - nuxt
   - open graph
   - seo
+coverImg: /images/09-nuxtjs-open-graph-적용하기/220209-215428.png
 ---
 
 나의 블로그가 아직 검색에도 나타나지도 않지만, 추후에 내 글을 공유하려는 사람들을 위해 Open Graph를 적용하기로 했다. 이를 적용하면 내 블로그가 다른 사람에게 좀 더 그럴듯해 보일 것이다. 검색 엔진에도 조금이나마 도움이 되지 않을까 하는 기대감도 있다.
@@ -152,61 +153,4 @@ nuxt.config.js와 크게 다르지 않습니다. 다만 조금 다른 것은 포
 
 ```js [nuxt.config.js]
 
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "블로그 꾸미는거 좋아하고 돈 많이 벌고 싶은 프론트엔드 개발자입니다.",
-      },
-      {
-        hid: "og:type",
-        property: "og:type",
-        content: "website",
-      },
-      {
-        hid: "og:site_name",
-        property: "og:site_name",
-        content: "부자가 될 프론트엔드 개발자 BWealthy",
-      },
-      {
-        hid: "og:title",
-        property: "og:title",
-        content: "부자가 될 프론트엔드 개발자 BWealthy",
-      },
-      {
-        hid: "og:description",
-        property: "og:description",
-        content:
-          "블로그 꾸미는거 좋아하고 돈 많이 벌고 싶은 프론트엔드 개발자입니다.",
-      },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: "https://blogwealthy.com/logo.png",
-      },
-      {
-        hid: "og:url",
-        property: "og:url",
-        content: "https://blogwealthy.com/",
-      },
-      {
-        hid: "twitter:card",
-        property: "twitter:card",
-        content: "summary",
-      },
-      {
-        hid: "twitter:title",
-        property: "twitter:title",
-        content: this.title,
-      },
-      {
-        hid: "twitter:description",
-        property: "twitter:description",
-        content: this.description,
-      },
-      {
-        hid: "twitter:image",
-        property: "twitter:image",
-        content: this.url + this.image,
-      },
 ```
