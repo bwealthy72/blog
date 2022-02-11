@@ -4,7 +4,6 @@ tags:
   - nuxt
   - open graph
   - seo
-coverImg: /images/09-nuxtjs-open-graph-적용하기/220209-215428.png
 ---
 
 나의 블로그가 아직 검색에도 나타나지도 않지만, 추후에 내 글을 공유하려는 사람들을 위해 Open Graph를 적용하기로 했다. 이를 적용하면 내 블로그가 다른 사람에게 좀 더 그럴듯해 보일 것이다. 검색 엔진에도 조금이나마 도움이 되지 않을까 하는 기대감도 있다.
@@ -77,7 +76,7 @@ NuxtJS에선 `head`를 추가해주는 기능이 있어서 손쉽게 `meta`를 �
 
 ### nuxt.config.js
 
-전체 페이지에 적용할 내용이기 때문에 수동으로 넣어준다. `og:`가 들어간 태그들에는 `property` 키워드를 사용하는데
+`nuxt.config.js`에서 나의 블로그 사이트가 가질 기본 메타 데이터를 적어준다. `hid`라는 keyword가 있는데, ID 같은 역할로 중복되는 값이 하위 컴포넌트에서 나타나면 덮어쓴다. 그래서 기본 meta 값을 가지다가 페이지로 가면 해당 meta 태그 값으로 바뀌도록 할 수 있다.
 
 ```js [nuxt.config.js]
 export default {
@@ -149,8 +148,102 @@ export default {
 
 ### 컴포넌트에 추가하기
 
-nuxt.config.js와 크게 다르지 않습니다. 다만 조금 다른 것은 포스트의 내용을 가져와야하기 때문에 `asyncData`의 반환값을 사용합니다. 그리고 sitename이나 type과 같이 포스트와 상관 없는 것은 굳이 넣지 않아도 자동으로 들어가기 때문에 제외시켜줍니다.
+`nuxt.config.js`에서 쓴 메타 데이터를 포스트의 메타 데이터로 바꾸기 위해 값을 다르게 써준다. 해당 값은 `asyncData`에서 불러온 포스트 내용을 토대로 한다.
 
-```js [nuxt.config.js]
+여기에서 중요한 게 하나 있는데 한글 URL을 쓰는 image 주소의 경우 encodeURI를 해야 이미지를 인식했다. 이것 때문에 한참 헤맸다. 적용 안되는 이미지가 일부있지만 원인을 좀 더 알아봐야할 것 같다.
 
+coverImg 는 내가 임의로 만든 이미지 주소다 내용은 `https://www.blogwealthy.com/logo.png` 이렇게 절대 주소의 값을 가지고 있다.
+
+```vue [_post.vue]
+<script>
+export default {
+  head() {
+    const hostURL = "https://www.blogwealthy.com";
+    const imgURL = this.post.coverImg
+      ? encodeURI(hostURL + this.post.coverImg)
+      : hostURL + "/logo.png";
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.description,
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: this.post.title,
+        },
+        {
+          hid: "og:type",
+          name: "og:type",
+          content: "article",
+        },
+        {
+          hid: "og:image",
+          name: "og:image",
+          content: imgURL,
+        },
+        {
+          hid: "og:image:secure_url",
+          name: "og:image:secure_url",
+          content: imgURL,
+        },
+        {
+          hid: "og:image:secure_url",
+          name: "og:image:secure_url",
+          content: imgURL,
+        },
+        {
+          hid: "og:image:alt",
+          name: "og:image:alt",
+          content: this.post.title,
+        },
+        {
+          hid: "og:url",
+          name: "og:url",
+          content: encodeURI(hostURL + this.post.path),
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.post.title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: imgURL,
+        },
+      ],
+    };
+  },
+  async asyncData() {
+    // ...
+    return post
+  }
+</script>
 ```
+
+## 결과 확인
+
+이런 식으로 하다보면 [twitter validator](https://cards-dev.twitter.com/validator)나 카카오톡에 포스트 주소를 올리면 다음과 같이 보인다.
+
+<post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233906.png"></post-img>
+
+<post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233935.png"></post-img>
