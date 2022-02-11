@@ -7,12 +7,12 @@
       <div class="date">
         <div class="created-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>생성일 - {{ post.createdAt }}</span>
+          <span>생성일 >> {{ post.createdAt }}</span>
         </div>
 
         <div class="upated-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>수정일 - {{ post.updatedAt }}</span>
+          <span>수정일 >> {{ post.updatedAt }}</span>
         </div>
       </div>
     </div>

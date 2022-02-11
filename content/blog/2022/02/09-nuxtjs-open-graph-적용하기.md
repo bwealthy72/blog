@@ -247,3 +247,5 @@ export default {
 <post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233906.png"></post-img>
 
 <post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233935.png"></post-img>
+
+이미지가 안되는 것도 발견되고 있지만 그래도 아예 안나타나는 것보단 낫다...
