@@ -9,10 +9,8 @@
   }
 
   .content {
+    @include container-box;
     padding: 2rem;
-    color: white;
-    border-radius: 4px;
-    background-color: #222;
 
     .title {
       font-size: 5rem;

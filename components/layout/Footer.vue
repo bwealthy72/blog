@@ -5,7 +5,13 @@
     </div>
 
     <div class="site-info">
-      <span>Copyright © 2022 by BWealthy all rights reserved.</span>
+      <span class="site-info__copyright">
+        Copyright © 2022 by BWealthy all rights reserved.
+      </span>
+
+      <nav class="site-info__sns">
+        <Sns></Sns>
+      </nav>
     </div>
   </footer>
 </template>

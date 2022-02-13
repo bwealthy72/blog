@@ -1,11 +1,13 @@
 @import "base/variable.scss";
 @import "base/reset.scss";
 @import "base/font.scss";
+@import "base/mixins.scss";
 @import "base/base.scss";
 
 // Component
 @import "component/search.scss";
 @import "component/navigation.scss";
+@import "component/sns.scss";
 
 // layout
 @import "layout/header.scss";
