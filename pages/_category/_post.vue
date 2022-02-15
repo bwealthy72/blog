@@ -78,11 +78,19 @@ export default {
 
     const meta = [];
     for (const [key, val] in _meta) {
-      meta.push({
-        hid: key,
-        name: key,
-        content: val,
-      });
+      if (key.startsWith("og:")) {
+        meta.push({
+          hid: key,
+          property: key,
+          content: val,
+        });
+      } else {
+        meta.push({
+          hid: key,
+          name: key,
+          content: val,
+        });
+      }
     }
 
     return {
