@@ -1,10 +1,5 @@
 <template>
   <main class="post-list-wrapper">
-    <div class="header">
-      <div class="ad-wrapper">
-        <Ad adslot="5158734436"></Ad>
-      </div>
-    </div>
     <article class="content">
       <h1 class="title">{{ $route.name }}</h1>
       <ul>

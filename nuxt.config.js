@@ -141,12 +141,12 @@ export default {
         });
       }
 
-      addCategory("diary", "Diary");
       // addCategory("html", "HTML");
       // addCategory("css", "CSS");
       // addCategory("js", "Javascript");
       addCategory("tips", "Tips");
       addCategory("blog", "Blog");
+      addCategory("diary", "Diary");
     },
   },
 

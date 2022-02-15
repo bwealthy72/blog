@@ -10,7 +10,7 @@ function dateFormat(date) {
   hour = hour >= 10 ? hour : "0" + hour;
   minute = minute >= 10 ? minute : "0" + minute;
 
-  return `${year}-${month}-${day} ${hour}:${minute}`;
+  return `${year}.${month}.${day} ${hour}:${minute}`;
 }
 
 export default ({ app }, inject) => {

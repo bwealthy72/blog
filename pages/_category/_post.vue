@@ -7,21 +7,19 @@
       <div class="date">
         <div class="created-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>생성일 >> {{ post.createdAt }}</span>
+          <span> Date - {{ post.createdAt }}</span>
         </div>
 
         <div class="upated-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span>수정일 >> {{ post.updatedAt }}</span>
+          <span> Updated - {{ post.updatedAt }}</span>
         </div>
       </div>
     </div>
 
     <article class="post">
-      <div class="ad-wrapper">
-        <Ad adslot="3845475151"></Ad>
-      </div>
-      <div class="toc"></div>
+      <PostToc :toc="post.toc"></PostToc>
+
       <div class="content">
         <div class="tags" v-if="post.tags">
           <img class="tags__ico" src="@/assets/images/tag.svg" alt="tag" />
@@ -56,79 +54,40 @@
 <script>
 export default {
   head() {
+    const post = this.post;
     const hostURL = "https://www.blogwealthy.com";
-    const imgURL = this.post.coverImg
-      ? encodeURI(hostURL + this.post.coverImg)
+    const imgURL = post.coverImg
+      ? encodeURI(hostURL + post.coverImg)
       : hostURL + "/logo.png";
+
+    const _meta = {
+      description: post.description,
+      "og:title": post.title,
+      "og:type": "article",
+      "og:image": imgURL,
+      "og:image:secure_url": imgURL,
+      "og:image:alt": post.title,
+      "og:url": encodeURI(hostURL + post.path),
+      "og:image": imgURL,
+      "og:description": post.description,
+      "twitter:card": "summary_large_image",
+      "twitter:title": post.title,
+      "twitter:description": post.description,
+      "twitter:image": imgURL,
+    };
+
+    const meta = [];
+    for (const [key, val] in _meta) {
+      meta.push({
+        hid: key,
+        name: key,
+        content: val,
+      });
+    }
+
     return {
-      title: this.post.title,
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content: this.post.description,
-        },
-        {
-          hid: "og:title",
-          name: "og:title",
-          content: this.post.title,
-        },
-        {
-          hid: "og:type",
-          name: "og:type",
-          content: "article",
-        },
-        {
-          hid: "og:image",
-          name: "og:image",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:secure_url",
-          name: "og:image:secure_url",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:secure_url",
-          name: "og:image:secure_url",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:alt",
-          name: "og:image:alt",
-          content: this.post.title,
-        },
-        {
-          hid: "og:url",
-          name: "og:url",
-          content: encodeURI(hostURL + this.post.path),
-        },
-        {
-          hid: "og:description",
-          name: "og:description",
-          content: this.post.description,
-        },
-        {
-          hid: "twitter:card",
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
-        {
-          hid: "twitter:title",
-          name: "twitter:title",
-          content: this.post.title,
-        },
-        {
-          hid: "twitter:description",
-          name: "twitter:description",
-          content: this.post.description,
-        },
-        {
-          hid: "twitter:image",
-          name: "twitter:image",
-          content: imgURL,
-        },
-      ],
+      title: post.title,
+      meta,
     };
   },
 

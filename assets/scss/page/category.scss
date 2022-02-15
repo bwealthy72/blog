@@ -11,6 +11,7 @@
   .content {
     @include container-box;
     padding: 2rem;
+    margin-top: 2rem;
 
     .title {
       font-size: 5rem;
