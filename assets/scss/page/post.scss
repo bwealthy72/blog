@@ -56,23 +56,6 @@
       position: absolute;
       top: 0;
       right: -$toc-width;
-      padding-top: 5rem;
-      box-sizing: border-box;
-
-      .toc {
-        background-color: #222;
-        border-radius: 0 7px 7px 0;
-        border-top: 1px solid #444;
-        border-right: 1px solid #444;
-        border-bottom: 1px solid #444;
-        border-left: 3px dashed #333;
-        // transition: transform 0.4s linear;
-        // transform-origin: left;
-
-        // &:hover {
-        //   transform: rotateY(90deg);
-        // }
-      }
     }
 
     .content {

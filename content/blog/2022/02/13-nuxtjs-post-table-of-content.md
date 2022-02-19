@@ -36,7 +36,7 @@ coverImg:
 
 ## TOC 구현
 
-### nuxt/content toc 데이터 dksalndl kasndkl sandlk nsad
+### nuxt/content toc 데이터
 
 나는 `@nuxt/content` 를 사용하는데 `$content` 함수를 사용하면 TOC 데이터가 다음과 같이 나온다.
 
