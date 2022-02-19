@@ -1,0 +1,80 @@
+---
+title: VueJS로 나만의 블로그 만들자 1] 강좌 및 NuxtJS 소개
+tags:
+  - vue
+  - lecture
+  - nuxt lecture
+coverImg: /images/19-lecture01/220219-231548.png
+---
+
+안녕하세요. 지금 보시는 블로그는 VueJS로 만들어졌습니다. 정확히는 VueJS 프레임워크인 NuxtJS를 사용했는데요. 백엔드에 대한 지식 없어도 충분히 만들 수 있습니다. 이 강좌를 따라오신다면요!
+
+<!--more-->
+
+## 강좌 소개
+
+다시말하지만 이 강좌는 **VueJS를 통해 자신만의 블로그를 만들 수 있도록 도와주는 글**입니다. 정확히는 NuxtJS를 사용하는데 VueJS와 크게 다르지 않습니다. 이리고 백엔드를 직접 구현하지 않는 대신 몇 가지를 사용하는데요. 크게 어렵지 않습니다. Vue를 사용할 줄 안다면 식은 죽 먹기에요!
+
+- git / github
+- @nuxt/content
+- Netlify
+
+### 선수 지식
+
+제목과 같이 VueJS를 기반으로 하고 있기 때문에 **VueJS에 대한 기본적인 지식**을 가지고 있어야 합니다.
+
+### 질문 관련
+
+저에게 질문할 방법이 4가지나 있습니다!
+
+- 댓글 (포스트 하단)
+- [트위터](https://twitter.com/BlogWealthy)
+- [인스타그램](https://www.instagram.com/blogwealthy/)
+- [메일](mailto:blogwealthy72@gmail.com)
+
+매일 확인해볼거지만 답장이 늦더라도 차분히 기다려주세요. ~~뿌잉뿌잉(?)~~
+
+## NuxtJS란?
+
+NuxtJS는 VueJS로 **SSR(Server Side Rendering), 정적 웹사이트 생성(Static Site Generation)들을 쉽게 만들 수 있도록 도와주는 프레임워크**입니다. 아래의 내용은 블로그 만드는 데에 있어서 실용적으로 중요하지 않지만 알아두면 좋기 때문에 그렇구나 하면서 읽어주세요.
+
+### CSR vs SSR vs SSG
+
+기존의 VueJS는 CSR(Client Side Rendering)으로 페이지를 그렸습니다. Nuxt에서 만들 수 있게 해준다는 SSR, SSG와의 차이는 뭘까요?
+
+<post-img alt="CSR vs SSR vs SSG" src="/images/19-lecture01/220220-004045.png"></post-img>
+
+- **CSR** - 서버에 요청할 때마다 빈 HTML과 CSS, JS 파일 등을 보내서 클라이언트에서 그리도록 한다.
+- **SSR** - 서버에 요청할 때마다 HTML을 그린 다음, CSS, JS 등을 클라이언트에 보낸다.
+- **SSG** - 빌드해서 HTML, CSS, JS들을 미리 만든 다음 서버에 요청할 때마다 클라이언트에 보낸다.
+
+이 중 저희는 SSG 방식으로 페이지를 그릴겁니다.
+
+### SSG를 선택한 이유
+
+왜 정적 사이트로 블로그를 만들까요?
+
+첫 번째 이유는 우리 블로그를 배포할 수 있게 도와주는 사이트인 [Netlify](https://www.netlify.com/)가 **정적 사이트로 호스팅해야하기 떄문**입니다. 아주 편하거든요! 물론 SSR로 호스팅할 수 있는 [Vercel](https://vercel.com/)이란 사이트도 있습니다.
+
+<post-img alt="Netlify" src="/images/19-lecture01/220220-004831.png"></post-img>
+
+두 번째로 클라이언트에서 그리거나(CSR), 서버에서 그리는 것(SSR)보다 미리 그리고 저장했다가 전달만 하는 것(SSG)이 **페이지 로딩에 있어서 빠르기 때문**입니다.
+
+마지막으로 저희 블로그가 막 채팅이 막 나온다거나 상황에 따라 동영상이 나온다거나 그런 동적인 사이트가 아니기 때문에 **서버에 요청할 일이 많지 않습니다. 그래서 효율성면에서 SSG가 좋습니다.**
+
+### Nuxt 장점
+
+NuxtJS는 SSG, SSR을 생성하는 것을 도와주는 것 뿐만 아니라 다양한 장점들이 있습니다.
+
+- **SEO (검색 엔진 최적화)** : 미리 검색 엔진이 나의 사이트 정보를 전달해서 우리 사이트가 좀 더 잘 노출되게 할 수 있다.
+- **Vuex, vue-router 등 라이브러리 설치하지 않고 쉽게 사용할 수 있다.**
+- **파일 기반 라우팅 방식** (pages 폴더)
+- ESLint, Prettier 등 쉽게 설정 가능
+
+그 외에도 코드 스플리팅, 규격이 갖춰진 폴더 구조 등이 있지만 여기서 너무 힘 빼진 않겠습니다. 진행하면서 알아보자구요!
+
+## 마무리하며
+
+다음 시간에는 본격적으로 Nuxt 프로젝트를 만들어보도록 하겠습니다! 그럼 20000!
+
+![](/images/19-lecture01/제리인사.gif)
