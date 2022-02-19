@@ -77,7 +77,7 @@ export default {
     };
 
     const meta = [];
-    for (const [key, val] in _meta) {
+    for (const [key, val] of Object.entries(_meta)) {
       if (key.startsWith("og:")) {
         meta.push({
           hid: key,

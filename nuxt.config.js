@@ -146,8 +146,8 @@ export default {
       // addCategory("js", "Javascript");
       addCategory("nuxt", "NuxtJS");
       addCategory("blog", "Blog");
-      addCategory("diary", "Diary");
       addCategory("tips", "Tips");
+      addCategory("diary", "Diary");
     },
   },
 
