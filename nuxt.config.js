@@ -84,7 +84,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxt/image", "@nuxtjs/moment"],
+  buildModules: ["@nuxtjs/moment"],
 
   // https://www.npmjs.com/package/@nuxtjs/moment
   moment: {
