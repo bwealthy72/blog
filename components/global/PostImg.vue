@@ -1,6 +1,6 @@
 <template>
   <a :href="src">
-    <nuxt-img :src="src" :alt="alt"></nuxt-img>
+    <img :src="`${src}?nf_resize=fit&w=527&h=500`" :alt="alt" />
   </a>
 </template>
 
