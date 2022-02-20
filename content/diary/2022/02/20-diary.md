@@ -14,6 +14,6 @@ title: blog 이미지 LFS 활용
 결과적으로 빌드속도는 확실히 빨라졌다.
 ![](/images/22/02/21/030828.png)
 
-![](/images/22/02/21/030828.png?nf_resize=fit&h=300)
+[![](/images/22/02/21/030828.png?nf_resize=fit&h=300)](/images/22/02/21/030828.png)
 
 ![](/images/22/02/21/030828.png?nf_resize=fit&h=100)
