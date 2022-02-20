@@ -15,3 +15,4 @@ title: blog 이미지 LFS 활용
 
 <post-img src="/images/22/02/21/025002.png"></post-img>
 ![](/images/22/02/21/025002.png)
+![](https://www.blogwealthy.com/images/22/02/21/025002.png)
