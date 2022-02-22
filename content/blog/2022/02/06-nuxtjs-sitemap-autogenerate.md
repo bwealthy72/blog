@@ -56,11 +56,11 @@ export default {
 
 `npm run generate` 를 실행하면 마지막에 다음 문장을 볼 수 있다.
 
-<post-img src="/images/06-nuxt-sitemap-자동생성하기/220206-154958.png"></post-img>
+<post-img src="/images/22/02/23/013522.png"></post-img>
 
 그리고 `dist` 폴더의 `sitemap.xml`을 보면 다음과 같이 만들어져 있다!
 
-<post-img src="/images/06-nuxt-sitemap-자동생성하기/220207-112720.png"></post-img>
+<post-img src="/images/22/02/23/013607.png"></post-img>
 
 ## 근데
 

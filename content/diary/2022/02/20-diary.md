@@ -12,9 +12,3 @@ title: blog 이미지 LFS 활용
 그리고 점점 이미지 올리는 양이 많아지면서 레포 크기가 커지고 있어서 git lfs를 사용하기로 했다. 그리고 그 보관 장소를 Netlify가 되도록 했다.
 
 결과적으로 빌드속도는 확실히 빨라졌다.
-
-<post-img src="/images/22/02/21/033319.png"></post-img>
-<post-img src="/images/22/02/21/033319.png"></post-img>
-<post-img src="/images/22/02/21/033319.png"></post-img>
-<post-img src="/images/22/02/21/033319.png"></post-img>
-<post-img src="/images/22/02/21/033319.png"></post-img>

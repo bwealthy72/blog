@@ -18,7 +18,7 @@ tags:
 2. 테마가 없다. 어두운 내 블로그에 달면 눈에 띌 것이다.
 3. 원치 않은 자잘한 것들이 많이 붙어있다. (Favorite, 공유, 정렬 등등..)
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-213040.png"></post-img>
+<post-img src="/images/22/02/23/014429.png"></post-img>
 
 그래서 위 문제를 해결해줄 것이 없나~하고 살펴보다가 github아이디로 하는 [utterances](https://utteranc.es/)를 발견했다!
 
@@ -30,7 +30,7 @@ tags:
 2. 약간의 테마가 있다.
 3. 오픈 소스, 광고 없음, 댓글에 충실함!
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-215555.png"></post-img>
+<post-img src="/images/22/02/23/014516.png"></post-img>
 
 여튼 설치를 해보자.
 
@@ -38,35 +38,35 @@ tags:
 
 우선 [이곳](https://github.com/apps/utterances)에 들어가 우측에 있는 `Install` 버튼을 누른다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-220509.png"></post-img>
+<post-img src="/images/22/02/23/014600.png"></post-img>
 
 그런 자신의 blog 저장소를 선택하고 Install을 클릭한다. 반드시 public 저장소여야하는데 만약 블로그가 private 저장소에 있다면 public 저장소를 하나 만들어서 사용하면 된다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-220613.png"></post-img>
+<post-img src="/images/22/02/23/014618.png"></post-img>
 
 다시 [utterances](https://utteranc.es/)에 돌아와서 내려가다보면 `configuration`이 나오는데 아까 지정했던 저장소를 적어준다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-220712.png"></post-img>
+<post-img src="/images/22/02/23/014638.png"></post-img>
 
 Github Issue에 이 댓글들이 저장되는 것이기 때문에 이 이슈와 내 글이 매칭되게하는 조건을 정해준다. 나는 한글이 포함되어 있어서 pathname을 할 경우 다음과 같이 나타난다. 그래서 난 head의 title을 포스트 제목으로 하기도 했고 겹치지도 않기 때문에 이 값으로 했다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-222456.png"></post-img>
+<post-img src="/images/22/02/23/014700.png"></post-img>
 
 Issue title contains page pathname을 선택한 경우
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-222707.png"></post-img>
+<post-img src="/images/22/02/23/014730.png"></post-img>
 
 Issue에 label을 붙이고싶은 경우 정하는 값인데 나는 간단히 `Comment`라고 했다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-223454.png"></post-img>
+<post-img src="/images/22/02/23/014751.png"></post-img>
 
 마지막으로 Theme를 정하면 되는데 정말 친절하게도 정할 때마다 자동으로 해당 화면이 바뀌어 테마가 어떻게 될지 보여준다. 난 그 중 `Github Dark`로 정했다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-223818.png"></post-img>
+<post-img src="/images/22/02/23/014812.png"></post-img>
 
 그러면 마지막에 해당 스크립트를 원하는 HTML 위치에 넣으면 자동으로 댓글 기능을 넣어준다.
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-224130.png"></post-img>
+<post-img src="/images/22/02/23/014824.png"></post-img>
 
 이런 식으로 놓어주면 된다.
 
@@ -88,4 +88,4 @@ Issue에 label을 붙이고싶은 경우 정하는 값인데 나는 간단히 `C
 
 Disqus보다 훨씬 예쁘고 좋다!
 
-<post-img src="/images/08-nuxtjs-github-댓글-기능-추가하기-utterances/220208-224438.png"></post-img>
+<post-img src="/images/22/02/23/014855.png"></post-img>

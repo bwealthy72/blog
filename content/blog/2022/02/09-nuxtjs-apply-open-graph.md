@@ -20,11 +20,11 @@ tags:
 
 카카오톡의 경우
 
-<post-img src="/images/09-nuxtjs-open-graph-적용하기/220209-215428.png"></post-img>
+<post-img src="/images/22/02/23/015013.png"></post-img>
 
 트위터의 경우
 
-<post-img src="/images/09-nuxtjs-open-graph-적용하기/220209-210754.png"></post-img>
+<post-img src="/images/22/02/23/015029.png"></post-img>
 
 포스트의 커버 이미지, 제목, 설명이 안 나오고 블로그 대표 이미지, 제목이 나오는데 Open Graph를 설정하지 않았기 때문이다. 하지만 `nuxt.config.js`에는 미리 정해놓은 meta 데이터가 있어서 이를 참조한다.
 
@@ -171,44 +171,29 @@ export default {
           content: this.post.description,
         },
         {
-          hid: "og:title",
-          name: "og:title",
-          content: this.post.title,
-        },
-        {
           hid: "og:type",
-          name: "og:type",
+          property: "og:type",
           content: "article",
         },
         {
-          hid: "og:image",
-          name: "og:image",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:secure_url",
-          name: "og:image:secure_url",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:secure_url",
-          name: "og:image:secure_url",
-          content: imgURL,
-        },
-        {
-          hid: "og:image:alt",
-          name: "og:image:alt",
+          hid: "og:title",
+          property: "og:title",
           content: this.post.title,
         },
         {
-          hid: "og:url",
-          name: "og:url",
-          content: encodeURI(hostURL + this.post.path),
+          hid: "og:description",
+          property: "og:description",
+          content: this.post.description,
         },
         {
-          hid: "og:description",
-          name: "og:description",
-          content: this.post.description,
+          hid: "og:image",
+          property: "og:image",
+          content: imgURL,
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: encodeURI(hostURL + this.post.path),
         },
         {
           hid: "twitter:card",
@@ -244,8 +229,8 @@ export default {
 
 이런 식으로 하다보면 [twitter validator](https://cards-dev.twitter.com/validator)나 카카오톡에 포스트 주소를 올리면 다음과 같이 보인다.
 
-<post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233906.png"></post-img>
+<post-img src="/images/22/02/23/015337.png"></post-img>
 
-<post-img src="/images/09-nuxtjs-open-graph-적용하기/220210-233935.png"></post-img>
+<post-img src="/images/22/02/23/015435.png"></post-img>
 
 이미지가 안되는 것도 발견되고 있지만 그래도 아예 안나타나는 것보단 낫다...

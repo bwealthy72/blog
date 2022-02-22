@@ -1,6 +1,6 @@
 ---
 title: 구로구청에서 혼인신고하고 왔다 (+ 혼인신고서 작성하는 법)
-coverImg: /images/11-구로구청에서-혼인신고하고-왔다/220211-112845.png
+coverImg: /images/22/02/23/015525.png
 tags:
   - 혼인신고
 ---
@@ -26,45 +26,45 @@ tags:
 
 혼인 신고서는 직접 찾아가서 거기서 작성해도 되고, 별도로 양식을 찾아서 출력해도 된다. 양식은 [정부24](https://www.gov.kr/main?a=AA020InfoCappViewApp&HighCtgCD=A01004&CappBizCD=12700000050)에 들어가서 신청서 옆에 **제10호,혼인신고서**를 클릭해서 다운로드 받을 수 있다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-102702.png"></post-img>
+<post-img src="/images/22/02/23/015612.png"></post-img>
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-102919.png"></post-img>
+<post-img src="/images/22/02/23/015653.png"></post-img>
 
 ### 혼인신고서 작성법
 
 혼인신고 작성하러 가면 혼인신고서 옆에 예시와 설명이 잘 들어있다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-123858.png"></post-img>
+<post-img src="/images/22/02/23/015722.png"></post-img>
 
 그런데 `본`과 `등록기준지`는 나도 처음봐서 당황했는데, 다행히도 가족관계 증명서에 잘 적혀있다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-124905.png"></post-img>
+<post-img src="/images/22/02/23/015750.png"></post-img>
 
 ## 구로구청에서 혼인신고
 
 나는 가까운 구로구청에서 혼인신고를 하기로 했다. 겉만 봐서는 어디로 가야할 지 잘 모르게 생겼다. 구로구청은 본관, 신관이 있는데 본관에서 하기로 했다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-180101.png"></post-img>
+<post-img src="/images/22/02/23/015812.png"></post-img>
 
 들어가자마자 오른쪽을 보면 **제1민원실 민원여권과**라고 있다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-180454.png"></post-img>
+<post-img src="/images/22/02/23/015914.png"></post-img>
 
 그러면 뭔가 많은 무언가가 보이는데, 번호표 뽑는 곳(빨간 네모)으로 가면 된다. 만약에 혼인신고서를 작성하지 않았다면 파란색 네모 쪽에 가서 찾아 새로 쓰면 된다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-181504.png"></post-img>
+<post-img src="/images/22/02/23/015936.png"></post-img>
 
 번호표 출력하는 곳에 가서 가족관계등록신고 부분을 누르고, 가서 처리하면 된다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-181714.png"></post-img>
+<post-img src="/images/22/02/23/015955.png"></post-img>
 
 알기 쉽게 이렇게 안내서도 준다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-182553.png"></post-img>
+<post-img src="/images/22/02/23/020018.png"></post-img>
 
 이렇게 접수증이 나타난다.
 
-<post-img src="/images/11-구로구청에서-혼인신고하고-왔다/220211-182504.png"></post-img>
+<post-img src="/images/22/02/23/020040.png"></post-img>
 
 ## 잘 부탁해
 

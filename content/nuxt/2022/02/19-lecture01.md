@@ -4,7 +4,7 @@ tags:
   - vue
   - lecture
   - nuxt lecture
-coverImg: /images/19-lecture01/220219-231548.png
+coverImg: /images/22/02/23/020715.png
 ---
 
 안녕하세요. 지금 보시는 블로그는 VueJS로 만들어졌습니다. 정확히는 VueJS 프레임워크인 NuxtJS를 사용했는데요. 백엔드에 대한 지식 없어도 충분히 만들 수 있습니다. 이 강좌를 따라오신다면요!
@@ -42,7 +42,7 @@ NuxtJS는 VueJS로 **SSR(Server Side Rendering), 정적 웹사이트 생성(Stat
 
 기존의 VueJS는 CSR(Client Side Rendering)으로 페이지를 그렸습니다. Nuxt에서 만들 수 있게 해준다는 SSR, SSG와의 차이는 뭘까요?
 
-<post-img alt="CSR vs SSR vs SSG" src="/images/19-lecture01/220220-004045.png"></post-img>
+<post-img src="/images/22/02/23/020737.png"></post-img>
 
 - **CSR** - 서버에 요청할 때마다 빈 HTML과 CSS, JS 파일 등을 보내서 클라이언트에서 그리도록 한다.
 - **SSR** - 서버에 요청할 때마다 HTML을 그린 다음, CSS, JS 등을 클라이언트에 보낸다.
@@ -56,7 +56,7 @@ NuxtJS는 VueJS로 **SSR(Server Side Rendering), 정적 웹사이트 생성(Stat
 
 첫 번째 이유는 우리 블로그를 배포할 수 있게 도와주는 사이트인 [Netlify](https://www.netlify.com/)가 **정적 사이트로 호스팅해야하기 떄문**입니다. 아주 편하거든요! 물론 SSR로 호스팅할 수 있는 [Vercel](https://vercel.com/)이란 사이트도 있습니다.
 
-<post-img alt="Netlify" src="/images/19-lecture01/220220-004831.png"></post-img>
+<post-img src="/images/22/02/23/020749.png"></post-img>
 
 두 번째로 클라이언트에서 그리거나(CSR), 서버에서 그리는 것(SSR)보다 미리 그리고 저장했다가 전달만 하는 것(SSG)이 **페이지 로딩에 있어서 빠르기 때문**입니다.
 
@@ -77,4 +77,4 @@ NuxtJS는 SSG, SSR을 생성하는 것을 도와주는 것 뿐만 아니라 다�
 
 다음 시간에는 본격적으로 Nuxt 프로젝트를 만들어보도록 하겠습니다! 그럼 20000!
 
-![](/images/19-lecture01/제리인사.gif)
+![](/images/22/02/23/제리인사.gif)
