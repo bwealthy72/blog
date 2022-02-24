@@ -4,3 +4,13 @@
   border-radius: 7px;
   color: #ddd;
 }
+
+@mixin textClip($line: 2, $lineHeight: 1.3em) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: $lineHeight;
+  max-height: calc(#{$line} * $lineHeight);
+  -webkit-line-clamp: $line; /* 표시하고자 하는 라인 수 */
+  -webkit-box-orient: vertical;
+}

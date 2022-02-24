@@ -13,80 +13,106 @@
     padding: 2rem;
     margin-top: 2rem;
 
-    .title {
+    .main-title {
       font-size: 5rem;
       font-weight: bold;
       border-bottom: 1px solid #444;
-      padding-bottom: 3rem;
+      padding-bottom: 1rem;
       margin-top: 1rem;
-      margin-bottom: 2rem;
-      color: $sub-color;
+      margin-bottom: 3rem;
+      color: $key-color;
       text-shadow: 3px 3px 4px black;
     }
 
     .post-item {
       display: flex;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 3rem;
       line-height: 1.4;
+      transition: all 0.4s;
+      padding: 0.5rem 1.5rem;
 
-      &__title {
-        font-size: 2rem;
-        color: white;
+      &:hover {
+        transform: translate(-3px, -3px);
+        box-shadow: 3px 3px 2px #111;
+      }
 
-        &:hover {
-          color: $sub-color;
+      &__img {
+        margin-right: 2rem;
+        img {
+          width: 12rem;
+          height: 12rem;
+          border-radius: 8px;
         }
       }
 
-      &__tag {
+      &__info {
         display: flex;
-        margin-left: auto;
-        .tag-item {
-          font-size: 1.5rem;
-          margin-right: 0.7rem;
-          color: #ddd;
-          background-color: $key-color;
-          border-radius: 4px;
-          padding: 0.1em 0.5em;
-          line-height: normal;
-          white-space: nowrap;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        .title {
+          font-size: 2rem;
+          font-weight: bold;
+          color: white;
+          @include textClip(2);
         }
-      }
 
-      &__date {
-        display: flex;
-        align-items: center;
-        font-size: 1.4rem;
-        color: #9f9f9f;
-        line-height: normal;
-        margin-left: 0.5rem;
+        .desc {
+          font-size: 1.4rem;
+          color: #ccc;
+          margin-top: 0.5rem;
+          margin-bottom: 1rem;
+          @include textClip(2, 1.4em);
+        }
 
-        .calendar-ico {
-          height: 1.3rem;
-          margin-right: 0.4rem;
-          filter: invert(1) brightness(0.7);
+        .sub-info {
+          display: flex;
+          margin-top: auto;
+
+          .tags {
+            display: flex;
+            &__item {
+              padding: 0.2em 0.5em;
+              font-size: 1.4rem;
+              border-radius: 6px;
+              background-color: #333;
+              color: $sub-color;
+              margin-right: 0.5rem;
+            }
+          }
+
+          .date {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            color: #9f9f9f;
+            line-height: normal;
+            margin-left: auto;
+
+            .calendar-ico {
+              height: 1.3rem;
+              margin-right: 0.4rem;
+              filter: invert(1) brightness(0.7);
+            }
+          }
         }
       }
     }
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 450px) {
   .post-list-wrapper {
     .content {
       .post-item {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 3rem;
-        &__tag {
-          margin-left: 0;
-
-          .tag-item {
-            font-size: 1.5rem;
-            background-color: transparent;
-            color: $key-color;
-            padding: 0;
+        &__info {
+          .sub-info {
+            .tags {
+              display: none;
+            }
+            .date {
+              margin-left: 0;
+            }
           }
         }
       }

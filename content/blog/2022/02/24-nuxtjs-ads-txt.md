@@ -1,5 +1,5 @@
 ---
-title: NuxtJS에서 Adsense 승인 이후 ad.txt 문제 해결하기
+title: NuxtJS에서 Adsense 승인 이후 ads.txt 문제 해결하기
 tags:
   - nuxt
   - adsense
