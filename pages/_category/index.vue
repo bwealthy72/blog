@@ -68,7 +68,7 @@ export default {
 
     // 경로가 /search로 시작하는 경우 검색 화면
     if (isSearch) {
-      path = "/";
+      path = "";
       search = ["title", route.params.keyword];
     } else {
       path = route.path.split("/").slice(0, 2).join("/");
@@ -85,7 +85,6 @@ export default {
         "description",
         "dir",
       ])
-      .search("")
       .sortBy("createdAt", "desc")
       .search(...search)
       .fetch();
