@@ -4,11 +4,11 @@
       <Ad format="horizontal" adslot="1650135191"></Ad>
     </div>
     <div class="site-footer__info">
-      <span class="site-info__copyright">
+      <span class="copyright">
         Copyright © 2022 by BWealthy all rights reserved.
       </span>
 
-      <nav class="site-info__sns">
+      <nav class="sns">
         <Sns></Sns>
       </nav>
     </div>

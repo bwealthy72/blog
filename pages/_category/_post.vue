@@ -60,8 +60,19 @@ export default {
       ? encodeURI(hostURL + post.coverImg)
       : hostURL + "/logo.png";
 
+    let desc = post.description;
+    if (!desc) {
+      const firstChildren = post.body.children;
+      if (firstChildren) {
+        const childOfFirst = firstChildren[0].children;
+        if (childOfFirst && childOfFirst[0].type == "text") {
+          desc = childOfFirst[0].value;
+        }
+      }
+    }
+
     const _meta = {
-      description: post.description,
+      description: desc,
       "og:title": post.title,
       "og:type": "article",
       "og:image": imgURL,
@@ -69,10 +80,10 @@ export default {
       "og:image:alt": post.title,
       "og:url": encodeURI(hostURL + post.path),
       "og:image": imgURL,
-      "og:description": post.description,
+      "og:description": desc,
       "twitter:card": "summary_large_image",
       "twitter:title": post.title,
-      "twitter:description": post.description,
+      "twitter:description": desc,
       "twitter:image": imgURL,
     };
 

@@ -11,12 +11,12 @@
     display: flex;
     align-items: center;
 
-    &__copyright {
+    .copyright {
       color: #666;
       font-size: 1.4rem;
     }
 
-    &__sns {
+    .sns {
       margin-left: auto;
     }
   }
@@ -28,11 +28,11 @@
       flex-direction: column;
       align-items: flex-start;
 
-      &__copyright {
+      .copyright {
         order: 2;
       }
 
-      &__sns {
+      .sns {
         order: 1;
         margin-left: 0;
         margin-bottom: 1rem;
