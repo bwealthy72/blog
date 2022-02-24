@@ -6,7 +6,7 @@
     <Search></Search>
 
     <div class="site-header__ad">
-      <Ad adslot="3845475151"></Ad>
+      <Ad format="horizontal" adslot="7536052544"></Ad>
     </div>
     <Navigation></Navigation>
   </header>

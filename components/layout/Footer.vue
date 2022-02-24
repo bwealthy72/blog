@@ -1,7 +1,7 @@
 <template>
   <footer class="site-footer">
     <div class="site-footer__ad">
-      <Ad adslot="3445169841"></Ad>
+      <Ad format="horizontal" adslot="1650135191"></Ad>
     </div>
     <div class="site-footer__info">
       <span class="site-info__copyright">
