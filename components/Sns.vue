@@ -29,6 +29,10 @@ export default {
           img: require("@/assets/images/sns/twitter.svg"),
           link: "https://twitter.com/BlogWealthy",
         },
+        github: {
+          img: require("@/assets/images/sns/github.svg"),
+          link: "https://github.com/bwealthy72/blog",
+        },
       },
     };
   },

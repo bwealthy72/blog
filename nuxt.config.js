@@ -129,6 +129,11 @@ export default {
         name: "Home",
       });
 
+      routes.push({
+        path: "/search/:keyword",
+        component: resolve(__dirname, "pages/_category/index.vue"),
+      });
+
       function addCategory(path, name) {
         routes.push({
           path: "/" + path,

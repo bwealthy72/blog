@@ -14,7 +14,7 @@
     margin-top: 2rem;
 
     .main-title {
-      font-size: 5rem;
+      font-size: 3.5rem;
       font-weight: bold;
       border-bottom: 1px solid #444;
       padding-bottom: 1rem;
@@ -29,9 +29,9 @@
       align-items: center;
       margin-bottom: 3rem;
       line-height: 1.4;
-      transition: all 0.4s;
       padding: 0.5rem 1.5rem;
-
+      border-radius: 4px;
+      transition: all 0.4s;
       &:hover {
         transform: translate(-3px, -3px);
         box-shadow: 3px 3px 2px #111;
@@ -50,43 +50,58 @@
         display: flex;
         flex-direction: column;
         padding: 0.5rem 0;
-        .title {
-          font-size: 2rem;
-          font-weight: bold;
-          color: white;
-          @include textClip(2);
+
+        .category {
+          font-size: 1.5rem;
+          color: $sub-color;
+          margin-right: 1rem;
+
+          &:hover {
+            font-weight: bold;
+          }
         }
 
-        .desc {
-          font-size: 1.4rem;
-          color: #ccc;
-          margin-top: 0.5rem;
-          margin-bottom: 1rem;
-          @include textClip(2, 1.4em);
+        .main-info {
+          .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            @include textClip(2);
+          }
+
+          .desc {
+            font-size: 1.4rem;
+            color: #ccc;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            @include textClip(2, 1.4em);
+          }
         }
 
         .sub-info {
           display: flex;
+          align-items: center;
           margin-top: auto;
+          font-size: 1.4rem;
+          color: #9f9f9f;
 
           .tags {
             display: flex;
             &__item {
-              padding: 0.2em 0.5em;
-              font-size: 1.4rem;
               border-radius: 6px;
-              background-color: #333;
-              color: $sub-color;
               margin-right: 0.5rem;
+              color: rgb(164, 154, 211);
+              padding: 0.1em 0.4em;
+              background-color: #333;
+              &:hover {
+                font-weight: bold;
+              }
             }
           }
 
           .date {
             display: flex;
             align-items: center;
-            font-size: 1.4rem;
-            color: #9f9f9f;
-            line-height: normal;
             margin-left: auto;
 
             .calendar-ico {
@@ -101,7 +116,7 @@
   }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 800px) {
   .post-list-wrapper {
     .content {
       .post-item {
