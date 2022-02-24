@@ -7,10 +7,10 @@
     margin: 4rem auto 6rem auto;
 
     .category {
-      background-color: #4f7bdf;
+      background-color: $key-color;
       color: #fff;
       border-radius: 4px;
-      padding: 0.3em 1em;
+      padding: 0.5em 1em;
       font-size: 1.5rem;
       margin-top: 2rem;
       font-weight: bold;
@@ -76,7 +76,7 @@
 
         &__item {
           background-color: #444;
-          color: bisque;
+          color: $sub-color;
           font-size: 1.4rem;
           margin-right: 0.5em;
           padding: 0.2em 0.5em;
@@ -174,8 +174,34 @@
           color: $sub-color;
         }
 
+        blockquote {
+          background-color: #333;
+          margin: 5rem 0;
+          padding: 2rem 3rem;
+          border-left: 6px solid $key-color;
+          border-radius: 8px;
+
+          p {
+            margin: 0;
+            display: flex;
+
+            &::before {
+              content: "";
+              display: inline-block;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='%23ddd' class='alert-icon mt-px w-6 h-6'%3E%3Cpath d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              width: 3rem;
+              height: 3rem;
+              flex: 0 0 auto;
+              position: relative;
+              margin-right: 1rem;
+            }
+          }
+        }
+
         .nuxt-content-highlight {
           position: relative;
+          margin: 4rem 0;
 
           .filename {
             background-color: #282a36;
