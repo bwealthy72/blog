@@ -20,12 +20,16 @@
       font-size: 3rem;
       line-height: 1.2;
       font-weight: bold;
-      margin: 2.5rem 2rem 2rem;
+      margin-top: 2.5rem;
+      margin-left: 13rem;
+      margin-right: 13rem;
       text-shadow: 2px 2px 2px black;
       text-align: center;
     }
 
     .date {
+      display: flex;
+      flex-direction: column;
       margin: auto;
       font-size: 1.4rem;
       font-weight: bold;
@@ -42,11 +46,15 @@
         margin-bottom: 0.5rem;
       }
     }
+    .tags {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
   }
 
   .post {
     @include container-box;
-    padding: 2rem;
+    padding: 4vw;
     box-sizing: border-box;
     word-break: break-all;
     font-size: 1.8rem;
@@ -59,35 +67,6 @@
     }
 
     .content {
-      .tags {
-        display: flex;
-        align-items: center;
-        margin-top: 1rem;
-        margin-bottom: 2rem;
-
-        &__ico {
-          height: 1.2rem;
-          margin-right: 1rem;
-        }
-
-        &__list {
-          display: flex;
-        }
-
-        &__item {
-          background-color: #444;
-          color: $sub-color;
-          font-size: 1.4rem;
-          margin-right: 0.5em;
-          padding: 0.2em 0.5em;
-          font-weight: bold;
-          border-radius: 6px;
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-
       .cover-img {
         margin: 2rem auto;
         max-width: 80%;
@@ -101,6 +80,7 @@
       }
 
       .nuxt-content {
+        color: #ccc;
         p {
           margin-bottom: 1rem;
           line-height: 2;
@@ -131,21 +111,22 @@
         }
 
         h2 {
-          font-size: 1.6em;
+          font-size: 1.8em;
           font-weight: bold;
           margin-top: 7rem;
           padding-bottom: 1.5rem;
           margin-bottom: 2rem;
-          border-bottom: 1px solid #4b4b4b;
+          border-bottom: 4px solid #333;
+          color: #eee;
         }
 
         h3 {
-          font-size: 1.2em;
+          font-size: 1.3em;
           font-weight: 700;
-          margin-top: 5rem;
+          margin-top: 6rem;
           margin-bottom: 2rem;
-          border-left: 4px solid $key-color;
-          color: #ddd;
+          border-left: 7px solid $key-color;
+          color: #eee;
           padding-left: 1.5rem;
           line-height: 1.4;
         }
@@ -219,6 +200,17 @@
             font-size: 1.5rem;
           }
         }
+      }
+    }
+  }
+}
+
+@media (max-width: $post-width) {
+  .post-wrapper {
+    .header {
+      .title {
+        margin-left: 2rem;
+        margin-right: 2rem;
       }
     }
   }

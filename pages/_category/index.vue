@@ -15,13 +15,7 @@
             </a>
 
             <div class="sub-info">
-              <ul class="tags">
-                <li class="tags__item" v-for="tag of post.tags" :key="tag">
-                  <a href="">
-                    {{ tag }}
-                  </a>
-                </li>
-              </ul>
+              <Tags :tags="post.tags"></Tags>
               <p class="date">
                 <img
                   class="calendar-ico"

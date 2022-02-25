@@ -4,15 +4,17 @@
       <a :href="post.dir" class="category">{{ post.category }}</a>
       <h1 class="title">{{ post.title }}</h1>
 
+      <Tags :tags="post.tags"></Tags>
+
       <div class="date">
-        <div class="created-date">
+        <!-- <div class="created-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span> Date - {{ post.createdAt }}</span>
-        </div>
+          <span> Date | {{ post.createdAt }}</span>
+        </div> -->
 
         <div class="upated-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span> Updated - {{ post.updatedAt }}</span>
+          <span> {{ post.updatedAt }}</span>
         </div>
       </div>
     </div>
@@ -21,15 +23,6 @@
       <PostToc :toc="post.toc"></PostToc>
 
       <div class="content">
-        <div class="tags" v-if="post.tags">
-          <img class="tags__ico" src="@/assets/images/tag.svg" alt="tag" />
-          <ul class="tags__list">
-            <li class="tags__item" v-for="tag of post.tags" :key="tag">
-              {{ tag }}
-            </li>
-          </ul>
-        </div>
-
         <div class="cover-img" v-if="post.coverImg">
           <img :src="post.coverImg" alt="Cover Image" />
         </div>
