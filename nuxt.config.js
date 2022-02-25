@@ -152,7 +152,6 @@ export default {
       addCategory("vue", "Vue.js");
       addCategory("blog", "Blog");
       addCategory("tips", "Tips");
-      addCategory("diary", "Diary");
     },
   },
 
