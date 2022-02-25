@@ -104,17 +104,6 @@
         p {
           margin-bottom: 1rem;
           line-height: 2;
-
-          & > code {
-            background-color: #2e2e2e;
-            padding: 0.1em 0.3em;
-            box-sizing: content-box;
-            border-radius: 4px;
-            color: #93ffaa;
-            margin-right: 0.2em;
-            border-right: 1px solid;
-            border-bottom: 1px solid;
-          }
         }
 
         ol,
@@ -171,7 +160,18 @@
         }
 
         strong {
-          color: $sub-color;
+          color: #8d7fc0;
+          font-weight: bold;
+        }
+
+        p > code,
+        li > code {
+          background-color: #171717;
+          padding: 0.1em 0.3em;
+          box-sizing: content-box;
+          border-radius: 4px;
+          color: #76bea7;
+          margin-right: 0.2em;
         }
 
         blockquote {
