@@ -123,10 +123,16 @@ export default {
 
       const postListComp = resolve(__dirname, "pages/_category/index.vue");
       const postComp = resolve(__dirname, "pages/_category/_post.vue");
+
       routes.push({
         path: "/",
         component: resolve(__dirname, "pages/index.vue"),
         name: "Home",
+      });
+
+      routes.push({
+        path: "/tag/:tag",
+        component: resolve(__dirname, "pages/_category/index.vue"),
       });
 
       routes.push({
@@ -157,11 +163,7 @@ export default {
 
   sitemap: {
     hostname: "https://www.blogwealthy.com/",
-    defaults: {
-      changefreq: "daily",
-      priority: 1,
-      lastmod: new Date(),
-    },
+    gzip: true,
   },
 
   generate: {

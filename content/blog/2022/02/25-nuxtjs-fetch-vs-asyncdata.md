@@ -4,6 +4,7 @@ tags:
   - nuxt
   - fetch
   - asyncdata
+coverImg: /images/22/02/25/193353.png
 ---
 
 Nuxt에서 API를 호출할 때 사용하는 훅이 두 가지가 있다. 바로 fetch와 asyncData. 블로그를 만들면서 이 두 개중 어떤 것을 가져오는 게 좋을 지 고민했는데, 어떤 기준으로 어떤 훅을 사용했는지 정리했다.

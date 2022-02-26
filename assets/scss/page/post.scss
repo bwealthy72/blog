@@ -54,7 +54,7 @@
 
   .post {
     @include container-box;
-    padding: 4vw;
+    padding: 3rem;
     box-sizing: border-box;
     word-break: break-all;
     font-size: 1.8rem;
@@ -212,6 +212,9 @@
         margin-left: 2rem;
         margin-right: 2rem;
       }
+    }
+    .post {
+      padding: 1rem;
     }
   }
 }

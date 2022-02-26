@@ -1,9 +1,9 @@
 ---
-title: VueJS로 나만의 블로그 만들자 2] nodejs, npm 설치
+title: VueJS 블로그 강의 2] nodejs, npm 설치
 tags:
-  - nuxt
-  - nodejs
-  - npm
+  - vue
+  - lecture
+  - nuxt lecture
 coverImg: /images/22/02/23/020715.png
 ---
 

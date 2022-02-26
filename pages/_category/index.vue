@@ -46,26 +46,35 @@ export default {
   },
   computed: {
     mainTitle() {
-      let tit = "";
+      let title = "";
       const r = this.$route;
       if (r.params.keyword) {
-        tit = `"${r.params.keyword}"의 검색 결과`;
+        title = `"${r.params.keyword}"의 검색 결과`;
+      } else if (r.params.tag) {
+        title = `"${r.params.tag}" 태그 결과`;
       } else if (r.name) {
-        tit = r.name;
+        title = r.name;
       }
-      return tit;
+      return title;
     },
   },
   async asyncData({ store, route, $content }) {
-    let path, search;
-    const isSearch = route.path.slice(0, 7) === "/search";
-
+    let path, search, where;
     // 경로가 /search로 시작하는 경우 검색 화면
-    if (isSearch) {
+    const isSearch = route.path.slice(0, 7) === "/search";
+    const isTag = route.path.slice(0, 4) === "/tag";
+
+    if (isTag) {
       path = "";
+      where = { tags: { $contains: route.params.tag } };
+      search = [""];
+    } else if (isSearch) {
+      path = "";
+      where = null;
       search = ["title", route.params.keyword];
     } else {
       path = route.path.split("/").slice(0, 2).join("/");
+      where = null;
       search = [""];
     }
 
@@ -81,6 +90,7 @@ export default {
       ])
       .sortBy("createdAt", "desc")
       .search(...search)
+      .where(where)
       .fetch();
 
     for (const post of postList) {

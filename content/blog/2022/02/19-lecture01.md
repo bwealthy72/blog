@@ -1,5 +1,5 @@
 ---
-title: VueJS로 나만의 블로그 만들자 1] 강좌 및 NuxtJS 소개
+title: VueJS 블로그 강의 1] 강좌 및 NuxtJS 소개
 tags:
   - vue
   - lecture
