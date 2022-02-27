@@ -1,0 +1,46 @@
+.site-dock {
+  position: fixed;
+  left: 0;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  z-index: 100;
+
+  .dock {
+    width: 4rem;
+    background-color: #222222b3;
+    border: 1px solid #3333338e;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    backdrop-filter: blur;
+
+    &__item {
+      position: relative;
+      width: 100%;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .link {
+        cursor: pointer;
+        .ico {
+          width: 100%;
+        }
+        .info {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          transform: translateX(100%);
+          padding-left: 1.5rem;
+          color: white;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
