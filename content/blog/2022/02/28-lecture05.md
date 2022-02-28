@@ -178,13 +178,15 @@ coverImg: /images/test.png
 
 이미지는 img 태그를 써도 되지만 마크다운 문법으로 써야 gif 애니메이션도 동작하고 좋습니다.
 
+```
 ![img태그의 alt](https://www.blogwealthy.com/logo.png)
+```
 
 <post-img src="/images/22/02/28/232117.png"></post-img>
 
 ### Codeblock
 
-저는 코드 내용을 포스팅 많이합니다. 그래서 코드블록을 많이 사용하는데요! 만약 `javascript` 언어로 `hello.js` 라는 제목으로 사용한다면 다음과 같이 하면 됩니다.
+블로그 특성상 저는 코드를 많이 적습니다. 그래서 코드블록을 많이 사용하는데요! 만약 `javascript` 언어로 `hello.js` 라는 제목으로 사용한다면 다음과 같이 하면 됩니다.
 
 <pre class="line-numbers language-markdown">
 <code>```js [hello.js]
@@ -194,7 +196,7 @@ const text = "hello";
 
 <post-img src="/images/22/02/28/235816.png"></post-img>
 
-`js` 를 적어야 해당 문법에 맞게 하이라이팅 해줍니다. `hello.js`는 꼭 안적어도 괜찮습니다.
+js 자리에 html이나 css, python 등 프로그래밍 언어를 적어주시고 [] 사이에는 원하는 이름을 적어주시면 됩니다. `js` 를 적어야 해당 문법에 맞게 하이라이팅 해줍니다. 이름은 적지 않아도 괜찮습니다.
 
 ### 그 외
 
