@@ -24,7 +24,7 @@ npm install @nuxtjs/sitemap
 
 ### 설정
 
-`nuxt.config.js` 파일에 modules 내용을 추가해준다. `modules`의 경우 이미 있는 key이기 때문에 수정을 해준다.
+`nuxt.config.js` 파일에 modules 내용을 추가해준다. `modules`의 경우 이미 있는 key이기 때문에 수정을 해준다. generate route함수는 `nuxt/content` 사용하는 경우에 맞게 적용했다. 모든 포스트 내용의 경로 리스트를 반환한다.
 
 ```js [nuxt.config.js]
 export default {
