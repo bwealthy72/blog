@@ -72,6 +72,13 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      // gtag
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-RXEC8C1Z2C",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -84,12 +91,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/moment", "@nuxtjs/google-analytics"],
-
-  // https://www.npmjs.com/package/@nuxtjs/google-analytics
-  googleAnalytics: {
-    id: "G-RXEC8C1Z2C",
-  },
+  buildModules: ["@nuxtjs/moment"],
 
   // https://www.npmjs.com/package/@nuxtjs/moment
   moment: {
