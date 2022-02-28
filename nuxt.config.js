@@ -72,6 +72,12 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-RXEC8C1Z2C",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
