@@ -14,7 +14,7 @@
 
         <div class="upated-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span> {{ post.updatedAt }}</span>
+          <span> {{ post.createdAt }}</span>
         </div>
       </div>
     </div>

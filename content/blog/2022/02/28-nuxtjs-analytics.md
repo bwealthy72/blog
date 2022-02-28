@@ -48,17 +48,33 @@ coverImg: /images/22/02/28/095920.png
 
 <post-img src="/images/22/02/28/102000.png"></post-img>
 
-그러면 스트림 세부정보가 나타나는데 여기서 `전체 사이트 태그(gtag.js) 웹사이트 작성 도구 또는 CMS에서 호스팅하는 사이트를 사용하는 경우 이 태그 사용`을 클릭합니다.
+그러면 스트림 세부정보가 나타나는데 여기서 `연결된 사이트 태그`를 클릭
+
+<post-img src="/images/22/02/28/161034.png"></post-img>
+
+그런 다음 측정 ID를 적고 `연결`을 클릭
+
+<post-img src="/images/22/02/28/161438.png"></post-img>
+
+측정 ID는 스트림 세부정보에 있다.
+
+<post-img src="/images/22/02/28/161250.png"></post-img>
+
+그러면 연결된 태그에 추가된 것을 볼 수 있다.
+
+<post-img src="/images/22/02/28/164512.png"></post-img>
+
+다시 스트림 세부정보로 돌아와서 `전체 사이트 태그(gtag.js) 웹사이트 작성 도구 또는 CMS에서 호스팅하는 사이트를 사용하는 경우 이 태그 사용`을 클릭
 
 <post-img src="/images/22/02/28/142534.png"></post-img>
 
-클릭하고 나면 아래의 내용을 자신 사이트 `head`에 추가하라고 나옵니다.
+클릭하고 나면 아래의 내용을 자신 사이트 `head`에 추가하라고 나온다.
 
 <post-img src="/images/22/02/28/142640.png"></post-img>
 
 ### NuxtJS에서 적용하기
 
-우선 `nuxt.config.js`에서 다음 내용을 추가해줍니다.
+`nuxt.config.js`에서 다음 내용을 추가
 
 ```js [nuxt.config.js]
 export default {
@@ -76,7 +92,7 @@ export default {
   },
 ```
 
-프로젝트 루트 위치에 `app.html`을 만든 후 다음과 같이 내용을 추가해줍니다.
+프로젝트 루트 위치에 `app.html`을 만든 후 다음과 같이 내용을 추가
 
 ```html [app.html]
 <!DOCTYPE html>
@@ -103,6 +119,6 @@ export default {
 </html>
 ```
 
-이후 이렇게 배포하고 사이트를 좀 돌아다녀보신다음 보고서에 `실시간`을 보시면 다음과 같이 기록이 남는 것을 볼 수 있습니다.
+이후 이렇게 배포하고 사이트를 좀 돌아다니다가 보고서에 `실시간`을 보면 다음과 같이 기록이 남는다.
 
 <post-img src="/images/22/02/28/143608.png"></post-img>

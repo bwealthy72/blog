@@ -139,11 +139,7 @@
 
         a {
           color: $key-color;
-          &:hover {
-            text-shadow: 1px 1px 1px blue;
-            text-decoration: underline;
-            font-weight: bold;
-          }
+          border-bottom: 1px solid;
         }
 
         strong {
