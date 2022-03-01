@@ -83,7 +83,7 @@
         color: #ccc;
         p {
           margin-bottom: 1rem;
-          line-height: 2;
+          line-height: 1.7;
         }
 
         > ul,
@@ -117,22 +117,22 @@
         }
 
         h2 {
-          font-size: 1.8em;
+          font-size: 1.6em;
           font-weight: bold;
-          margin-top: 7rem;
-          padding-bottom: 1.5rem;
+          margin-top: 6rem;
+          padding-bottom: 2rem;
           margin-bottom: 2rem;
           border-bottom: 4px solid #333;
           color: #eee;
         }
 
         h3 {
-          font-size: 1.3em;
+          font-size: 1.2em;
           font-weight: 700;
           margin-top: 6rem;
           margin-bottom: 2rem;
           border-left: 7px solid $key-color;
-          color: #eee;
+          color: #ddd;
           padding-left: 1.5rem;
           line-height: 1.4;
         }
@@ -185,7 +185,7 @@
 
         .nuxt-content-highlight {
           position: relative;
-          margin: 4rem 0;
+          margin: 2rem 0;
 
           .filename {
             background-color: #282a36;
