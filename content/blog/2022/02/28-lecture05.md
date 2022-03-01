@@ -1,5 +1,5 @@
 ---
-title: VueJS 블로그 강의 4] Routing 하기
+title: VueJS 블로그 강의 5] 포스팅하기
 tags:
   - vue
   - lecture
