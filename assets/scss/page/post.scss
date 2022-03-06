@@ -143,8 +143,7 @@
         }
 
         strong {
-          color: #8d7fc0;
-          font-weight: bold;
+          color: #e76666;
         }
 
         p > code,
@@ -188,11 +187,12 @@
           margin: 2rem 0;
 
           .filename {
+            color: #768ad9;
             background-color: #282a36;
             padding: 0.5em 1em;
             font-weight: bold;
             border-radius: 4px 4px 0 0;
-            border-bottom: 2px solid #545a74;
+            border-bottom: 2px solid #4b5a9b;
             display: block;
             width: fit-content;
           }

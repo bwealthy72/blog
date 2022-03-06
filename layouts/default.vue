@@ -1,8 +1,8 @@
 <template>
   <div class="container">
-    <layout-header></layout-header>
-    <Dock></Dock>
-    <nuxt />
-    <layout-footer></layout-footer>
+    <LayoutHeader></LayoutHeader>
+    <LayoutDock></LayoutDock>
+    <Nuxt />
+    <LayoutFooter></LayoutFooter>
   </div>
 </template>
