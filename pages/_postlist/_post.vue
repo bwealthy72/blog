@@ -4,7 +4,7 @@
       <a :href="post.dir" class="category">{{ post.category }}</a>
       <h1 class="title">{{ post.title }}</h1>
 
-      <CommonTags :tags="post.tags"></CommonTags>
+      <LayoutTags :tags="post.tags"></LayoutTags>
 
       <div class="date">
         <!-- <div class="created-date">
@@ -20,7 +20,7 @@
     </div>
 
     <article class="post">
-      <CommonPostToc :toc="post.toc"></CommonPostToc>
+      <LayoutPostToc :toc="post.toc"></LayoutPostToc>
 
       <div class="content">
         <div class="cover-img" v-if="post.coverImg">

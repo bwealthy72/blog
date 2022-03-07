@@ -1,7 +1,7 @@
 <template>
   <footer class="site-footer">
     <div class="site-footer__ad">
-      <CommonAd format="horizontal" adslot="1650135191"></CommonAd>
+      <LayoutAd format="horizontal" adslot="1650135191"></LayoutAd>
     </div>
     <div class="site-footer__info">
       <span class="copyright">
@@ -10,7 +10,7 @@
       </span>
 
       <nav class="sns">
-        <CommonSns></CommonSns>
+        <LayoutSns></LayoutSns>
       </nav>
     </div>
   </footer>

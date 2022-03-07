@@ -3,7 +3,7 @@
     <ul class="dock" @mouseleave="mouseLeave" @mousemove="mouseMove">
       <li
         class="dock__item"
-        v-for="(name, path) of $store.state.routePaths"
+        v-for="(name, path, idx) of $store.state.routePaths"
         :key="path"
       >
         <a class="link" :href="path">
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import variable from "~/assets/scss/base/variable.scss";
 export default {
   data() {
     return {
@@ -49,9 +48,13 @@ export default {
       // window.cancelAnimationFrame(this.aniId);
       this.aniId = null;
     },
-    mouseMove() {
-      window.cancelAnimationFrame;
-      console.log("mouseMove");
+    mouseMove(e) {
+      const dockRect = e.target.getBoundingClientRect();
+
+      // Dock 내에서의 mouse y좌표
+      const cursorY = e.clientY - dockRect.top;
+
+      const dockItems = this.$el.querySelectorAll(".dock__item");
     },
   },
 };

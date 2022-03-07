@@ -15,7 +15,7 @@
             </a>
 
             <div class="sub-info">
-              <CommonTags :tags="post.tags"></CommonTags>
+              <LayoutTags :tags="post.tags"></LayoutTags>
               <p class="date">
                 <img
                   class="calendar-ico"

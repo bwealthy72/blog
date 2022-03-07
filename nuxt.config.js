@@ -131,8 +131,8 @@ export default {
       // routes 리셋
       routes.length = 0;
 
-      const postListComp = resolve(__dirname, "pages/_category/index.vue");
-      const postComp = resolve(__dirname, "pages/_category/_post.vue");
+      const postListComp = resolve(__dirname, "pages/_postlist/index.vue");
+      const postComp = resolve(__dirname, "pages/_postlist/_post.vue");
 
       routes.push({
         path: "/",
@@ -142,12 +142,12 @@ export default {
 
       routes.push({
         path: "/tag/:tag",
-        component: resolve(__dirname, "pages/_category/index.vue"),
+        component: resolve(__dirname, "pages/_postlist/index.vue"),
       });
 
       routes.push({
         path: "/search/:keyword",
-        component: resolve(__dirname, "pages/_category/index.vue"),
+        component: resolve(__dirname, "pages/_postlist/index.vue"),
       });
 
       function addCategory(path, name) {
@@ -162,7 +162,7 @@ export default {
         });
       }
 
-      addCategory("html", "HTML");
+      // addCategory("html", "HTML");
       // addCategory("css", "CSS");
       // addCategory("js", "Javascript");
       addCategory("vue", "VueJS");

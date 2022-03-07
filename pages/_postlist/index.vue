@@ -15,7 +15,7 @@
             </a>
 
             <div class="sub-info">
-              <CommonTags :tags="post.tags"></CommonTags>
+              <LayoutTags :tags="post.tags"></LayoutTags>
               <p class="date">
                 <img
                   class="calendar-ico"
@@ -61,8 +61,8 @@ export default {
   async asyncData({ store, route, $content }) {
     let path, search, where;
     // 경로가 /search로 시작하는 경우 검색 화면
-    const isSearch = route.path.slice(0, 7) === "/search";
-    const isTag = route.path.slice(0, 4) === "/tag";
+    const isSearch = route.path.startsWith("/search");
+    const isTag = route.path.startsWith("/tag");
 
     if (isTag) {
       path = "";

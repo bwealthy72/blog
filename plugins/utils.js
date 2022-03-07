@@ -1,3 +1,5 @@
+import variable from "~/assets/scss/base/variable.scss";
+
 function dateFormat(date) {
   const year = date.getFullYear();
   let month = date.getMonth() + 1;
@@ -13,6 +15,17 @@ function dateFormat(date) {
   return `${year}.${month}.${day} ${hour}:${minute}`;
 }
 
+const getScssVariable = function (scssVar) {
+  let v = variable[scssVar];
+  if (v.includes("rem")) {
+    v = parseInt(v.slice(0, -3) + "0");
+  } else if (v.includes("px")) {
+    v = parseInt(v.slice(0, -2));
+  }
+  return v;
+};
+
 export default ({ app }, inject) => {
   inject("dateFormat", dateFormat);
+  inject("getScssVariable", getScssVariable);
 };
