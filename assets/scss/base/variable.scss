@@ -3,3 +3,8 @@ $sub-color: #ffd055;
 
 $post-width: 800px;
 $toc-width: 330px;
+$dock-width: 40px;
+
+:export {
+  dockWidth: $dock-width;
+}

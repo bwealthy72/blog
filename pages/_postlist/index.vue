@@ -37,8 +37,8 @@
 <script>
 export default {
   head() {
-    const isSearch = this.$route.path.slice(0, 7) === "/search";
-    if (isSearch) {
+    const isSearchPage = this.$route.path.startsWith("/search");
+    if (isSearchPage) {
       return {
         title: `"${this.$route.params.keyword}"의 검색 결과`,
       };
@@ -59,26 +59,17 @@ export default {
     },
   },
   async asyncData({ store, route, $content }) {
-    let path, search, where;
-    // 경로가 /search로 시작하는 경우 검색 화면
-    const isSearch = route.path.startsWith("/search");
-    const isTag = route.path.startsWith("/tag");
+    let path = "/";
 
-    if (isTag) {
-      path = "";
-      where = { tags: { $contains: route.params.tag } };
-      search = [""];
-    } else if (isSearch) {
-      path = "";
-      where = null;
-      search = ["title", route.params.keyword];
-    } else {
+    // 경로가 /search로 시작하는 경우 검색 화면
+    const isSearchPage = route.path.startsWith("/search");
+    const isTagPage = route.path.startsWith("/tag");
+
+    if (!isSearchPage && !isTagPage) {
       path = route.path.split("/").slice(0, 2).join("/");
-      where = null;
-      search = [""];
     }
 
-    const postList = await $content(path, { deep: true })
+    let query = await $content(path, { deep: true })
       .only([
         "title",
         "path",
@@ -88,20 +79,23 @@ export default {
         "description",
         "dir",
       ])
-      .sortBy("createdAt", "desc")
-      .search(...search)
-      .where(where)
-      .fetch();
+      .sortBy("createdAt", "desc");
+
+    if (isSearchPage) {
+      query = query.search("title", route.params.keyword);
+    }
+
+    if (isTagPage) {
+      query = query.where({ tags: { $contains: route.params.tag } });
+    }
+
+    const postList = await query.fetch();
 
     for (const post of postList) {
-      if (isSearch) {
-        const dir = route.path.split("/");
-        post.dir = "/" + dir[dir.length - 1];
-        post.category = store.state.routePaths[post.dir];
-      } else {
-        post.dir = route.path;
-        post.category = store.state.routePaths[post.dir];
-      }
+      // dir = /blog/2022/02/28-lecture05 -> /blog
+      const dir = post.path.split("/");
+      post.dir = "/" + dir[1];
+      post.category = store.state.routePaths[post.dir];
     }
 
     return { postList };

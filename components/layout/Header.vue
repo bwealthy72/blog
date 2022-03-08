@@ -6,7 +6,7 @@
     <LayoutSearch></LayoutSearch>
 
     <div class="site-header__ad">
-      <Ad format="horizontal" adslot="7536052544"></Ad>
+      <LayoutAd format="horizontal" adslot="7536052544"></LayoutAd>
     </div>
     <LayoutMenuBar></LayoutMenuBar>
   </header>

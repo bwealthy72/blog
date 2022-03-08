@@ -105,9 +105,9 @@ export default {
 
   async asyncData({ store, route, $content, $dateFormat }) {
     let path = route.path;
-    if (path[path.length - 1] === "/") {
-      path = path.split("/").slice(0, -1).join("/");
-    }
+    // if (path[path.length - 1] === "/") {
+    //   path = path.split("/").slice(0, -1).join("/");
+    // }
 
     const post = await $content(decodeURI(path)).fetch();
     post.createdAt = $dateFormat(new Date(post.createdAt));
