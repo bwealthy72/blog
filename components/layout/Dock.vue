@@ -89,7 +89,6 @@ export default {
 
         // 해당 dock item이 가져야할 width
         // 거리가 멀어짐에 따라 크기가 작아야한다.
-        console.log(distFromItem / itemHeight);
         const goalWidth = Math.round(
           Math.max(
             dockWidth,
