@@ -166,7 +166,6 @@ export default {
       // addCategory("css", "CSS");
       addCategory("vue", "VueJS");
       addCategory("blog", "Blog");
-      addCategory("tips", "Tips");
     },
   },
 
