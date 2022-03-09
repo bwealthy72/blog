@@ -3,7 +3,7 @@ title: VueJS 블로그 강의 4] Routing 하기
 tags:
   - vue
   - lecture
-  - nuxt lecture
+  - nuxt-lecture
 coverImg: /images/22/02/23/020715.png
 ---
 

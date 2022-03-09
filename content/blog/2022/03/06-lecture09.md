@@ -3,7 +3,7 @@ title: VueJS 블로그 강의 9] Header에서 검색란 만들기
 tags:
   - vue
   - lecture
-  - nuxt lecture
+  - nuxt-lecture
 coverImg: /images/22/02/23/020715.png
 ---
 
@@ -15,13 +15,13 @@ coverImg: /images/22/02/23/020715.png
 
 Search 컴포넌트는 검색기능이 들어간 검색란입니다. components 폴더 내에 다음과 같이 추가해주세요.
 
-<post-img src="/images/22/03/07/175512.png"></post-img>
+<post-img src="/images/22/03/09/175944.png"></post-img>
 
 ### 기능 구현
 
 검색란의 기능을 생각해보면, 우선 검색어가 필요하고 엔터를 눌렀을 때, 검색된 결과들이 나와야합니다. 티스토리 같은 경우 검색을 하면 `/search/(검색어)` 경로로 이동하는데요. 이와 비슷하게 구현해보겠습니다.
 
-```vue [components/common/Search.vue]
+```vue [components/layout/Search.vue]
 <template>
   <input
     type="text"
@@ -58,7 +58,7 @@ export default {
 ```vue
 <template>
   <header>
-    <CommonSearch></CommonSearch>
+    <LayoutSearch></LayoutSearch>
   </header>
 </template>
 ```

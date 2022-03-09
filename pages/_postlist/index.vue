@@ -59,7 +59,7 @@ export default {
     },
   },
   async asyncData({ store, route, $content }) {
-    let path = "/";
+    let path = "";
 
     // 경로가 /search로 시작하는 경우 검색 화면
     const isSearchPage = route.path.startsWith("/search");

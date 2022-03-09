@@ -6,7 +6,7 @@
         :key="path"
         class="dock__item"
       >
-        <a class="link" :href="path">
+        <NuxtLink class="link" :to="path">
           <img
             :src="loadImage(name)"
             :alt="name"
@@ -19,7 +19,7 @@
               {{ name }}
             </h3>
           </div>
-        </a>
+        </NuxtLink>
       </li>
     </ul>
   </nav>

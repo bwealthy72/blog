@@ -3,7 +3,7 @@ title: VueJS 블로그 강의 2] nodejs, npm 설치
 tags:
   - vue
   - lecture
-  - nuxt lecture
+  - nuxt-lecture
 coverImg: /images/22/02/23/020715.png
 ---
 

@@ -2,7 +2,7 @@
   <nav class="site-nav">
     <ul class="nav">
       <li v-for="(name, path) in routes" :key="path" class="nav__item">
-        <a :href="path">{{ name }}</a>
+        <NuxtLink :to="path">{{ name }}</NuxtLink>
       </li>
     </ul>
   </nav>

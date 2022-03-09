@@ -3,7 +3,7 @@ title: VueJS 블로그 강의 1] 강좌 및 NuxtJS 소개
 tags:
   - vue
   - lecture
-  - nuxt lecture
+  - nuxt-lecture
 coverImg: /images/22/02/23/020715.png
 ---
 
