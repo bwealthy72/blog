@@ -33,7 +33,7 @@ export default {
       flags: [],
       widths: [],
       speed: 3,
-      scale: 2.5,
+      scale: 2.2,
     };
   },
   created() {

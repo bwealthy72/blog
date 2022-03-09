@@ -9,9 +9,7 @@
     padding: 0.8em 3em 0.8em 1.2em;
     font-size: 1.4rem;
     box-sizing: border-box;
-    background-color: #222;
-    border: 1px solid #444;
-    border-radius: 5px;
+    @include container-box;
 
     &:focus-visible {
       outline: 0px;

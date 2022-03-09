@@ -208,7 +208,7 @@
   }
 }
 
-@media (max-width: $post-width) {
+@media (max-width: $container-width) {
   .post-wrapper {
     .header {
       .title {
@@ -222,7 +222,7 @@
   }
 }
 
-@media (max-width: calc(#{$post-width} + #{$toc-width} * 2)) {
+@media (max-width: calc(#{$container-width} + #{$toc-width} * 2)) {
   .post-wrapper {
     .post {
       .toc-wrapper {

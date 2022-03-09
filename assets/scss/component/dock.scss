@@ -8,14 +8,14 @@
 
   .dock {
     width: $dock-width;
-    background-color: #222222b3;
-    border: 1px solid #3333338e;
     display: flex;
     flex-direction: column;
     margin-left: calc(#{$dock-width} / 4);
-    border-radius: 8px;
     padding: 1rem 0.5rem;
     backdrop-filter: blur;
+    background-blend-mode: overlay;
+
+    @include container-box;
 
     &__item {
       position: relative;
@@ -70,7 +70,7 @@
   }
 }
 
-@media (max-width: calc(#{$post-width} + #{$dock-width} * 3)) {
+@media (max-width: calc(#{$container-width} + #{$dock-width} * 3)) {
   .site-dock {
     display: none;
   }
