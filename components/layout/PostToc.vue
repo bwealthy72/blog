@@ -3,7 +3,12 @@
     <div class="toc">
       <h2 class="toc__title">Table of Content</h2>
       <ul class="toc__list">
-        <li v-for="t of toc" :key="t.id" :class="`h${t.depth}`">
+        <li
+          v-for="t of toc"
+          :key="t.id"
+          :class="`h${t.depth}`"
+          @mousemove="toc.active = true"
+        >
           <a :href="`#${t.id}`">
             {{ t.text }}
           </a>
