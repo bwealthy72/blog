@@ -5,16 +5,16 @@
 @import "base/base.scss";
 
 // Component
-@import "component/search.scss";
-@import "component/navigation.scss";
-@import "component/sns.scss";
-@import "component/post_toc.scss";
-@import "component/tags.scss";
-@import "component/dock.scss";
 
 // layout
 @import "layout/header.scss";
 @import "layout/footer.scss";
+@import "layout/search.scss";
+@import "layout/sns.scss";
+@import "layout/post_toc.scss";
+@import "layout/tags.scss";
+@import "layout/dock.scss";
+@import "layout/mobile_menu.scss";
 
 // page
 @import "page/postlist";

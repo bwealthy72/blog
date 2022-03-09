@@ -8,6 +8,5 @@
     <div class="site-header__ad">
       <LayoutAd format="horizontal" adslot="7536052544"></LayoutAd>
     </div>
-    <LayoutMenuBar></LayoutMenuBar>
   </header>
 </template>
