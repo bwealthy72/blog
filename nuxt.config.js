@@ -2,10 +2,6 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
-  // server: {
-  //   host: "0", // default: localhost
-  // },
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "BWealthy의 부자 일기",
@@ -168,6 +164,8 @@ export default {
 
       // addCategory("html", "HTML");
       // addCategory("css", "CSS");
+
+      addCategory("canvas", "Canvas");
       addCategory("vue", "VueJS");
       addCategory("blog", "Blog");
     },
@@ -184,6 +182,15 @@ export default {
       const files = await $content({ deep: true }).only(["path"]).fetch();
 
       return files.map((file) => (file.path === "/index" ? "/" : file.path));
+    },
+  },
+  hooks: {
+    "content:file:beforeInsert": (document) => {
+      if (document.extension === ".md") {
+        const { text } = require("reading-time")(document.text);
+
+        document.readingTime = text;
+      }
     },
   },
 };

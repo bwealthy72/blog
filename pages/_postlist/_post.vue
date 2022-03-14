@@ -6,13 +6,10 @@
 
       <LayoutTags :tags="post.tags"></LayoutTags>
 
-      <div class="date">
-        <!-- <div class="created-date">
-          <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span> Date | {{ post.createdAt }}</span>
-        </div> -->
+      <p class="reading-time">{{ post.readingTime }}</p>
 
-        <div class="upated-date">
+      <div class="date">
+        <div class="created-date">
           <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
           <span> {{ post.createdAt }}</span>
         </div>
@@ -41,6 +38,8 @@
         async
       ></script>
     </div>
+
+    <CommonLightbox></CommonLightbox>
   </main>
 </template>
 
@@ -105,9 +104,10 @@ export default {
 
   async asyncData({ store, route, $content, $dateFormat }) {
     let path = route.path;
-    // if (path[path.length - 1] === "/") {
-    //   path = path.split("/").slice(0, -1).join("/");
-    // }
+
+    if (path[path.length - 1] === "/") {
+      path = path.slice(0, -1);
+    }
 
     const post = await $content(decodeURI(path)).fetch();
     post.createdAt = $dateFormat(new Date(post.createdAt));

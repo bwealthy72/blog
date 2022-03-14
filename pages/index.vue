@@ -23,12 +23,8 @@
         charset="utf-8"
       ></script>
     </div>
-    <div class="site-home__block instagram">
-      <h3 class="sub-title">Instagram</h3>
-      <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-      <div class="elfsight-app-c3fbb74d-4767-49d4-a1ed-f6f668301329"></div>
-    </div>
-    <div class="site-home__block github">
+    <div class="site-home__block instagram" v-if="false"></div>
+    <div class="site-home__block github" v-if="false">
       <h3 class="sub-title">Github</h3>
     </div>
   </div>
