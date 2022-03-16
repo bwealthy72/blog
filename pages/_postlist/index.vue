@@ -79,7 +79,8 @@ export default {
         "description",
         "dir",
       ])
-      .sortBy("createdAt", "desc");
+      .sortBy("createdAt", "desc")
+      .sortBy("title", "desc");
 
     if (isSearchPage) {
       query = query.search("title", route.params.keyword);

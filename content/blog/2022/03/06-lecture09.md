@@ -135,17 +135,59 @@ export default {
         path: "/search/:keyword",
         component: resolve(__dirname, "pages/_postlist/index.vue"),
       });
+      console.log(routes);
     },
   },
   // ...
 };
 ```
 
-<post-img src="/images/22/03/07/215029.png"></post-img>
+extendRoutes를 통해 추가로 라우팅하는 코드입니다. log를 보면 좀더 이해가 되실텐데요. route 값에 추가됨에 따라 `/search/:keyword`로 이동하면 `_postlist/index.vue` 페이지 컴포넌트를 통해 렌더링하게 됩니다!
 
-extendRoutes를 통해 추가로 라우팅하는 코드입니다. routes에는 router.js에서 만들어진 값들이 들어있습니다. 여기에 경로와 component를 추가하는건데요.
+<post-img src="/images/22/03/17/001309.png"></post-img>
 
-extendRoutes에서 받은 `resolve` 함수와 `__dirname` 이라는 값을 이용하면 프로젝트 폴더 내에 원하는 경로의 컴포넌트를 지정할 수 있습니다.
+코드를 잘 보시면 `resolve` 함수와 `__dirname` 이라는 값을 이용하는데, 프로젝트 폴더 내에 원하는 경로의 컴포넌트를 지정할 수 있습니다.
+
+### postlist 컴포넌트 수정하기
+
+이제 해당 컴포넌트에서 검색기능이 추가되어야겠죠? 두 가지의 경우를 생각하고 구현해야합니다.
+
+- **/search/:keyword** 로 이동 -> path = /, keyword로 search 로 fetch
+- **/:postlist/:post** 로 이동 -> path = /{postlist}/{post} 로 fetch
+
+```vue [pages/_postlist/index.vue]
+<script>
+export default {
+  async asyncData(ctx) {
+    let path = ctx.route.path;
+
+    // /search/:keyword 페이지인지 여부
+    const isSearchPage = ctx.route.path.startsWith("/search");
+
+    // Search 페이지라면 path를 /로 변경
+    if (isSearchPage) {
+      path = "/";
+    }
+
+    let query = await ctx.$content(path, { deep: true });
+
+    // Search 페이지라면 search 함수 사용
+    if (isSearchPage) {
+      const keyword = ctx.route.params.keyword;
+      query = query.search("title", keyword);
+    }
+
+    const posts = await query.fetch();
+
+    return { posts };
+  },
+};
+</script>
+```
+
+그러면 검색도 잘되고 포스트 리스트도 잘 나오는 것을 볼 수 있습니다.
+
+<post-img src="/images/22/03/17/002943.png"></post-img>
 
 ## Search 함수
 
