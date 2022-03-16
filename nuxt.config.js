@@ -118,7 +118,7 @@ export default {
     liveEdit: false,
     markdown: {
       prism: {
-        theme: false,
+        theme: "prism-themes/themes/prism-material-dark.css",
       },
     },
   },

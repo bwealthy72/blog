@@ -32,8 +32,8 @@ export default {
       aniID: null,
       flags: [],
       widths: [],
-      speed: 3,
-      scale: 2.2,
+      speed: 4,
+      scale: 2.4,
     };
   },
   created() {

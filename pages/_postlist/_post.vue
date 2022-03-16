@@ -24,7 +24,7 @@
           <img :src="post.coverImg" alt="Cover Image" />
         </div>
 
-        <nuxt-content :document="post" />
+        <nuxt-content :document="post" tag="article" />
       </div>
     </article>
     <div class="comments">
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import Prism from "prismjs";
+import "prismjs/plugins/line-numbers/prism-line-numbers.js";
 export default {
   head() {
     const post = this.post;
@@ -101,15 +103,24 @@ export default {
       meta,
     };
   },
+  mounted() {
+    Prism.highlightAll();
+  },
 
-  async asyncData({ store, route, $content, $dateFormat }) {
+  async asyncData({ store, route, $content, $dateFormat, error }) {
     let path = route.path;
 
     if (path[path.length - 1] === "/") {
       path = path.slice(0, -1);
     }
 
-    const post = await $content(decodeURI(path)).fetch();
+    let post;
+    try {
+      post = await $content(decodeURI(path)).fetch();
+    } catch {
+      return error({ statusCode: 404, message: "Article not found" });
+    }
+
     post.createdAt = $dateFormat(new Date(post.createdAt));
     post.updatedAt = $dateFormat(new Date(post.updatedAt));
     post.dir = route.path.split("/").slice(0, 2).join("/");
