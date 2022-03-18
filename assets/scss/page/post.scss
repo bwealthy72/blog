@@ -107,6 +107,13 @@
           }
         }
 
+        img {
+          max-width: 100%;
+          margin: 0 auto;
+          max-height: 500px;
+          display: flex;
+        }
+
         .img-wrapper {
           .lightbox {
             position: fixed;
@@ -247,7 +254,7 @@
           }
 
           .filename {
-            color: #999;
+            color: white;
             box-sizing: border-box;
             display: flex;
             width: fit-content;

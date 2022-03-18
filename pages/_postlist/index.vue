@@ -30,6 +30,10 @@
           </div>
         </li>
       </ul>
+      <CommonPagination
+        :totalPage="totalPage"
+        :currPage="currPage"
+      ></CommonPagination>
     </article>
   </main>
 </template>
@@ -59,28 +63,31 @@ export default {
     },
   },
   async asyncData({ store, route, $content }) {
-    let path = "";
-
     // 경로가 /search로 시작하는 경우 검색 화면
     const isSearchPage = route.path.startsWith("/search");
+
+    // 경로가 /tag로 시작하는 경우 tag화면
     const isTagPage = route.path.startsWith("/tag");
 
-    if (!isSearchPage && !isTagPage) {
-      path = route.path.split("/").slice(0, 2).join("/");
+    let path = route.path.split("/").slice(0, 2).join("/");
+    if (isSearchPage || !isTagPage) {
+      path = "";
     }
 
+    const postNum = 5;
+    let currPage = parseInt(route.query.page);
+    if (!currPage) {
+      currPage = 1;
+    }
+
+    // Load content
+    // ========================================================================
     let query = await $content(path, { deep: true })
-      .only([
-        "title",
-        "path",
-        "tags",
-        "createdAt",
-        "coverImg",
-        "description",
-        "dir",
-      ])
+      .without(["body"])
       .sortBy("createdAt", "desc")
-      .sortBy("title", "desc");
+      .sortBy("title", "desc")
+      .skip((currPage - 1) * postNum)
+      .limit(postNum);
 
     if (isSearchPage) {
       query = query.search("title", route.params.keyword);
@@ -98,8 +105,16 @@ export default {
       post.dir = "/" + dir[1];
       post.category = store.state.routePaths[post.dir];
     }
+    // ========================================================================
 
-    return { postList };
+    // pagination
+    // ========================================================================
+    const totalPost = (await $content(path, { deep: true }).only([""]).fetch())
+      .length;
+    const totalPage = parseInt(Math.ceil(totalPost / postNum));
+    // ========================================================================
+
+    return { postList, currPage, totalPage };
   },
 };
 </script>
