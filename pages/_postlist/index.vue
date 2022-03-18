@@ -70,7 +70,7 @@ export default {
     const isTagPage = route.path.startsWith("/tag");
 
     let path = route.path.split("/").slice(0, 2).join("/");
-    if (isSearchPage || !isTagPage) {
+    if (isSearchPage || isTagPage) {
       path = "";
     }
 
@@ -96,6 +96,7 @@ export default {
     if (isTagPage) {
       query = query.where({ tags: { $contains: route.params.tag } });
     }
+    console.log(route.params.tag);
 
     const postList = await query.fetch();
 
