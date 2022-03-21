@@ -85,7 +85,7 @@ export default {
 
         const itemTop = itemRect.top - dockRect.top;
         const itemCenter = itemTop + itemHeight / 2;
-        const distFromItem = Math.abs(itemCenter - (y + itemHeight / 2));
+        const distFromItem = Math.abs(itemCenter - y);
 
         // 해당 dock item이 가져야할 width
         // 거리가 멀어짐에 따라 크기가 작아야한다.

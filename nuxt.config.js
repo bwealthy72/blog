@@ -164,8 +164,7 @@ export default {
 
       // addCategory("html", "HTML");
       // addCategory("css", "CSS");
-
-      addCategory("canvas", "Canvas");
+      // addCategory("canvas", "Canvas");
       addCategory("vue", "VueJS");
       addCategory("blog", "Blog");
     },

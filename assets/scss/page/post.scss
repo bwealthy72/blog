@@ -20,9 +20,7 @@
       font-size: 3rem;
       line-height: 1.2;
       font-weight: bold;
-      margin-top: 2.5rem;
-      margin-left: 13rem;
-      margin-right: 13rem;
+      margin: 2.5rem 13rem 1rem 13rem;
       text-shadow: 2px 2px 2px black;
       text-align: center;
     }
@@ -153,7 +151,6 @@
             border-radius: 8px;
             margin: 3rem auto;
             display: flex;
-            border: 1px solid $border-color;
           }
         }
 
@@ -186,16 +183,18 @@
 
         a {
           color: $key-color;
-          border-bottom: 1px solid;
+          &:hover {
+            border-bottom: 1px solid;
+          }
         }
 
         strong {
-          color: #94c78b;
+          color: #76bea7;
         }
 
         p > code,
         li > code {
-          background-color: #171717;
+          background-color: #333;
           padding: 0.1em 0.3em;
           box-sizing: content-box;
           border-radius: 4px;
@@ -204,7 +203,7 @@
         }
 
         blockquote {
-          background-color: #333;
+          background-color: #222;
           margin: 5rem 0;
           padding: 2rem 3rem;
           border-left: 6px solid $key-color;
