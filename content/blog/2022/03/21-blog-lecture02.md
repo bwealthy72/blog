@@ -1,9 +1,7 @@
-치---
-title: 블로그 만들면서 배우는 웹개발] Visual Studio Code 설치
+---
+title: 블로그 만들면서 배우는 웹개발] 설치
 tags:
-
-- blog-lecture
-
+  - blog-lecture
 ---
 
 HTML은 웹 페이지를 만들 때, 가장 많이 사용되는 언어입니다. 집을 짓는 것에 비유하자면 집을 짓는데 필요한 재료를 모아두는 것이라 할 수 있죠.

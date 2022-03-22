@@ -89,4 +89,4 @@ $ nvm use system
 
 네! 이제 우리 Nuxt 프로젝트를 만들 준비가 다 되었습니다! 다음 시간에는 Nuxt 프로젝트를 만들어 보겠습니다!
 
-![](/images/meme/제리인사.gif)
+<post-img src="/images/meme/제리인사.gif"></post-img>

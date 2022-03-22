@@ -95,4 +95,4 @@ routing 설정도 없이 바로 category라는 페이지가 만들어졌습니�
 
 다음 시간에는 본격적으로 포스팅하는 방법에 대해 알아보겠습니다!!
 
-![](/images/meme/제리인사.gif)
+<post-img src="/images/meme/제리인사.gif"></post-img>

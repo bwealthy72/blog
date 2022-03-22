@@ -43,7 +43,7 @@ npm init nuxt-app vuelog
 
 혹시나 어떤 건지 잘 모르실 분들을 위한 gif도 보여드릴게요!
 
-![](/images/22/02/26/nuxt-project.gif)
+<post-img src="/images/22/02/26/nuxt-project.gif"></post-img>
 
 네 설치가 다되었다고 나오면서 어떤 명령어 예시가 나옵니다.
 
@@ -101,4 +101,4 @@ npm run dev # 개발 서버 실행하기
 
 오늘은 Nuxt 프로젝트를 만들어봤습니다. Vue와는 다른 라우팅 방식에 대해 배워보면서, main 화면, 포스트 리스트, 포스트 화면 3개를 만들어보겠습니다.
 
-![](/images/meme/제리인사.gif)
+<post-img src="/images/meme/제리인사.gif"></post-img>

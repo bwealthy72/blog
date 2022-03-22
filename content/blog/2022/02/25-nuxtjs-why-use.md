@@ -117,7 +117,7 @@ Editor가 마크다운은 아니다. 티스토리 기본모드 같달까..그러
 
 <post-img src="/images/22/02/25/130822.png"></post-img>
 
-![](/images/22/02/25/ghost_editor.gif)
+<post-img src="/images/22/02/25/ghost_editor.gif"></post-img>
 
 ### VuePress
 
