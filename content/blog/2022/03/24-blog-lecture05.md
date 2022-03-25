@@ -1,5 +1,5 @@
 ---
-title: 블로그 만들면서 배우는 웹개발] display에서 block과 inline
+title: 블로그 만들면서 배우는 웹개발 5] display에서 block과 inline
 tags:
   - blog-lecture
 ---
@@ -189,4 +189,4 @@ none은 `없음`이란 의미를 가지고 있습니다. 즉 **보여주지 않�
 
 <post-img src="/images/22/03/24/214315.png"></post-img>
 
-이해가 잘 되셨나요? 다음 시간에는 레이아웃 배치에 자주 사용되는 flex를 먼저 알아보도록 하겠습니다.
+이해가 잘 되셨나요? 실제로 block, inline, inline-block과 float을 이용해서 레이아웃 배치하는 방법을 많이 사용했었습니다. 하지만 요즈음엔 flex와 grid라는 좋은 속성들이 생겨나서 좀 더 쉽게 레이아웃을 배치할 수 있게 되었습니다. 이제 곧 배워볼겁니다!! 천천히 나아가보자구요!

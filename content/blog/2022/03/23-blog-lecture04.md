@@ -1,5 +1,5 @@
 ---
-title: 블로그 만들면서 배우는 웹개발] style 다루기
+title: 블로그 만들면서 배우는 웹개발 4] style 다루기
 tags:
   - blog-lecture
 ---

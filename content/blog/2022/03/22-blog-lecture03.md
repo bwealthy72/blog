@@ -1,5 +1,5 @@
 ---
-title: 블로그 만들면서 배우는 웹개발] HTML 핥아보기
+title: 블로그 만들면서 배우는 웹개발 3] HTML 핥아보기
 tags:
   - blog-lecture
 ---
