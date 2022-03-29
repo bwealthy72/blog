@@ -1,40 +1,31 @@
 <template>
   <main class="post-list-wrapper">
-    <article class="content">
-      <h1 class="main-title">{{ mainTitle }}</h1>
-      <ul>
-        <li class="post-item" v-for="post of postList" :key="post.title">
-          <a class="post-item__img" v-if="post.coverImg" :href="post.path">
-            <img :src="post.coverImg" alt="cover" />
+    <div class="main-title">
+      <img class="main-title__img" v-if="categoryIco" :src="categoryIco" />
+      <h1 class="main-title__text">{{ mainTitle }}</h1>
+    </div>
+    <section class="post-list">
+      <article class="post-item" v-for="post of postList" :key="post.title">
+        <a class="post-item__img" v-if="post.coverImg" :href="post.path">
+          <img :src="post.coverImg" alt="cover" />
+        </a>
+        <div class="post-item__text">
+          <a :href="post.dir" class="post-item__category">{{
+            post.category
+          }}</a>
+          <a :href="post.path" class="post-item__content">
+            <h2 class="post-item__title">{{ post.title }}</h2>
+            <p class="post-item__date">{{ post.createdAt.slice(0, 10) }}</p>
+            <p class="post-item__desc">{{ post.description }}</p>
           </a>
-          <div class="post-item__info">
-            <a :href="post.dir" class="category">{{ post.category }}</a>
-            <a :href="post.path" class="main-info">
-              <h2 class="title">{{ post.title }}</h2>
-              <p class="desc">{{ post.description }}</p>
-            </a>
-
-            <div class="sub-info">
-              <LayoutTags :tags="post.tags"></LayoutTags>
-              <p class="date">
-                <img
-                  class="calendar-ico"
-                  src="@/assets/images/calendar.svg"
-                  alt="calendar"
-                />
-                <span>{{
-                  post.createdAt.slice(0, 10).replace(/-/gi, ".")
-                }}</span>
-              </p>
-            </div>
-          </div>
-        </li>
-      </ul>
-      <CommonPagination
-        :totalPage="totalPage"
-        :currPage="currPage"
-      ></CommonPagination>
-    </article>
+          <LayoutTags :tags="post.tags"></LayoutTags>
+        </div>
+      </article>
+    </section>
+    <CommonPagination
+      :totalPage="totalPage"
+      :currPage="currPage"
+    ></CommonPagination>
   </main>
 </template>
 
@@ -48,6 +39,11 @@ export default {
       };
     }
   },
+  data() {
+    return {
+      categoryIco: null,
+    };
+  },
   computed: {
     mainTitle() {
       let title = "";
@@ -58,6 +54,7 @@ export default {
         title = `"${r.params.tag}" 태그 결과`;
       } else if (r.name) {
         title = r.name;
+        this.categoryIco = require(`~/assets/images/dock/${title}.png`);
       }
       return title;
     },
@@ -74,7 +71,7 @@ export default {
       path = "";
     }
 
-    const postNum = 5;
+    const postNum = 6;
     let currPage = parseInt(route.query.page);
     if (!currPage) {
       currPage = 1;
@@ -96,7 +93,6 @@ export default {
     if (isTagPage) {
       query = query.where({ tags: { $contains: route.params.tag } });
     }
-    console.log(route.params.tag);
 
     const postList = await query.fetch();
 

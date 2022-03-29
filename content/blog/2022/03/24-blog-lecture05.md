@@ -6,6 +6,8 @@ tags:
 
 저번 시간에 style을 다루면서 가로, 세로, 배경색을 바꿔보았는데요~! width가 auto일 때는 부모 태그의 가로 크기가 되고 그 이유가 display가 block이기 때문이라고 했었습니다. 오늘은 display가 무엇인지 알아볼게요
 
+<!--more-->
+
 ## display
 
 말그대로 디스플레이, 어떻게 보여줄지에 대한 속성입니다. inline, block, flex, grid, table, content 등 정말 다양하게 많은데요. 그 중 오늘은 inline, block, inline-block, none에 대해서 다뤄보고 다음 시간에는 레이아웃을 그릴 때 사용하는 flex, grid에 대해서 다뤄보겠습니.

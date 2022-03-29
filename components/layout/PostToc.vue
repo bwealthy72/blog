@@ -1,7 +1,10 @@
 <template>
   <nav class="toc-wrapper" v-if="toc.length > 0">
     <div class="toc">
-      <h2 class="toc__title">Table of Content</h2>
+      <h2 class="toc__title">
+        <img src="@/assets/images/post/bookmark.svg" alt="toc" />
+        <span>Content</span>
+      </h2>
       <ul class="toc__list">
         <li
           v-for="t of toc"

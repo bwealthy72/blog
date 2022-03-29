@@ -5,24 +5,25 @@
   z-index: 100;
   display: none;
 
-  $bg-color: #333;
-  $line-color: white;
-  $border-color: #555;
-  $width: 5rem;
-  $height: 5rem;
-  $padding: 1.5rem 1rem;
+  $bg-color: white;
+  $line-color: rgb(79, 137, 190);
+  $width: 4rem;
+  $height: 4rem;
+  $padding: 1rem;
 
   .hamburger-btn {
     background-color: $bg-color;
-    padding: 0;
     border: 0;
-    border-right: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
     width: $width;
     height: $height;
     padding: $padding;
+    margin-left: 1rem;
+    margin-top: 1rem;
     box-sizing: border-box;
-    border-radius: 0 0 10px 0;
+    box-shadow: 2px 2px 5px #aaa;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
 
     &__box {
       position: relative;
@@ -40,7 +41,7 @@
         transition-property: all;
 
         &:nth-child(1) {
-          top: -10%;
+          top: 0%;
         }
 
         &:nth-child(2) {
@@ -48,24 +49,7 @@
         }
 
         &:nth-child(3) {
-          top: 90%;
-        }
-      }
-
-      &.active {
-        .line {
-          &:nth-child(1) {
-            top: 40%;
-            transform: rotate(405deg);
-          }
-          &:nth-child(2) {
-            // transform: translateX(-100%);
-            opacity: 0;
-          }
-          &:nth-child(3) {
-            top: 40%;
-            transform: rotate(495deg);
-          }
+          top: 80%;
         }
       }
     }
@@ -76,42 +60,73 @@
     &__link {
       display: flex;
       align-items: center;
-      margin-top: 1rem;
+      margin-top: 2rem;
     }
 
     &__ico {
-      width: calc(#{$width} - 2rem);
-      height: calc(#{$width} - 2rem);
+      width: $width;
+      height: $height;
+      padding: $padding;
+      box-sizing: border-box;
       border-radius: 50%;
-      background-color: $bg-color;
       object-fit: contain;
-      padding: 0.8rem;
-      border: 1px solid $border-color;
       margin-left: 1rem;
+      background-color: white;
+      box-shadow: 2px 2px 7px #aaa;
 
       img {
         width: 100%;
         height: 100%;
         object-fit: contain;
-        filter: drop-shadow(2px 2px 1px black);
       }
     }
 
     &__name {
       color: white;
-      text-shadow: 2px 2px 2px black;
+      text-shadow: 0px 3px 3px black;
       font-weight: bold;
+      padding: 0.25em 0.4em;
+      // background-color: $key-color4;
+      border-radius: 5px;
       font-size: 1.6rem;
-      margin-left: 1.5rem;
+      margin-left: 1rem;
       opacity: 0;
       transition: opacity 0.3s;
       transition-delay: 0.3s;
     }
+  }
 
-    &.active {
+  &.active {
+    &::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(100, 100, 100, 0.4);
+      backdrop-filter: blur(2px);
+    }
+    .hamburger-btn__box {
+      .line {
+        &:nth-child(1) {
+          top: 40%;
+          transform: rotate(405deg);
+        }
+        &:nth-child(2) {
+          // transform: translateX(-100%);
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          top: 40%;
+          transform: rotate(495deg);
+        }
+      }
+    }
+    .nav {
       transform: translateX(0);
 
-      .nav__name {
+      &__name {
         opacity: 1;
       }
     }

@@ -1,7 +1,8 @@
 .tags {
   display: flex;
   align-items: center;
-  opacity: 0.8;
+  font-size: 1.4rem;
+  color: $key-color4;
 
   &__ico {
     height: 1.2rem;
@@ -13,12 +14,9 @@
   }
 
   &__item {
-    background-color: $bg-color;
-    color: #a49ad3;
-    font-size: 1.4rem;
-    padding: 0.2em 0.5em;
-    margin-right: 0.5rem;
+    margin-right: 0.7rem;
     border-radius: 6px;
+    white-space: nowrap;
 
     &:last-child {
       margin-right: 0;

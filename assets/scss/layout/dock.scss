@@ -12,8 +12,9 @@
     flex-direction: column;
     margin-left: calc(#{$dock-width} / 4);
     padding: 1.5rem 0.5rem;
-
-    @include container-box;
+    border-radius: 8px;
+    background-color: #f3fcff;
+    box-shadow: 1px 1px 4px #888;
 
     &__item {
       position: relative;
@@ -36,6 +37,7 @@
         .ico {
           object-fit: contain;
           width: 100%;
+          filter: drop-shadow(2px 2px 2px black);
         }
         .info {
           display: none;

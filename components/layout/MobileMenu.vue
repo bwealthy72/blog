@@ -1,13 +1,13 @@
 <template>
-  <nav class="site-mobile-menu">
+  <nav class="site-mobile-menu" :class="{ active: isActive }">
     <button class="hamburger-btn" @click="click">
-      <div class="hamburger-btn__box" :class="{ active: isActive }">
+      <div class="hamburger-btn__box">
         <div class="line"></div>
         <div class="line"></div>
         <div class="line"></div>
       </div>
     </button>
-    <ul class="nav" :class="{ active: isActive }">
+    <ul class="nav">
       <li
         v-for="(name, path) of $store.state.routePaths"
         :key="path"

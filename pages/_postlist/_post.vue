@@ -1,39 +1,37 @@
 <template>
   <main class="post-wrapper">
-    <div class="header">
-      <a :href="post.dir" class="category">{{ post.category }}</a>
-      <h1 class="title">{{ post.title }}</h1>
+    <div class="head">
+      <a :href="post.dir" class="head__cate">{{ post.category }}</a>
+      <h1 class="head__title">{{ post.title }}</h1>
 
-      <LayoutTags :tags="post.tags"></LayoutTags>
+      <p class="head__rt">{{ post.readingTime }}</p>
 
-      <p class="reading-time">{{ post.readingTime }}</p>
-
-      <div class="date">
-        <div class="created-date">
-          <img class="date-ico" src="@/assets/images/calendar.svg" alt="cal" />
-          <span> {{ post.createdAt }}</span>
-        </div>
+      <div class="head__date">
+        <img class="ico" src="@/assets/images/calendar.svg" alt="cal" />
+        <span> {{ post.createdAt }}</span>
       </div>
     </div>
 
-    <article class="post">
-      <LayoutPostToc :toc="post.toc"></LayoutPostToc>
+    <article class="body">
+      <LayoutPostToc class="body__toc" :toc="post.toc"></LayoutPostToc>
+      <LayoutTags :tags="post.tags"></LayoutTags>
 
-      <div class="content">
-        <div class="cover-img" v-if="post.coverImg">
+      <div class="body__post">
+        <div class="body__cover" v-if="post.coverImg">
           <img :src="post.coverImg" alt="Cover Image" />
         </div>
 
         <nuxt-content :document="post" tag="article" />
       </div>
     </article>
+
     <div class="comments">
       <script
         src="https://utteranc.es/client.js"
         repo="bwealthy72/blog"
         issue-term="title"
         label="Comment"
-        theme="github-dark"
+        theme="github-light"
         crossorigin="anonymous"
         async
       ></script>

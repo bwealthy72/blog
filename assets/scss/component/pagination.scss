@@ -14,7 +14,7 @@
     align-items: center;
 
     &.disabled {
-      opacity: 0.5;
+      opacity: 0.2;
       pointer-events: none;
       user-select: none;
     }
@@ -31,12 +31,13 @@
     }
 
     &.arrow {
-      background-color: #333;
       margin: 0 0.4rem;
     }
 
     &.active {
-      background-color: $key-color;
+      background-color: $key-color4;
+      color: white;
+      font-weight: bold;
     }
   }
 }
