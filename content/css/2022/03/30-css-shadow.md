@@ -1,8 +1,8 @@
 ---
-title: [CSS] Shadow 그림자 넣는 방법 총정리
+title: (CSS) shadow 그림자 넣는 방법 총정리
+coverImg: /images/22/03/31/013622.png
 tags:
   - shadow
-coverImg: /images/22/03/30/132155.png
 ---
 
 웹에서 입체적인 효과를 위해 사용되는 그림자(shadow)를 사용하는데요. 그림자를 적절하게 주기 위해서는 이를 위한 속성들을 잘 알아야합니다.
@@ -59,17 +59,18 @@ box-shadow와 filter 방식은 동일한 것처럼 보이지만 이미지만 다
 
 ### 여러 그림자
 
-서
 box-shadow, text-shadow는 `콤마(,)`를 기준으로 여러 그림자를 사용할 수 있습니다. 이를 잘 활용하면 마치 왼쪽 위에 조명이 있는 것처럼 효과를 줄 수 있습니다.
 
 <post-img src="/images/22/03/30/212630.png"></post-img>
 
+<!--
 <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="abEyBmZ" data-editable="true" data-user="bwealthy72" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bwealthy72/pen/abEyBmZ">
   Untitled</a> by Blog Wealthy (<a href="https://codepen.io/bwealthy72">@bwealthy72</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+ -->
 
 ## 마무리하며
 
