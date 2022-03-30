@@ -191,9 +191,10 @@
         }
 
         a {
-          color: $key-color1;
+          color: $key-color4;
+          text-decoration: underline;
           &:hover {
-            border-bottom: 1px solid;
+            font-weight: bold;
           }
         }
 
@@ -206,8 +207,9 @@
         h3 > code,
         p > code,
         li > code {
-          color: #663e3e;
-          background-color: #e8cec3;
+          color: #63746d;
+          background-color: #cdf1e2;
+          box-shadow: 1px 1px 3px;
           padding: 0.15em 0.3em;
           box-sizing: content-box;
           border-radius: 4px;

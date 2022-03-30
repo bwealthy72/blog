@@ -36,8 +36,6 @@
         async
       ></script>
     </div>
-
-    <CommonLightbox></CommonLightbox>
   </main>
 </template>
 
