@@ -1,5 +1,5 @@
 ---
-title: css shadow 그림자 넣는 방법 총정리
+title: [CSS] shadow 그림자 넣는 방법 총정리
 tags:
   - shadow
 coverImg: /images/22/03/30/132155.png
