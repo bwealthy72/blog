@@ -1,63 +1,54 @@
 <template>
-  <div class="shadow-box">
-    <div class="shadow-box__sample">
-      <div class="text">Hello</div>
-      <img class="img" src="@/assets/images/search.svg" alt="" />
+  <div class="shadow-box-wrapper">
+    <div class="sample">
+      <div class="sample__text" :style="sampleStyle">Hello</div>
+      <img
+        class="sample__img"
+        :style="sampleStyle"
+        src="@/assets/images/search.svg"
+        alt=""
+      />
     </div>
 
-    <div class="shadow-box__ctrls">
-      <div
-        class="ctrl"
-        v-for="(shadow, key) in shadowItems"
-        :key="key"
-        :class="key"
-      >
-        <div class="ctrl__title">{{ key }}</div>
-        <div class="ctrl__list" v-for="(val, name) in shadow" :key="name">
-          <label class="ctrl__item" v-if="name != 'color'">
-            <span class="ctrl__name"> {{ name }} : {{ val }}px</span>
+    <div class="controller">
+      <div class="controller__type" v-for="(list, type) in shadows" :key="type">
+        <div class="controller__title">{{ type }}</div>
+        <div class="ctrl-list">
+          <label
+            class="ctrl-list__item"
+            v-for="(val, name) in list"
+            :key="name"
+          >
+            <span class="ctrl-list__name">
+              {{ name }} : {{ val }}
+              <span v-if="getPropType(name) === 'range'">px</span>
+            </span>
             <input
-              class="ctrl__bar"
-              :data-shadow="key"
+              class="ctrl-list__val--range"
               type="range"
               :name="name"
-              :min="name == 'blur' || name == 'spread' ? 0 : -100"
-              :max="name == 'blur' || name == 'spread' ? 10 : 100"
+              :min="getRangeMin(name)"
+              :max="getRangeMax(name)"
               step="1"
-              :value="val"
-              @input="change"
+              v-model="shadows[type][name]"
+              v-if="getPropType(name) === 'range'"
             />
-          </label>
-          <label class="ctrl__item" :for="name" v-if="name == 'color'">
-            <span class="ctrl__name"> {{ name }}: {{ val }}</span>
             <input
-              class="ctrl__color"
-              :data-shadow="key"
+              class="ctrl-list__val--color"
               type="color"
               :name="name"
-              :id="name"
-              :value="val"
-              @input="change"
+              v-model="shadows[type][name]"
+              v-if="getPropType(name) === 'color'"
+            />
+            <input
+              class="ctrl-list__val--checkbox"
+              type="checkbox"
+              :name="name"
+              v-model="shadows[type][name]"
+              v-if="getPropType(name) === 'checkbox'"
             />
           </label>
         </div>
-        <label for="ctrl__item" v-if="key == 'box'">
-          <span class="ctrl__name"> Inset </span>
-          <input
-            class="ctrl__inset"
-            type="checkbox"
-            @change="inset($event, key)"
-          />
-        </label>
-        <label for="ctrl__item">
-          <span class="ctrl__name"> Active </span>
-          <input
-            class="ctrl__active"
-            type="checkbox"
-            @change="toggle($event, key)"
-            checked
-          />
-        </label>
       </div>
     </div>
   </div>
@@ -67,108 +58,100 @@
 export default {
   data() {
     return {
-      shadowItems: {
-        box: {
-          offsetX: 2,
-          offsetY: 2,
-          blur: 6,
-          spread: 1,
-          color: "#ffbdbd",
+      shadows: {
+        "box-shadow": {
+          "offset-x": 2,
+          "offset-y": 2,
+          blur: 1,
+          spread: 0,
+          color: "#aaaaaa",
+          inset: false,
+          active: true,
         },
-        text: {
-          offsetX: 3,
-          offsetY: 3,
-          blur: 3,
-          color: "#5353cf",
+        "text-shadow": {
+          "offset-x": 2,
+          "offset-y": 2,
+          blur: 2,
+          color: "#f8c4c4",
+          active: true,
         },
         filter: {
-          offsetX: 2,
-          offsetY: 2,
+          "offset-x": 2,
+          "offset-y": 2,
           blur: 2,
-          color: "#7bea97",
+          color: "#96a7ff",
+          active: true,
         },
       },
     };
   },
-  methods: {
-    changeStyle(type, s, active = true, inset) {
-      let newShadow, prop;
-      if (type === "box") {
-        newShadow = `${s["offsetX"]}px ${s["offsetY"]}px ${s["blur"]}px ${s["spread"]}px ${s["color"]}`;
-        prop = "boxShadow";
-        if (inset) {
-          newShadow += " inset";
+  computed: {
+    sampleStyle() {
+      const style = {};
+      for (const shadow in this.shadows) {
+        if (!this.shadows[shadow].active) continue;
+        let _s = "";
+
+        if (shadow === "filter") {
+          _s += "drop-shadow(";
         }
-      } else if (type === "text") {
-        newShadow = `${s["offsetX"]}px ${s["offsetY"]}px ${s["blur"]}px ${s["color"]}`;
-        prop = "textShadow";
-        if (inset) {
-          newShadow += " inset";
+
+        for (const prop in this.shadows[shadow]) {
+          const val = this.shadows[shadow][prop];
+          const valType = this.getPropType(prop);
+
+          if (prop === "active") continue;
+          else if (valType === "range") {
+            _s += val + "px ";
+          } else if (valType === "checkbox") {
+            if (val) {
+              _s += prop + " ";
+            }
+          } else {
+            _s += val + " ";
+          }
         }
-      } else if (type === "filter") {
-        newShadow = `drop-shadow(${s["offsetX"]}px ${s["offsetY"]}px ${s["blur"]}px ${s["color"]})`;
-        prop = "filter";
+        if (shadow === "filter") {
+          _s += ")";
+        }
+        style[shadow] = _s;
       }
-
-      this.$el.querySelector(".shadow-box__sample .text").style[prop] = active
-        ? newShadow
-        : null;
-      this.$el.querySelector(".shadow-box__sample .img").style[prop] = active
-        ? newShadow
-        : null;
-
-      console.log("active", active);
-      console.log(
-        "props",
-        this.$el.querySelector(".shadow-box__sample .text").style[prop]
-      );
-    },
-    toggle(e, type) {
-      let inset = false;
-      if (type == "box") {
-        inset = this.$el.querySelector(`.${type} .ctrl__inset`).checked;
-      }
-      this.changeStyle(type, this.shadowItems[type], e.target.checked, inset);
-    },
-
-    inset(e, type) {
-      const active = this.$el.querySelector(`.${type} .ctrl__active`).checked;
-      this.changeStyle(type, this.shadowItems[type], active, e.target.checked);
-    },
-
-    change(e) {
-      const property = e.target.name;
-      const type = e.target.dataset.shadow;
-      let val = e.target.value;
-
-      const s = this.shadowItems[type];
-      s[property] = val;
-
-      let inset = false;
-      if (type === "box") {
-        inset = this.$el.querySelector(`.${type} .ctrl__inset`).checked;
-      }
-      const active = this.$el.querySelector(`.${type} .ctrl__active`).checked;
-
-      this.changeStyle(type, s, active, inset);
+      return style;
     },
   },
-  mounted() {
-    for (const [key, val] of Object.entries(this.shadowItems)) {
-      this.changeStyle(key, val);
-    }
+  methods: {
+    getPropType(prop) {
+      if (["inset", "active"].includes(prop)) {
+        return "checkbox";
+      } else if (prop == "color") {
+        return "color";
+      } else {
+        return "range";
+      }
+    },
+    getRangeMin(prop) {
+      if (["blur", "spread"].includes(prop)) {
+        return 0;
+      } else {
+        return -100;
+      }
+    },
+    getRangeMax(prop) {
+      if (["blur", "spread"].includes(prop)) {
+        return 10;
+      } else {
+        return 100;
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.shadow-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.shadow-box-wrapper {
   margin: 3rem 0;
-
-  &__sample {
+  user-select: none;
+  .sample {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -176,52 +159,48 @@ export default {
     margin: 10rem 0;
     width: 100%;
 
-    .text {
+    &__text {
       width: 100px;
       height: 100px;
-      background-color: gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ddd;
+      border-radius: 8px;
     }
 
-    .img {
+    &__img {
       width: 100px;
       height: 100px;
       background-color: transparent;
       margin: 0 !important;
     }
   }
-
-  &__ctrls {
+  .controller {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: 100%;
-    .ctrl {
+
+    &__type {
+      padding: 10px;
       flex: 1 1 30%;
-      margin-right: 1rem;
+    }
 
-      &:last-child {
-        margin-right: 0;
-      }
+    &__title {
+      margin-bottom: 15px;
+    }
 
-      &__title {
-        text-align: center;
-        font-size: 2rem;
-        margin: 2rem 0;
-        font-weight: bold;
-      }
-
+    .ctrl-list {
       &__item {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        margin-bottom: 10px;
       }
 
       &__name {
-        flex: 0 0 45%;
-        white-space: nowrap;
-      }
-
-      &__bar {
-        flex: 1;
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
       }
     }
   }
