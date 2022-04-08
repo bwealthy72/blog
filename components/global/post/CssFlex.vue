@@ -1,80 +1,67 @@
 <!-- Use preprocessors via the lang attribute! e.g. <template lang="pug"> -->
 <template>
   <div class="flex-wrapper">
-    <div class="flex-container" :style="containerProps">
+    <div class="flex-wrapper__title">Flex 테스트!</div>
+    <div class="flex-container" :style="flexContainerStyle">
       <div
         class="flex-item"
         v-for="(item, index) of flexItems"
         :style="item"
         :key="index"
       >
-        <div
-          v-for="(v, k) in item"
-          :key="k"
-          v-show="
-            ['flex-grow', 'flex-shrink', 'flex-basis'].includes(k) ||
-            (v != defaultProps[k] && k != 'background-color')
-          "
-        >
-          {{ k }}: {{ v }}
+        <div class="flex-item__props" v-for="(v, k) in item" :key="k">
+          <span
+            v-show="
+              ['flex-grow', 'flex-shrink', 'flex-basis'].includes(k) ||
+              (k === 'align-self' && v != 'auto') ||
+              (k === 'height' && v != 'auto') ||
+              (k === 'order' && v != 0)
+            "
+          >
+            {{ k }}: {{ v }}
+          </span>
         </div>
         <div class="flex-item__close" @click="close($event, index)">x</div>
       </div>
     </div>
-    <div class="flex-controller">
-      <div class="item">
-        <div class="flex-controller__title">flex-container</div>
-        <div class="flex-controller__container">
-          <div
-            v-for="(val, key) in containerProps"
-            :key="key"
-            class="container-item"
-          >
-            <span>{{ key }}</span>
-            <label v-for="prop of containerPropOptions[key]" :key="prop">
-              <input
-                type="radio"
-                :name="key"
-                :checked="val == prop"
-                :value="prop"
-                v-model="containerProps[key]"
-              />
-              <span>{{ prop }} </span>
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="flex-controller__title">flex-item</div>
-        <div class="flex-controller__container">
-          <div class="flex-item" v-for="(prop, name) in itemProps" :key="name">
-            <span>{{ name }}</span>
-            <div class="align-self" v-if="name === 'align-self'">
-              <label v-for="val of alignSelf" :key="val">
-                <input
-                  type="radio"
-                  name="align-self"
-                  :checked="val == prop"
-                  :value="val"
-                  v-model="itemProps['align-self']"
-                />
-                <span>{{ val }}</span>
-              </label>
-            </div>
-            <input
-              type="color"
-              v-if="name === 'background-color'"
-              v-model="itemProps[name]"
-            />
-            <input
-              type="text"
-              v-model="itemProps[name]"
-              v-if="!['background-color', 'align-self'].includes(name)"
-            />
-          </div>
-        </div>
 
-        <button class="push-btn" @click="pushItem">Add item</button>
+    <div class="flex-controller">
+      <div class="ctrl-item" v-for="(list, type) in flex" :key="type">
+        <div class="ctrl-item__title">{{ type }}</div>
+        <div class="ctrl-item__list">
+          <div
+            v-for="(prop, name) in list"
+            :key="name"
+            class="ctrl-item__props"
+          >
+            <span class="name">{{ name }}</span>
+            <select
+              class="prop"
+              :name="name"
+              v-if="getPropType(name) == 'select'"
+              v-model="controller[type][name]"
+            >
+              <option class="prop" :value="p" v-for="p of prop" :key="p">
+                {{ p }}
+              </option>
+            </select>
+            <input
+              v-else
+              class="prop"
+              :class="{ range: getPropType(name) == 'range' }"
+              :type="getPropType(name)"
+              v-model="controller[type][name]"
+              min="0"
+              max="100"
+              step="1"
+              :name="name"
+            />
+          </div>
+
+          <button @click="pushItem" class="push-btn" v-if="type == 'flex-item'">
+            Add flex item
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -82,108 +69,150 @@
 
 <script>
 export default {
+  computed: {
+    flexContainerStyle() {
+      const c = JSON.parse(JSON.stringify(this.controller["flex-container"]));
+      c.width += "%";
+      if (c.height != "auto") {
+        c.height += "px";
+      }
+
+      return c;
+    },
+  },
   data() {
     return {
-      containerPropOptions: {
-        "justify-content": [
-          "flex-start",
-          "flex-end",
-          "center",
-          "space-between",
-          "space-around",
-          "space-evenly",
-        ],
-        "align-items": [
-          "stretch",
-          "flex-start",
-          "flex-end",
-          "center",
-          "baseline",
-        ],
-        "flex-direction": ["row", "column", "row-reverse", "column-reverse"],
-        "flex-wrap": ["nowrap", "wrap", "wrap-reverse"],
-        "align-content": [
-          "stretch",
-          "flex-start",
-          "flex-end",
-          "center",
-          "space-between",
-          "space-around",
-          "space-evenly",
-        ],
-      },
-      alignSelf: [
-        "auto",
-        "stretch",
-        "flex-start",
-        "flex-end",
-        "center",
-        "baseline",
-      ],
-      containerProps: {
-        "justify-content": "flex-start",
-        "align-items": "stretch",
-        "flex-direction": "row",
-        "flex-wrap": "nowrap",
-        "align-content": "stretch",
-      },
-      defaultProps: {
-        "flex-grow": 1,
-        "flex-shrink": 1,
-        "flex-basis": "auto",
-        "align-self": "auto",
-        order: 0,
-        height: "auto",
-        "background-color": "#cccccc",
-      },
-      itemProps: {
-        "flex-grow": 1,
-        "flex-shrink": 1,
-        "flex-basis": "auto",
-        "align-self": "auto",
-        order: 0,
-        height: "auto",
-        "background-color": "#cccccc",
-      },
-
-      flexItems: [
-        {
+      controller: {
+        "flex-container": {
+          "justify-content": "flex-start",
+          "align-items": "stretch",
+          "flex-direction": "row",
+          "flex-wrap": "nowrap",
+          "align-content": "stretch",
+          width: 100,
+          height: "auto",
+        },
+        "flex-item": {
           "flex-grow": 1,
           "flex-shrink": 1,
           "flex-basis": "auto",
           "align-self": "auto",
           order: 0,
           height: "auto",
-          "background-color": "#fbd9f3",
+          "background-color": "#dddddd",
         },
+      },
+      flexItems: [
         {
           "flex-grow": 0,
           "flex-shrink": 0,
-          "flex-basis": "140px",
+          "flex-basis": "100px",
           "align-self": "auto",
           order: 0,
-          height: "80px",
-          "background-color": "#95bff0",
+          height: "100px",
+          "background-color": "#ffe5f6",
         },
         {
           "flex-grow": 0,
           "flex-shrink": 0,
-          "flex-basis": "auto",
+          "flex-basis": "150px",
+          "align-self": "auto",
+          order: 0,
+          height: "150px",
+          "background-color": "#c9d6ff",
+        },
+        {
+          "flex-grow": 0,
+          "flex-shrink": 0,
+          "flex-basis": "120px",
           "align-self": "auto",
           order: 0,
           height: "120px",
-          "background-color": "#c4e6c7",
+          "background-color": "#c9ffe5",
         },
       ],
+      flex: {
+        "flex-container": {
+          "justify-content": [
+            "flex-start",
+            "flex-end",
+            "center",
+            "space-between",
+            "space-around",
+            "space-evenly",
+          ],
+          "align-items": [
+            "stretch",
+            "flex-start",
+            "flex-end",
+            "center",
+            "baseline",
+          ],
+          "flex-direction": ["row", "column", "row-reverse", "column-reverse"],
+          "flex-wrap": ["nowrap", "wrap", "wrap-reverse"],
+          "align-content": [
+            "stretch",
+            "flex-start",
+            "flex-end",
+            "center",
+            "space-between",
+            "space-around",
+            "space-evenly",
+          ],
+          width: "range",
+          height: "range",
+        },
+        "flex-item": {
+          "flex-grow": "text",
+          "flex-shrink": "text",
+          "flex-basis": "text",
+          "align-self": [
+            "auto",
+            "stretch",
+            "flex-start",
+            "flex-end",
+            "center",
+            "baseline",
+          ],
+          order: "text",
+          height: "text",
+          "background-color": "color",
+        },
+      },
     };
   },
   methods: {
-    pushItem() {
-      console.log(this.itemProps);
-      this.flexItems.push(JSON.parse(JSON.stringify(this.itemProps)));
+    getPropType(prop) {
+      if (
+        [
+          "justify-content",
+          "align-items",
+          "flex-direction",
+          "flex-wrap",
+          "align-content",
+          "align-self",
+        ].includes(prop)
+      ) {
+        return "select";
+      } else if (
+        ["flex-grow", "flex-shrink", "flex-basis", "order", "height"].includes(
+          prop
+        )
+      ) {
+        return "text";
+      } else if (prop == "background-color") {
+        return "color";
+      } else if (["width"].includes(prop)) {
+        return "range";
+      }
     },
     close(e, index) {
       this.flexItems.splice(index, 1);
+    },
+    pushItem() {
+      this.flexItems.push(
+        JSON.parse(JSON.stringify(this.controller["flex-item"]))
+      );
     },
   },
 };
@@ -191,37 +220,39 @@ export default {
 
 <style lang="scss" scoped>
 .flex-wrapper {
-  margin: 3rem 0;
-
+  &__title {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 25px;
+  }
   .flex-container {
-    background-color: white;
-    border-radius: 8px;
-    border: 1px dashed blue;
     display: flex;
-    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px dashed skyblue;
 
     .flex-item {
       border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border: 1px solid #eee;
-      font-size: 16px;
       position: relative;
+      border: 1px solid #ccc;
+
+      &__props {
+        font-size: 12px;
+      }
+
       &__close {
         position: absolute;
         top: 5px;
         right: 5px;
-        width: 13px;
-        height: 13px;
-        cursor: pointer;
-        background-color: #eee;
-        border: 1px solid gray;
+        border-radius: 4px;
+        width: 10px;
+        height: 10px;
+        font-size: 12px;
+        border: 1px solid black;
+        background-color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 4px;
+        cursor: pointer;
       }
     }
   }
@@ -229,89 +260,56 @@ export default {
   .flex-controller {
     display: flex;
     flex-wrap: wrap;
-
-    .item {
+    justify-content: space-evenly;
+    margin-top: 20px;
+    .ctrl-item {
       margin-right: 10px;
-      border-radius: 8px;
-      background-color: #eee;
-      padding: 10px 20px;
-      width: 100%;
-    }
 
-    &__title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-      background-color: #ffffc7;
-      margin-bottom: 10px;
-      padding: 10px;
-      border: 1px solid #ddd;
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
+      &:last-child {
+        margin-right: 0;
+      }
 
-    &__container {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      .container-item {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 15px;
-        border: 3px solid #ddd;
-        padding: 5px;
-        border-radius: 7px;
+      &__title {
+        margin-top: 10px;
+        text-align: center;
+      }
 
-        > span {
-          margin-bottom: 10px;
-          text-align: center;
-          color: #009535;
+      &__list {
+        margin-top: 15px;
+
+        .push-btn {
+          width: 100%;
+          margin-top: 10px;
+          height: 40px;
         }
       }
-      .flex-item {
-        display: flex;
-        margin-right: 10px;
-        margin-bottom: 10px;
 
-        > span {
+      &__props {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        .name {
+          font-size: 13px;
+          color: gray;
+          flex: 1;
           margin-right: 10px;
-          color: #009535;
+        }
+
+        .prop {
+          flex: 0 0 100px;
+          width: 100px;
+          height: 30px;
+          padding: 5px 10px;
+          box-sizing: border-box;
+          border-radius: 4px;
+          border: 1px solid #aaa;
+          background-color: #eee;
+
+          &.range {
+            padding: 0;
+          }
         }
       }
-    }
-
-    &__item {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-
-      span {
-        margin-bottom: 8px;
-        flex: 0 0 160px;
-      }
-
-      .align-self {
-        display: flex;
-        flex-direction: column;
-      }
-    }
-  }
-
-  .push-btn {
-    display: flex;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin: 2rem auto;
-    background-color: #d5f3ff;
-    border: 1px solid;
-    border-radius: 5px;
-
-    &:hover {
-      background-color: #c0dde7;
     }
   }
 }

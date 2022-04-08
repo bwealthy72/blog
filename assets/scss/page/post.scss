@@ -207,13 +207,17 @@
         h3 > code,
         p > code,
         li > code {
-          color: #63746d;
+          color: #306e54;
           background-color: #cdf1e2;
-          box-shadow: 1px 1px 3px;
+          box-shadow: 1px 1px 3px inset #82998f;
           padding: 0.15em 0.3em;
           box-sizing: content-box;
           border-radius: 4px;
           margin-right: 0.2em;
+        }
+
+        .cp_embed_wrapper {
+          margin: 3rem 0;
         }
 
         blockquote {
