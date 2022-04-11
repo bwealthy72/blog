@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <a href="/" class="site-header__logo">
-      <img src="~/assets/images/logo.png" alt="" />
+      <img src="~/static/logo.png" alt="" />
     </a>
     <LayoutSearch></LayoutSearch>
 

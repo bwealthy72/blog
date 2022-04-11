@@ -55,7 +55,7 @@ tags:
 - offset 값을 조정하면 안의 요소가 그에 맞춰 움직입니다.
 - spread-radius 값이 커지면 안의 요소가 좁아집니다.
 
-<post-img src="/images/22/04/01/152114.png"></post-img>
+<post-img src="/images/22/04/08/171245.png"></post-img>
 
 ### 비교
 

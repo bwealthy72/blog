@@ -1,20 +1,24 @@
 ---
-title: 블로그 만들면서 배우는 웹개발 7] css flex 알아보기
+title: 해보면서 배우는 CSS Flex
+coverImg: /images/22/04/11/214115.png
 tags:
-  - blog-lecture
+  - css
+  - flex
 ---
 
-이전에는 float을 이용해서 많이 레이아웃을 구성했지만 요즘에는 flex와 grid라는 좋은 기술들이 등장했습니다. 그 중 flex에 대해서 오늘 알아보겠습니다!
+아직도 css 레이아웃 배치하는데 float 쓰는 사람 없쥬? 이 글을 통해 flex를 마스터해보세요!
 
 <!--more-->
 
-이번 글은 작성하는데 시간이 많이 걸렸어요. (1일 1포스팅의 목표가..ㅠ) 그래도 꿋꿋이 적었고 이해를 쉽게 하기 위해 간단하게 아래처럼 flex 테스트를 만들어봤습니다! 이해하는데 그나마 도움이 되실겁니다! 지금 당장은 이게 뭐지 싶어도 나중에 다시 돌아와서 만지다보면 이해가 될테니 너무 겁먹지는 마세요~ PC로 해보시는 걸 추천해요.
+## Flex Test
+
+과연 당신은 얼마나 flex에 대해 알고 있나요? 제가 간단하게 flex를 다뤄볼 수 있는 컴포넌트를 만들어놨습니다. 만지작해보세요! 모르셔도 상관없습니다. 이제부터 배울거니까요!
 
 <css-flex></css-flex>
 
 ## Flex
 
-그렇다면 Flex가 뭔데? 내가 아는건 지름신이 강림했다는 그 플렉스 밖에 모르는데?
+그래 Flex가 좋다는 건 알겠는데! Flex가 뭔데? 내가 아는건 지름신이 강림했다는 그 플렉스 밖에 모르는데?
 
 <post-img src="/images/22/03/24/224244.png"></post-img>
 
@@ -22,13 +26,19 @@ tags:
 
 ### 컨테이너와 아이템
 
-block이나 inline과는 다르게 자식들도 영향을 받게되는데요. 그래서 이를 구분해서 부르기 위해 flex를 적용한 요소는 **컨테이너(container)** , 자식 요소들을 **아이템(item)** 이라고 라고 부릅니다.
+시작하기에 앞서 간단한 개념을 짚고 넘어가볼게요! **flex를 적용한 요소는 컨테이너(container)** , **컨테이너의 자식 요소들을 아이템(item)** 이라고 라고 부릅니다. 이렇게 구분하는 이유는 다른 display 값들(block, inline)과는 다르게 자식들도 영향이 가고, 또 flex container와 item에서 사용하는 속성이 다 다르기 때문이에요!
 
 <post-img src="/images/22/03/25/191252.png"></post-img>
 
-Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 따라 다양하게 배치하고 크기를 변경할 수 있습니다. 오늘 이 flex를 마스터하신다면 왠만한 배치는 만들어낼 수 있으니 집중해서 잘 살펴봅시다! 중간 중간 예시도 있고 실제로 해볼 수도 있게 코드를 넣어놨으니 걱정하지 마시라!
+결국 목표는 Flex item들을 어떻게 배치할 것인가! 네이버에서 메뉴 부분을 예로 들면 메뉴들을 다음처럼 정렬하고 싶을 수 있겠죠? Flex를 이용하면 이런 것들이 가능해집니다.
+
+<post-img src="/images/22/04/11/215733.png"></post-img>
+
+Flex Container와 Flex Item에서 각각 쓸 수 있는 속성들이 있습니다. 이제부터 하나하나 알아볼까요?
 
 ## Flex Container 속성들
+
+먼저 Flex container에서 사용할 수 있는 속성들입니다.
 
 - `flex-direction`: 배치 방향
 - `justiyfy-content`: 메인 축 정렬
@@ -41,7 +51,7 @@ Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 �
 
 ### 배치 방향을 정하는 flex-direction
 
-배치 방향을 결정합니다. 요소가 들어올 때 어느 순서로 채워지는 지 결정합니다.
+요소가 들어올 때 어느 순서로 채워지는 지 결정합니다.
 
 - `row` (기본값): 좌측에서 우측으로
 - `row-reverse`: 우측에서 좌측으로
@@ -50,12 +60,16 @@ Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 �
 
 <post-img src="/images/22/04/04/224709.png"></post-img>
 
-배치 방향을 정하고 나면 메인축과 수직축에 맞춰 정렬을 하게됩니다
+배치 방향에 따라 메인축과 수직축이 달라지고 이에 따라 정렬되는 방식이 결정됩니다.
 
 - **flex-direction에 방향** 에 맞춰서 `justify-content`로 정렬합니다. 이 방향의 축을 **메인 축** 이라 합니다.
 - **flex-direction의 수직** 에 맞춰서 `align-items`로 정렬합니다. 이 방향의 축을 **수직 축** 이라 합니다.
 
 <post-img src="/images/22/04/04/231436.png"></post-img>
+
+아래에 `flex-direction` 값을 한번 바꿔보세요.
+
+> 커서가 안 보일 수 있지만 수정은 가능해요!
 
 <p class="codepen" data-height="350" data-default-tab="html,result" data-slug-hash="YzYYQRL" data-editable="true" data-user="bwealthy72" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bwealthy72/pen/YzYYQRL">
@@ -77,7 +91,7 @@ Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 �
 - `center`: 중앙 정렬
 - `space-between`: flex item 사이(between)에 최대한 간격을 둡니다.
 - `space-around`: flex item 주변(around)에 균일한 간격을 둡니다.
-- `space-evenly`: flex item 사이를 모두 동일한 간격으로 둡니다.
+- `space-evenly`: flex item 사이와 양끝에 모두 동일한 간격으로 둡니다.
 
 `justify-content` 값을 바꿔보면서 확인해보세요!
 
@@ -90,7 +104,7 @@ Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 �
 
 ### 수직 정렬을 정하는 align-items
 
-수직축, 즉 여기서는 세로부분에서 어떻게 정렬할 지를 결정합니다.
+수직 축을 기준으로 정렬합니다.
 
 <post-img src="/images/22/04/04/212857.png"></post-img>
 
@@ -111,13 +125,13 @@ Flex container와 Flex item 요소에 각각 어떤 속성들을 넣느냐에 �
 
 ### item들이 container 보다 클 때 flex-wrap
 
-flex item을 담다보면 container보다 커져서 한 줄에 담을 여유공간이 없을 때가 있습니다. 이 아이템들을 줄바꿈을 어떻게 할지 결정하는 속성합니다.
+flex item들을 container속에 넣다보면 더 이상의 여유공간이 없을 수도 있습니다. 이럴 때 어떻게 할지 결정하는 속성인데요.
 
 <post-img src="/images/22/04/05/030616.png"></post-img>
 
 - `nowrap` (기본값): 줄바꿈을 하지않고 넘치게 둡니다.
 - `wrap`: 넘치면 줄바꿈을 합니다.
-- `wrap-reverse`: 줄바꿈을 역순으로 합니다. flex-direction에 달렸죠.
+- `wrap-reverse`: 줄바꿈을 역순으로 합니다.
 
 <p class="codepen" data-height="350" data-default-tab="html,result" data-slug-hash="eYyyKyb" data-editable="true" data-user="bwealthy72" style="height: 350px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bwealthy72/pen/eYyyKyb">
@@ -126,13 +140,11 @@ flex item을 담다보면 container보다 커져서 한 줄에 담을 여유공�
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-어때요? 어느정도 원하는데로 슈슉슈슉(?) 배치할 수 있겠나요?... 아뇨! (네 저도 안될거 같아요) item이 모두 동일한 크기가 아닐 수도 있고 어떤 item은 따로 두고 싶을 수도 있잖아요. 그래서 item 마다도 정할 수 있는 속성들이 있습니다.
-
 ### item들간의 간격을 만들기 gap
 
 예전에는 grid 에서만 사용했었지만, 이제 대부분의 메이저 브라우저에서 사용가능합니다. 생각보다 편해요!
 
-요소들 틈(gap) 사이의 공간의 크기를 정하는 값으로 가로는 `column-gap`, 세로는 `row-gap`으로 정할 수 있습니다. 만약 이를 한 속성으로 정하려면 `gap`을 사용하면 됩니다. 하나의 값만 적으면, column-gap과 row-gap이 둘 다 같은 값으로 적용되고, 따로 적으면 column-gap, row-gap 순으로 적용됩니다.
+요소들 틈(gap) 사이의 공간의 크기를 정하는 값으로 가로는 `column-gap`, 세로는 `row-gap`으로 정할 수 있습니다. 만약 이를 한 속성으로 정하려면 `gap`을 사용하면 됩니다. 하나의 값만 적으면, column-gap과 row-gap이 둘 다 같은 값으로 적용되고, 따로 적으면 row-gap, column-gap 순으로 적용됩니다.
 
 ```css
 .container {
@@ -186,28 +198,27 @@ align-items와 justify-content를 짬뽕한 것 같은 이 속성은 `flex-wrap:
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-## Flex Item
+## Flex Item 속성들
 
-flex-container가 block 같은 특징을 가졌다면, item은 flex-direction에 따라 달라집니다.
+flex container 속성들은 item들을 어떻게 정렬할 지 결정했다면, item의 속성은 item 각각에 대한 특징을 결정합니다.
 
-- **row** 인 경우
-  - width는 내용물 크기만큼
-  - height는 align-items에 따라 달라짐
-- **column** 인 경우
-  - width는 align-items에 따라 달라짐
-  - height는 내용물 크기만큼
+- `flex-basis`: item의 기본 크기
+- `flex-grow`: item의 증가 비율
+- `flex-shrink`: item의 감소 비율
+- `align-self` item 하나의 교차축 정렬
+- `order`: item의 정렬 순서
 
-하지만 이건 어디까지나 width, height가 auto일 때입니다. 따로 크기를 정해준다면 align-items, flex-direction에 상관없이 고정된 크기를 가지고 있습니다.
-
-그런데 만약에 **container의 크기에 따라 유연하게 바뀌길 원하는 경우**가 있습니다. 블로그의 사이드바와 메인영역을 예로 들어볼까요? 브라우저 크기를 줄이면 그에 맞춰서 사이드바 크기는 그대로 유지하고 메인 크기는 작아져야합니다.
+만약에 **container의 크기에 따라 유연하게 바뀌길 원하는 경우**가 있습니다. 블로그의 사이드바와 메인영역을 예로 들어볼까요? 브라우저 크기를 줄이면 그에 맞춰서 사이드바 크기는 그대로 유지하고 메인 크기는 작아져야합니다.
 
 <post-img src="/images/22/04/05/041849.png"></post-img>
+
+뒤에 나올 `flex-basis`, `flex-grow`, `flex-shrink`는 이런 가변적인 container 크기에 맞게 item이 변할 수 있도록 돕는 속성들입니다!
 
 ### item의 기본 크기 flex-basis
 
 **flex item의 기본 크기** 를 설정합니다. 여기서 크기는 `flex-direction`에 맞춰진 크기입니다. row라면 가로, column이라면 세로 크기 인거죠!
 
-그런데 flex-direction이 row일 때, width, flex-basis 값이 같이 있다면...어떻게 되는 걸까요? flex-basis의 값이 우선적으로 됩니다. width 값을 사용하고 싶다면 flex-basis를 auto로 하면 됩니다.
+그런데 flex-direction이 row일 때, width, flex-basis 값이 같이 있다면...어떻게 되는 걸까요? 이런 경우 flex-basis의 값이 우선적으로 됩니다. width 값을 사용하고 싶다면 flex-basis를 auto로 하면 됩니다.
 
 <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="MWrrqOm" data-editable="true" data-user="bwealthy72" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
   <span>See the Pen <a href="https://codepen.io/bwealthy72/pen/MWrrqOm">
@@ -220,13 +231,11 @@ flex-container가 block 같은 특징을 가졌다면, item은 flex-direction에
 
 ### 증가 비율을 결정하는 flex-grow
 
-`flex-grow`는 flex-basis의 값보다 얼마나 더 커지는지를 결정하는 속성입니다. 정확히는 item들을 넣었을 때 남는 공간들이 있다면 item들이 어떤 비율로 그 공간을 쓸지를 결정합니다.
-
-예를 들어 flex-basis값이 auto이라면 각 요소는 내용물의 크기에 맞게 가로크기를 가질겁니다. 그러면 container에 공간이 남는데 이곳을 채우고 싶다면 `flex-grow`를 사용하면 됩니다. **기본값은 0** 이지만, 만약 1 값을 가지면 남은 공간의 비율을 1 비율로 가집니다. 만약 세 요소가 모두 1이라면 1:1:1 비율로 가지는 거죠!
+`flex-grow`는 container에 여유 공간이 있으면 item 얼마나 더 커지는지를 결정하는 속성입니다. 예를 들어 flex-basis값이 auto이라면 각 요소는 내용물의 크기에 맞게 가로크기를 가질겁니다. 그러면 container에 공간이 남는데 `flex-grow`를 사용하면 이 공간만큼 item의 크기가 커집니다. **기본값은 0** 이지만, 만약 1 값을 가지면 남은 공간의 비율을 1 비율로 가집니다. 만약 세 요소가 모두 1이라면 1:1:1 비율로 가지는 거죠!
 
 <post-img src="/images/22/04/07/085506.png"></post-img>
 
-만약에 flex item들 크기를 동일하게 1:1:1 비율로 만들고 싶다면 어떻게 해야할까요? flex-basis 값을 0으로 하면됩니다. 왜냐하면 **container에서 남는 공간이라는 말은 flex-basis를 제외한 여백**이기 때문이죠.
+1:1:1이라 했지만 item들의 크기가 1:1:1인건 아닙니다. 1:1:1 비율로 만들고 싶다면 어떻게 해야할까요? flex-basis 값을 모두 0으로 하면됩니다. 왜냐하면 **container에서 남는 공간이라는 말은 flex-basis를 제외한 여백**이기 때문이죠.
 
 <post-img src="/images/22/04/07/090746.png"></post-img>
 
@@ -257,7 +266,7 @@ flex-container가 block 같은 특징을 가졌다면, item은 flex-direction에
 - 빨강: (100px) X 1 = 100px
 - 초록: (200px) X 2 = 200px
 
-비율은 100px : 200px = 1 : 2가 됩니다. 이제 container가 item들의 flex-basis보다 작아지면 1:2 비율로 줄어듭니다. 예를 들어 100px이 줄어든다고 하면, 1:2 비율인 33px:66px 만큼줄어듭니다.
+비율은 **100px : 200px = 1 : 2** 가 됩니다. 이제 container가 item들의 flex-basis보다 작아지면 1:2 비율로 줄어듭니다. 예를 들어 100px이 줄어든다고 하면, 1:2 비율인 33px:66px 만큼줄어듭니다.
 
 <post-img src="/images/22/04/07/165255.png"></post-img>
 
@@ -335,6 +344,10 @@ shrink 값을 조금 바꿔도 마찬가지입니다. 한번 해보세요~
 </p>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
 
-## 무리하게 외우지 마세요
+## 마무리하며
 
-필요할 거 같아서 이렇게 하나하나 정리했지만 앞으로 레이아웃을 배치하면서 다시 다룰테니 저절로 외워질겁니다!
+이제 이해가 좀 되실까요? 분명 까먹은 것들도 있을 겁니다! 이제 이 지식들을 자신의 것으로 만들려면 한번 사용해봐야겠죠? 위에 다시 올라가서 제가 만든 Flex Test를 해보거나, 아래 https://flexboxfroggy.com/#ko 사이트에 들어가 복습을 하는겁니다. 지루하지 않고 은근히 오기가 생길거에요!
+
+### Flexboxfroggy
+
+<post-img src="/images/22/04/11/235535.png"></post-img>

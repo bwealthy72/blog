@@ -87,7 +87,8 @@
 
     &__post {
       .nuxt-content {
-        color: #222;
+        color: black;
+        font-weight: 500;
         p {
           margin-bottom: 1rem;
           line-height: 1.7;
@@ -199,7 +200,7 @@
         }
 
         strong {
-          background-color: #ffecc9;
+          background-color: #fffadb;
           font-weight: bold;
         }
 
