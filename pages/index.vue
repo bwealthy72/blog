@@ -3,10 +3,11 @@
     <div class="site-home__block about">
       <h3 class="sub-title">About</h3>
     </div>
-    <div class="site-home__block youtube">
+
+    <!-- <div class="site-home__block youtube">
       <h3 class="sub-title">Youtube</h3>
       <CommonYoutube></CommonYoutube>
-    </div>
+    </div> -->
 
     <div class="site-home__block twitter">
       <h3 class="sub-title">Twitter</h3>
