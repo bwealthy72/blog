@@ -1,0 +1,52 @@
+.music-player {
+  color: white;
+  width: 200px;
+  margin: 1rem auto;
+
+  &__info {
+    line-height: 1.2;
+    .name {
+      font-size: 1.2rem;
+    }
+
+    .artist {
+      color: gray;
+    }
+
+    .progress {
+      height: 5px;
+      background-color: white;
+      margin-top: 0.3rem;
+      border-radius: 7px;
+      position: relative;
+
+      &__current {
+        height: 100%;
+        background: linear-gradient(to right, blue, lightblue);
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 7px;
+      }
+    }
+
+    .time {
+      margin-top: 0.3rem;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__btn {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-image: url(~/assets/images/audio/play.png);
+    background-size: contain;
+    background-color: transparent;
+    filter: invert(1);
+
+    &.playing {
+      background-image: url(~/assets/images/audio/pause.png);
+    }
+  }
+}

@@ -25,7 +25,7 @@
       </div>
     </article>
 
-    <div class="comments">
+    <!-- <div class="comments">
       <script
         src="https://utteranc.es/client.js"
         repo="bwealthy72/blog"
@@ -35,7 +35,7 @@
         crossorigin="anonymous"
         async
       ></script>
-    </div>
+    </div> -->
   </main>
 </template>
 
