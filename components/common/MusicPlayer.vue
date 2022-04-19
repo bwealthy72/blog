@@ -1,8 +1,8 @@
 <template>
   <div class="music-player">
     <div class="music-player__info">
-      <p class="name">Dog and Pony Show</p>
-      <p class="artist">Silent Partner</p>
+      <p class="name">너로피어오라 (Flowering)</p>
+      <p class="artist">LILPA</p>
       <div class="progress">
         <div class="progress__current" :style="{ width: progressBar }"></div>
       </div>
@@ -28,14 +28,6 @@ export default {
       progressBar: "0",
       currentTime: "00:00",
       totalTime: "00:00",
-      track: [
-        {
-          name: "Dog and Pony Show",
-          artist: "Silent Partner",
-          src: "/audio/bgm.mp3",
-        },
-      ],
-      trackIdx: 0,
     };
   },
   methods: {
