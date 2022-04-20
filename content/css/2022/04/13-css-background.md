@@ -257,7 +257,7 @@ background-repeat: repeat-y;
 
 ### background-blend-mode
 
-해석하면 배경-섞는-모드(?). 말하지 않았지만, 사실 배경은 여러 개 넣을 수 있습니다. 하지만 헷갈리실까봐 따로 넣어놨습니다. 그걸 왜 `background-blend-mode`에서 얘기하냐고요? 이제 섞어봐야 하니까요. 배경 이미지를 여러 개 쓴다면 `,(콤마)`를 통해 구분합니다.
+위에서 언급하지 않았지만, 사실 배경은 여러 개를 넣을 수 있습니다. 하지만 헷갈리실까봐 따로 넣지는 않았었죠. 배경 이미지를 여러 개 쓴다면 `,(콤마)`를 통해 구분합니다.
 
 ```css
 .multiple-bg {
@@ -266,3 +266,11 @@ background-repeat: repeat-y;
   background-position: bottom right, left;
 }
 ```
+
+근데 이걸 왜 `background-blend-mode`에서 얘기하냐고요? 여러 이미지가 겹쳤을 때에 대한 처리이기 때문이죠. 해석하면 배경-혼합-모드(?). 하지만 자세히 설명하진 않겠습니다. 아래 그림을 보시면 이해가 가실겁니다. 개인적으로 luminosity와 multiply 정도만 쓸만한 것 같습니다. 더 자세한 설명이 필요하시다면 [MDN](https://developer.mozilla.org/ko/docs/Web/CSS/blend-mode)을 보시는 걸 추천합니다.
+
+<post-img src="/images/22/04/20/203339.png"></post-img>
+
+## 마무리하며
+
+Background가 속성이 다양하다는 것을 알고 처음엔 가볍게 시작했으나 3일 이상이 걸려버린 포스팅이였습니다. 읽기 고통스러우셨다면 죄송합니다. 저도 이렇게 될 줄 몰랐어요. 다음에는 좀 더 간단한 것들을 포스팅해보겠습니다!
