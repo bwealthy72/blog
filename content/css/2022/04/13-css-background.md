@@ -271,6 +271,13 @@ background-repeat: repeat-y;
 
 <post-img src="/images/22/04/20/203339.png"></post-img>
 
+<p class="codepen" data-height="430.37890625" data-default-tab="html,result" data-slug-hash="wvpNRaO" data-user="bwealthy72" style="height: 430.37890625px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/bwealthy72/pen/wvpNRaO">
+  Untitled</a> by Blog Wealthy (<a href="https://codepen.io/bwealthy72">@bwealthy72</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 ## 마무리하며
 
 Background가 속성이 다양하다는 것을 알고 처음엔 가볍게 시작했으나 3일 이상이 걸려버린 포스팅이였습니다. 읽기 고통스러우셨다면 죄송합니다. 저도 이렇게 될 줄 몰랐어요. 다음에는 좀 더 간단한 것들을 포스팅해보겠습니다!

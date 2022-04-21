@@ -70,11 +70,14 @@ export default {
   },
   mounted() {
     this.audio = new Audio("/audio/bgm.mp3");
-    console.log("Audio", this.audio);
     this.audio.ontimeupdate = this.calcCurrTime;
     this.audio.onloadmetadata = this.calcCurrTime;
 
-    if (JSON.parse(window.sessionStorage.getItem("audioPlaying"))) {
+    const isUserPlayed = JSON.parse(
+      window.sessionStorage.getItem("audioPlaying")
+    );
+
+    if (isUserPlayed == null || isUserPlayed) {
       this.playOrPause();
     }
   },
