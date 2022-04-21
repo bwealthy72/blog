@@ -79,7 +79,7 @@ export default {
 
     // Load content
     // ========================================================================
-    let query = await $content(path, { deep: true })
+    const query = await $content(path, { deep: true })
       .without(["body"])
       .sortBy("createdAt", "desc")
       .sortBy("title", "desc")
@@ -87,11 +87,11 @@ export default {
       .limit(postNum);
 
     if (isSearchPage) {
-      query = query.search("title", route.params.keyword);
+      query.search("title", route.params.keyword);
     }
 
     if (isTagPage) {
-      query = query.where({ tags: { $contains: route.params.tag } });
+      query.where({ tags: { $contains: route.params.tag } });
     }
 
     const postList = await query.fetch();
@@ -106,9 +106,19 @@ export default {
 
     // pagination
     // ========================================================================
-    const totalPost = (await $content(path, { deep: true }).only([""]).fetch())
-      .length;
-    const totalPage = parseInt(Math.ceil(totalPost / postNum));
+    const totalQuery = await $content(path, { deep: true }).only([""]);
+
+    if (isSearchPage) {
+      totalQuery.search("title", route.params.keyword);
+    }
+
+    if (isTagPage) {
+      totalQuery.where({ tags: { $contains: route.params.tag } });
+    }
+
+    const numPost = (await totalQuery.fetch()).length;
+
+    const totalPage = parseInt(Math.ceil(numPost / postNum));
     // ========================================================================
 
     return { postList, currPage, totalPage };
