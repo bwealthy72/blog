@@ -1,0 +1,299 @@
+.post {
+  width: 580px;
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+
+  user-select: text;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    flex: 0 0 $post-head-height;
+    background-color: #3b3c40;
+    padding: 0 2rem;
+    box-sizing: border-box;
+    font-weight: bold;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+  }
+
+  &__category {
+    display: flex;
+    align-items: center;
+    height: 1.5rem;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.4em 0.7em 0.3em 0.7em;
+    margin-left: auto;
+    box-shadow: 0px 0px 3px 1px #666;
+    font-weight: bold;
+
+    img {
+      height: 100%;
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  &__cover-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  &__date {
+    font-size: 1rem;
+    color: #aaa;
+    margin-left: auto;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    padding: 2rem;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    height: 100%;
+    overflow: hidden auto;
+
+    .nuxt-content {
+      color: white;
+      p {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+      }
+
+      > ul,
+      > ol {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      ol,
+      ul {
+        padding-left: 3rem;
+        list-style: revert;
+        li {
+          line-height: 2;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        margin: 0 auto;
+        max-height: 500px;
+        display: flex;
+      }
+
+      .img-wrapper {
+        .lightbox {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 1000;
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #000000bb;
+
+          &__img {
+            cursor: zoom-in;
+            max-width: fit-content;
+            width: 90vw;
+            border-radius: 8px;
+            filter: drop-shadow(0px 0px 5px #777);
+          }
+
+          &.zoom {
+            .lightbox__img {
+              transform: scale(1.25);
+              cursor: zoom-out;
+            }
+          }
+        }
+
+        .post-img {
+          cursor: pointer;
+          max-height: 500px;
+          object-fit: contain;
+          border-radius: 8px;
+          margin: 3rem auto;
+          display: flex;
+        }
+      }
+
+      hr {
+        width: 30%;
+        margin: 5rem auto;
+        border-color: #444;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 1.6em;
+        font-weight: bold;
+        margin: 6rem -3rem 2rem -3rem;
+        padding-left: 3rem;
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: -2.5rem;
+          left: 0;
+          width: 100%;
+          border-bottom: 2px dashed #555;
+        }
+      }
+
+      h3 {
+        font-size: 1.2em;
+        font-weight: bold;
+        line-height: 1.3;
+        margin-top: 6rem;
+        margin-bottom: 3rem;
+        border-left: 7px solid gray;
+        padding-left: 1.5rem;
+      }
+
+      a {
+        color: #6e8dff;
+        padding-bottom: 0.1rem;
+        &:hover {
+          font-weight: bold;
+          border-bottom: 1px solid;
+        }
+      }
+
+      strong {
+        font-weight: bold;
+        color: #f88c8c;
+      }
+
+      h2 > code,
+      h3 > code,
+      p > code,
+      li > code {
+        color: #1e1e1e;
+        font-weight: bold;
+        background-color: #d6d5d5;
+        padding: 0.2em 0.3em;
+        box-sizing: content-box;
+        border-radius: 4px;
+        margin-right: 0.2em;
+      }
+
+      .cp_embed_wrapper {
+        margin: 3rem 0;
+      }
+
+      blockquote {
+        background-color: #36353a;
+        color: white;
+        margin: 5rem 0;
+        padding: 2rem 3rem;
+        border-left: 6px solid #666;
+        border-radius: 6px;
+
+        // &::before {
+        //   content: "";
+        //   display: inline-block;
+        //   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='%237998c6' class='alert-icon mt-px w-6 h-6'%3E%3Cpath d='M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'%3E%3C/path%3E%3C/svg%3E");
+        //   background-repeat: no-repeat;
+        //   width: 3rem;
+        //   height: 3rem;
+        //   flex: 0 0 auto;
+        //   position: relative;
+        //   margin-right: 1rem;
+        // }
+
+        p {
+          margin: 0;
+        }
+      }
+
+      .nuxt-content-highlight {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin: 2rem -2rem;
+        align-items: flex-end;
+        overflow: hidden;
+
+        .filename {
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: white;
+          box-sizing: border-box;
+          display: flex;
+          width: fit-content;
+          padding: 0.3rem 0.8rem;
+          font-size: 1.2rem;
+          align-items: center;
+          background-color: #676767;
+          z-index: 1;
+        }
+
+        pre[class*="language-"] {
+          grid-column: 1 / -1;
+          margin: 0;
+          font-size: 1.2rem;
+          order: 3;
+          background-color: #36353a;
+        }
+        code[class*="language-"] {
+          background-color: #36353a;
+        }
+        pre[class*="language-"].line-numbers {
+          position: relative;
+          padding-left: 3.8em;
+          counter-reset: linenumber;
+        }
+
+        pre[class*="language-"].line-numbers > code {
+          position: relative;
+          white-space: inherit;
+        }
+
+        .line-numbers .line-numbers-rows {
+          position: absolute;
+          pointer-events: none;
+          top: 0;
+          font-size: 100%;
+
+          left: -3.8em;
+          width: 3em; /* works for line-numbers below 1000 lines */
+          letter-spacing: -1px;
+        }
+
+        .line-numbers-rows > span {
+          display: block;
+          counter-increment: linenumber;
+        }
+
+        .line-numbers-rows > span:before {
+          content: counter(linenumber);
+          color: #999;
+          display: block;
+          padding-right: 0.8em;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
