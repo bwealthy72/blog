@@ -42,7 +42,7 @@ export default {
     height: 100%;
     overflow-y: auto;
     border: 1px solid black;
-    background-image: url(~/assets/images/post/iu.jpeg);
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IU_in_%22Love_Poem%22_Concert_in_Seoul_on_23rd_November_2019.jpg/500px-IU_in_%22Love_Poem%22_Concert_in_Seoul_on_23rd_November_2019.jpg);
     background-size: auto;
     background-position: top;
 

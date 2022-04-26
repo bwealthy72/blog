@@ -2,9 +2,13 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
 
+  server: {
+    host: "0.0.0.0",
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "BWealthy의 부자 일기",
+    title: "Frontend Blogger",
     htmlAttrs: {
       lang: "ko",
     },
@@ -84,7 +88,7 @@ export default {
   css: ["~/assets/scss/index.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/utils.js"],
+  plugins: ["~/plugins/utils.js", "~/plugins/MacTheme.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -148,9 +152,6 @@ export default {
       // routes 리셋
       routes.length = 0;
 
-      const postListComp = resolve(__dirname, "pages/_postlist/index.vue");
-      const postComp = resolve(__dirname, "pages/_postlist/_post.vue");
-
       routes.push({
         path: "/",
         component: resolve(__dirname, "pages/index.vue"),
@@ -159,28 +160,29 @@ export default {
 
       routes.push({
         path: "/tag/:tag",
-        component: resolve(__dirname, "pages/_postlist/index.vue"),
+        component: resolve(__dirname, "pages/post.vue"),
       });
 
       routes.push({
         path: "/search/:keyword",
-        component: resolve(__dirname, "pages/_postlist/index.vue"),
+        component: resolve(__dirname, "pages/post.vue"),
       });
 
       function addCategory(path, name) {
         routes.push({
           path: "/" + path,
-          component: postListComp,
+          component: resolve(__dirname, "pages/post.vue"),
           name,
         });
         routes.push({
           path: "/" + path + "/:year/:month/:post",
-          component: postComp,
+          component: resolve(__dirname, "pages/post.vue"),
         });
       }
 
       // addCategory("html", "HTML");
       addCategory("css", "CSS");
+      addCategory("js", "Javascript");
       addCategory("vue", "VueJS");
       addCategory("blog", "Blog");
       addCategory("diary", "Diary");
@@ -189,7 +191,11 @@ export default {
 
   sitemap: {
     hostname: "https://www.blogwealthy.com/",
-    gzip: true,
+    defaults: {
+      changefreq: "daily",
+      priority: 1,
+      lastmod: new Date(),
+    },
   },
 
   generate: {

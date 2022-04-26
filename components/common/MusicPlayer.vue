@@ -1,8 +1,8 @@
 <template>
   <div class="music-player">
     <div class="music-player__info">
-      <p class="name">너로피어오라 (Flowering)</p>
-      <p class="artist">LILPA</p>
+      <p class="name">Dog and Pony Show</p>
+      <p class="artist">Silent Partner</p>
       <div class="progress">
         <div class="progress__current" :style="{ width: progressBar }"></div>
       </div>
@@ -72,6 +72,8 @@ export default {
     this.audio = new Audio("/audio/bgm.mp3");
     this.audio.ontimeupdate = this.calcCurrTime;
     this.audio.onloadmetadata = this.calcCurrTime;
+    this.audio.volume = 0.2;
+    this.audio.loop = true;
 
     const isUserPlayed = JSON.parse(
       window.sessionStorage.getItem("audioPlaying")

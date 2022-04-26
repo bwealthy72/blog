@@ -1,0 +1,31 @@
+.tags {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+
+  &__ico {
+    height: 1.2rem;
+    margin-right: 0.5rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    margin-right: 0.7rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: #999;
+
+    &:hover {
+      color: #ccc;
+      font-weight: bold;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

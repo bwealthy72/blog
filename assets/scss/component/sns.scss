@@ -1,0 +1,11 @@
+.sns {
+  display: flex;
+  align-items: center;
+  &__item {
+    height: 100%;
+
+    img {
+      height: 100%;
+    }
+  }
+}

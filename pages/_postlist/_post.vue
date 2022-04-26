@@ -25,7 +25,43 @@
       </div>
     </article>
 
-    <!-- <div class="comments">
+    <nav class="surr-posts">
+      <a :href="prevPost.path" class="neighbor prev" v-if="prevPost">
+        <p class="neighbor__top">이전 글</p>
+        <section class="neighbor__bottom">
+          <img
+            :src="prevPost.coverImg"
+            alt="prev post image"
+            class="cover-image"
+            v-if="prevPost.coverImg"
+          />
+          <div class="text">
+            <h3 class="text__title">{{ prevPost.title }}</h3>
+            <p class="text__desc">{{ prevPost.description }}</p>
+          </div>
+        </section>
+      </a>
+      <div class="neighbor empty" v-else></div>
+
+      <a :href="nextPost.path" class="neighbor next" v-if="nextPost">
+        <p class="neighbor__top">다음 글</p>
+        <section class="neighbor__bottom">
+          <div class="text">
+            <h3 class="text__title">{{ nextPost.title }}</h3>
+            <p class="text__desc">{{ nextPost.description }}</p>
+          </div>
+          <img
+            :src="nextPost.coverImg"
+            alt="next post image"
+            class="cover-image"
+            v-if="nextPost.coverImg"
+          />
+        </section>
+      </a>
+      <div class="neighbor empty" v-else></div>
+    </nav>
+
+    <div class="comments">
       <script
         src="https://utteranc.es/client.js"
         repo="bwealthy72/blog"
@@ -35,7 +71,7 @@
         crossorigin="anonymous"
         async
       ></script>
-    </div> -->
+    </div>
   </main>
 </template>
 
@@ -102,7 +138,12 @@ export default {
   mounted() {
     Prism.highlightAll();
   },
-
+  methods: {
+    scrollToTop() {
+      console.log("scroll Top");
+      scrollTo(0, 0);
+    },
+  },
   async asyncData({ store, route, $content, $dateFormat, error }) {
     let path = route.path;
 
@@ -122,7 +163,15 @@ export default {
     post.dir = route.path.split("/").slice(0, 2).join("/");
     post.category = store.state.routePaths[post.dir];
 
-    return { post };
+    // // 동일한 태그의 주변 글
+    const [prevPost, nextPost] = await $content(post.dir, { deep: true })
+      .only(["title", "path", "coverImg", "description"])
+      .sortBy("createdAt", "desc")
+      .sortBy("title", "desc")
+      .surround(post.path)
+      .fetch();
+
+    return { post, prevPost, nextPost };
   },
 };
 </script>
