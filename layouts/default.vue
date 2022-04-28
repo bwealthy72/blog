@@ -3,10 +3,9 @@
     <LayoutHeader></LayoutHeader>
     <CommonDock></CommonDock>
     <Nuxt />
-    <!-- <LayoutHeader></LayoutHeader>
-    <LayoutDock></LayoutDock>
-    <LayoutMobileMenu></LayoutMobileMenu>
-    <Nuxt />
-    <LayoutFooter></LayoutFooter> -->
+
+    <NuxtLink class="mobile-home-btn" to="/">
+      <img src="~/assets/images/home-btn.png" alt="home" />
+    </NuxtLink>
   </div>
 </template>

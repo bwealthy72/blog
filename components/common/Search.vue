@@ -5,6 +5,7 @@
       placeholder="Search"
       @keyup.enter="search"
       v-model="keyword"
+      class="site-search__input"
     />
     <img
       @click="search"

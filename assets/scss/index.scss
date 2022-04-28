@@ -14,9 +14,9 @@
 // layout
 @import "layout/default.scss";
 @import "layout/header.scss";
-// @import "layout/footer.scss";
-@import "layout/post.scss";
-@import "layout/postlist.scss";
+@import "layout/post_content.scss";
+@import "layout/post_list.scss";
+@import "layout/post_category.scss";
 
 // @import "layout/post_toc.scss";
 // @import "layout/mobile_menu.scss";
@@ -24,4 +24,4 @@
 // page
 // @import "page/postlist";
 @import "page/post";
-// @import "page/main";
+@import "page/home";

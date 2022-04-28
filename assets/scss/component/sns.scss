@@ -9,3 +9,9 @@
     }
   }
 }
+
+@media (max-width: $desktop-width) {
+  .sns {
+    display: none;
+  }
+}

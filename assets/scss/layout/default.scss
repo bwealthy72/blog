@@ -9,4 +9,25 @@
   background-position: center;
 
   user-select: none;
+
+  .mobile-home-btn {
+    display: none;
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .container {
+    .mobile-home-btn {
+      display: block;
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      transform: translate(-2rem, -2rem);
+
+      img {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  }
 }

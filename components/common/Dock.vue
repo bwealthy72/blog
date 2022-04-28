@@ -1,11 +1,7 @@
 <template>
   <nav class="site-dock">
     <ul id="dock" class="dock" @mouseleave="mouseLeave" @mousemove="mouseMove">
-      <li
-        v-for="(name, path, idx) of routePaths"
-        :key="path"
-        class="dock__item"
-      >
+      <li v-for="(name, path, idx) of appPaths" :key="path" class="dock__item">
         <NuxtLink class="link" :to="path">
           <img
             :src="loadImage(name)"
@@ -29,10 +25,6 @@
 export default {
   data() {
     return {
-      routePaths: {
-        "/": "Home",
-        "/post": "Posts",
-      },
       aniID: null,
       flags: [],
       widths: [],
@@ -40,9 +32,14 @@ export default {
       scale: 2.4,
     };
   },
+  computed: {
+    appPaths() {
+      return this.$store.state.appPaths;
+    },
+  },
   created() {
     const dockWidth = this.$getScssVariable("dockWidth");
-    for (const c in this.$store.state.routePaths) {
+    for (const c in this.appPaths) {
       this.flags.push(false);
       this.widths.push(dockWidth);
     }

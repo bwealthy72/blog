@@ -1,7 +1,7 @@
 ---
 title: 쉬운 three.js 1] - 설치하는 법
 tags:
-  - three.js
+  - threejs
 coverImg: /images/22/04/22/195014.png
 ---
 

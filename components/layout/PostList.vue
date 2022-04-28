@@ -1,20 +1,45 @@
 <template>
   <aside class="post-list">
-    <header class="post-list__head">
+    <header class="post-list__head" ref="head">
+      <NuxtLink class="subject-text" to="/post">
+        <img
+          class="subject-text__arrow"
+          src="~/assets/images/left-arrow.png"
+          alt="left-arrow"
+        />
+        <h2 class="subject-text__text">Category</h2>
+      </NuxtLink>
+      <div class="subject">
+        <img
+          class="subject__arrow"
+          src="~/assets/images/left-arrow.png"
+          alt="left-arrow"
+        />
+        <img
+          class="subject__img"
+          v-if="category != undefined"
+          :src="require(`~/assets/images/post/${category}.png`)"
+          alt="category"
+        />
+        <h2 class="subject__text">{{ category }}</h2>
+      </div>
       <!-- <CommonSearch></CommonSearch> -->
     </header>
     <div class="post-list__wrap" ref="postlist">
       <nuxt-link
-        :to="p.path"
+        :to="'/post' + p.path"
         class="post-list__box"
         v-for="p of postList"
         :key="p.slug"
+        :class="{ 'nuxt-link-active': p.active }"
       >
-        <div class="post-list__texts">
-          <h3>{{ p.title }}</h3>
-          <p>{{ p.description }}</p>
+        <div class="text">
+          <h4 class="text__category">{{ p.category }}</h4>
+          <h3 class="text__title">{{ p.title }}</h3>
+          <p class="text__date">{{ p.createdAt }}</p>
+          <p class="text__desc">{{ p.description }}</p>
         </div>
-        <div class="post-list__img" v-if="p.coverImg">
+        <div class="img" v-if="p.coverImg">
           <img :src="p.coverImg" alt="cover-image" />
         </div>
       </nuxt-link>
@@ -24,13 +49,33 @@
 
 <script>
 export default {
-  props: ["postList", "scrollTop"],
-  mounted() {
-    this.$el.querySelector(".post-list__wrap").scrollTo(0, this.scrollTop);
+  props: ["postList"],
+  computed: {
+    category() {
+      const path = this.$route.path;
+      const re = /\/post\/?\w+/gm;
+      const result = re.exec(path);
+      let c;
+      if (path === "/post") {
+        c = this.$store.state.postPaths[path];
+      } else if (result) {
+        c = this.$store.state.postPaths[result[0]];
+      }
 
-    this.$refs.postlist.addEventListener("scroll", (e) => {
-      this.$emit("listScroll", this.$refs.postlist.scrollTop);
-    });
+      if (c) {
+        return c.name;
+      }
+    },
+  },
+  mounted() {
+    const activedPost = this.$el.querySelector(".nuxt-link-active");
+    if (activedPost) {
+      const pos = activedPost.getBoundingClientRect();
+
+      this.$refs.postlist.scrollTo({
+        top: pos.top - this.$refs.head.clientHeight - 10,
+      });
+    }
   },
 };
 </script>

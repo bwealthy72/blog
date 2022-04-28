@@ -1,7 +1,7 @@
 ---
 title: 쉬운 three.js 2] 기본 구성
 tags:
-  - three.js
+  - threejs
 coverImg: /images/22/04/22/194935.png
 ---
 

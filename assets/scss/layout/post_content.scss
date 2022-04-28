@@ -1,5 +1,5 @@
-.post {
-  width: 580px;
+.post-content {
+  flex: 1 1 600px;
   background-color: #1e1e1e;
   display: flex;
   flex-direction: column;
@@ -17,30 +17,34 @@
   }
 
   &__title {
-    font-size: 1.6rem;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
   }
 
-  &__category {
-    display: flex;
+  .subject {
+    display: none;
     align-items: center;
-    height: 1.5rem;
-    color: #fff;
-    border-radius: 6px;
-    padding: 0.4em 0.7em 0.3em 0.7em;
-    margin-left: auto;
-    box-shadow: 0px 0px 3px 1px #666;
+    height: 2rem;
+    color: #ddd;
     font-weight: bold;
+    margin-bottom: 1rem;
 
-    img {
+    &__img {
       height: 100%;
-      margin-right: 0.5rem;
+      margin-right: 1rem;
+    }
+
+    &__arrow {
+      display: none;
     }
   }
 
   &__info {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
   }
 
   &__cover-img {
@@ -55,15 +59,18 @@
   }
 
   &__date {
-    font-size: 1rem;
+    position: relative;
+    font-size: 1.2rem;
     color: #aaa;
-    margin-left: auto;
+    text-align: center;
+    margin-bottom: 0.3rem;
   }
 
-  &__content {
+  &__main {
+    position: relative;
     box-sizing: border-box;
     padding: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     line-height: 1.4;
     height: 100%;
     overflow: hidden auto;
@@ -252,7 +259,7 @@
         pre[class*="language-"] {
           grid-column: 1 / -1;
           margin: 0;
-          font-size: 1.2rem;
+          font-size: 1em;
           order: 3;
           background-color: #36353a;
         }
@@ -292,6 +299,55 @@
           display: block;
           padding-right: 0.8em;
           text-align: right;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .post-content {
+    &__head {
+      background-color: transparent;
+      padding: 0 1rem;
+    }
+
+    .subject {
+      display: inline-flex;
+      margin: 0;
+      margin-left: 0.1rem;
+
+      &__arrow {
+        display: inline-block;
+        height: 90%;
+        margin-right: 0.5rem;
+        margin-left: -1rem;
+        filter: invert(1);
+      }
+
+      &__text {
+        font-size: 2rem;
+      }
+    }
+
+    &__date {
+      position: relative;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .tags {
+      font-size: 1.5rem;
+    }
+
+    &__main {
+      padding: 0rem 1.5rem 1rem 1.5rem;
+      font-size: 1.7rem;
+
+      .nuxt-content {
+        p {
+          line-height: 1.9;
         }
       }
     }

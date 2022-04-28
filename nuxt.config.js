@@ -1,6 +1,9 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
+  server: {
+    host: "0", // default: localhost
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -144,7 +147,6 @@ export default {
   },
 
   router: {
-    middleware: ["adjustScroll"],
     extendRoutes(routes, resolve) {
       // routes 리셋
       routes.length = 0;
@@ -152,7 +154,6 @@ export default {
       routes.push({
         path: "/",
         component: resolve(__dirname, "pages/index.vue"),
-        name: "Home",
       });
 
       routes.push({
@@ -165,14 +166,25 @@ export default {
         component: resolve(__dirname, "pages/post.vue"),
       });
 
+      routes.push({
+        path: "/post",
+        component: resolve(__dirname, "pages/post.vue"),
+      });
+
+      routes.push({
+        path: "/post/all",
+        component: resolve(__dirname, "pages/post.vue"),
+        name: "모든 포스트",
+      });
+
       function addCategory(path, name) {
         routes.push({
-          path: "/" + path,
+          path: "/post/" + path,
           component: resolve(__dirname, "pages/post.vue"),
           name,
         });
         routes.push({
-          path: "/" + path + "/:year/:month/:post",
+          path: "/post/" + path + "/:year/:month/:post",
           component: resolve(__dirname, "pages/post.vue"),
         });
       }

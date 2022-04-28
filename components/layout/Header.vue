@@ -18,10 +18,17 @@ export default {
       datetime: null,
     };
   },
-  created() {
-    this.datetime = this.$dateFormat(new Date(), "%M월 %D일 (%d) %t  %h:%m");
+  mounted() {
+    const desktopWidth = this.$getScssVariable("desktopWidth");
+
+    let dateFormat = "%M월 %D일 (%d) %t  %h:%m";
+    if (window.innerWidth < desktopWidth) {
+      dateFormat = "%h:%m";
+    }
+
+    this.datetime = this.$dateFormat(new Date(), dateFormat);
     setInterval(() => {
-      this.datetime = this.$dateFormat(new Date(), "%M월 %D일 (%d) %t  %h:%m");
+      this.datetime = this.$dateFormat(new Date(), dateFormat);
     }, 1000);
   },
 };
