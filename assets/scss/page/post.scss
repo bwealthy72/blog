@@ -11,35 +11,13 @@
   border: 1px solid black;
   box-shadow: 0px 0px 2px white, 0px 0px 10px 1px black;
 
-  $post-head-height: 50px;
+  transition: all 0.3s;
 
-  .window-btns {
-    position: absolute;
-    top: 1.8rem;
-    left: 1.8rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 5.5rem;
-    z-index: 2;
-
-    &__item {
-      width: 1.2rem;
-      height: 1.2rem;
-      display: flex;
-      background-size: contain;
-
-      &.close {
-        background-image: url(~/assets/images/mac-close-btn.png);
-      }
-      &.minimize {
-        background-image: url(~/assets/images/mac-min-btn.png);
-      }
-      &.maximize {
-        background-image: url(~/assets/images/mac-max-btn.png);
-      }
-    }
+  &.moving {
+    transition: none;
   }
+
+  $post-head-height: 50px;
 
   ::-webkit-scrollbar {
     width: 12px;

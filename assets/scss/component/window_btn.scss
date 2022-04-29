@@ -1,0 +1,43 @@
+.window-btn {
+  position: absolute;
+  top: 1.8rem;
+  left: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5.5rem;
+
+  &:hover {
+    .main {
+      display: none;
+    }
+
+    .hover {
+      display: block;
+    }
+  }
+
+  &__item {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    background-size: contain;
+    cursor: default;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .hover {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .window-btn {
+    display: none;
+  }
+}

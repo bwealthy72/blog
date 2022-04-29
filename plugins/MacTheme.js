@@ -4,6 +4,7 @@ let x, y;
 let isMoving = false;
 let moveWait = false;
 let element = null;
+let savedTransition = null;
 
 const getPxValue = function (style) {
   return parseFloat(style.slice(0, -2));
@@ -18,6 +19,8 @@ const changeWindowPos = function (e, el) {
 
     x = e.clientX;
     y = e.clientY;
+
+    el.classList.add("moving");
   }
 };
 
@@ -36,6 +39,8 @@ const mouseDownHandler = function (e) {
 const mouseUpHandler = (e) => {
   changeWindowPos(e, element);
   isMoving = false;
+
+  element.classList.remove("moving");
 };
 
 const mouseMoveHandler = (e) => {

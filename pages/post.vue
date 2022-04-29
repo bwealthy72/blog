@@ -4,11 +4,7 @@
     <LayoutPostList :postList="postList"></LayoutPostList>
     <LayoutPostContent :post="post"></LayoutPostContent>
 
-    <div class="window-btns">
-      <nuxt-link to="/" class="window-btns__item close"></nuxt-link>
-      <nuxt-link to="/" class="window-btns__item minimize"></nuxt-link>
-      <button class="window-btns__item maximize"></button>
-    </div>
+    <CommonWindowBtn @maximize="maximize"></CommonWindowBtn>
   </div>
 </template>
 
@@ -22,6 +18,20 @@ export default {
     };
   },
   methods: {
+    maximize() {
+      const headerHeight = document
+        .querySelector(".site-header")
+        .getBoundingClientRect().height;
+      const dockRight = document
+        .querySelector(".dock")
+        .getBoundingClientRect().right;
+
+      const post = this.$refs.postWrap;
+      post.style.top = headerHeight + "px";
+      post.style.left = dockRight + "px";
+      post.style.width = window.innerWidth - dockRight + "px";
+      post.style.height = window.innerHeight - headerHeight + "px";
+    },
     desktopWindowSet() {
       const desktopWidth = this.$getScssVariable("desktopWidth");
       const post = this.$refs.postWrap;
