@@ -17,7 +17,7 @@
         />
         <img
           class="subject__img"
-          v-if="category != undefined"
+          v-show="category != undefined"
           :src="require(`~/assets/images/post/${category}.png`)"
           alt="category"
         />
@@ -39,7 +39,7 @@
           <p class="text__date">{{ p.createdAt }}</p>
           <p class="text__desc">{{ p.description }}</p>
         </div>
-        <div class="img" v-if="p.coverImg">
+        <div class="img" v-show="p.coverImg">
           <img :src="p.coverImg" alt="cover-image" />
         </div>
       </nuxt-link>

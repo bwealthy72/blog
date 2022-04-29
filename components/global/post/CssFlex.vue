@@ -38,7 +38,7 @@
             <select
               class="prop"
               :name="name"
-              v-if="getPropType(name) == 'select'"
+              v-show="getPropType(name) == 'select'"
               v-model="controller[type][name]"
             >
               <option class="prop" :value="p" v-for="p of prop" :key="p">
@@ -46,7 +46,7 @@
               </option>
             </select>
             <input
-              v-else
+              v-show="getPropType(name) != 'select'"
               class="prop"
               :class="{ range: getPropType(name) == 'range' }"
               :type="getPropType(name)"
@@ -58,7 +58,11 @@
             />
           </div>
 
-          <button @click="pushItem" class="push-btn" v-if="type == 'flex-item'">
+          <button
+            @click="pushItem"
+            class="push-btn"
+            v-show="type == 'flex-item'"
+          >
             Add flex item
           </button>
         </div>

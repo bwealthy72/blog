@@ -4,7 +4,7 @@
       class="lightbox"
       :class="{ active, zoom }"
       @click="lbClick"
-      v-if="active"
+      v-show="active"
     >
       <img
         class="lightbox__img fade-img"

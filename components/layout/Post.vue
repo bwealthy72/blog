@@ -16,7 +16,7 @@
         <p class="post__date">{{ post.createdAt }}</p>
       </div>
 
-      <div class="post__cover-img" v-if="post.coverImg">
+      <div class="post__cover-img" v-show="post.coverImg">
         <img :src="post.coverImg" alt="Cover Image" />
       </div>
 

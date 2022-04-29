@@ -21,7 +21,7 @@
           >
             <span class="ctrl-list__name">
               {{ name }} : {{ val }}
-              <span v-if="getPropType(name) === 'range'">px</span>
+              <span v-show="getPropType(name) === 'range'">px</span>
             </span>
             <input
               class="ctrl-list__val--range"
@@ -31,21 +31,21 @@
               :max="getRangeMax(name)"
               step="1"
               v-model="shadows[type][name]"
-              v-if="getPropType(name) === 'range'"
+              v-show="getPropType(name) === 'range'"
             />
             <input
               class="ctrl-list__val--color"
               type="color"
               :name="name"
               v-model="shadows[type][name]"
-              v-if="getPropType(name) === 'color'"
+              v-show="getPropType(name) === 'color'"
             />
             <input
               class="ctrl-list__val--checkbox"
               type="checkbox"
               :name="name"
               v-model="shadows[type][name]"
-              v-if="getPropType(name) === 'checkbox'"
+              v-show="getPropType(name) === 'checkbox'"
             />
           </label>
         </div>

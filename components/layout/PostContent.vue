@@ -25,7 +25,7 @@
         <CommonTags :tags="post.tags"></CommonTags>
       </div>
 
-      <div class="post-content__cover-img" v-if="post.coverImg">
+      <div class="post-content__cover-img" v-show="post.coverImg">
         <img :src="post.coverImg" alt="Cover Image" />
       </div>
 
