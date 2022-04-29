@@ -1,5 +1,5 @@
 <template>
-  <div class="post-wrapper" ref="postWrap" :class="mobileDisplay">
+  <div class="post-wrapper moving" ref="postWrap" :class="mobileDisplay">
     <LayoutPostCategory></LayoutPostCategory>
     <LayoutPostList :postList="postList"></LayoutPostList>
     <LayoutPostContent :post="post"></LayoutPostContent>
@@ -67,7 +67,6 @@ export default {
       }
     },
   },
-  created() {},
   mounted() {
     this.desktopWindowSet();
     window.addEventListener("resize", this.desktopWindowSet);

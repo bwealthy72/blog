@@ -18,7 +18,6 @@
         <img
           class="subject__img"
           :src="category ? require(`~/assets/images/post/${category}.png`) : ''"
-          alt="category"
         />
         <h2 class="subject__text">{{ category }}</h2>
       </div>
