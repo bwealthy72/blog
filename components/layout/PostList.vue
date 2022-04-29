@@ -17,8 +17,7 @@
         />
         <img
           class="subject__img"
-          v-show="category != undefined"
-          :src="require(`~/assets/images/post/${category}.png`)"
+          :src="category ? require(`~/assets/images/post/${category}.png`) : ''"
           alt="category"
         />
         <h2 class="subject__text">{{ category }}</h2>
