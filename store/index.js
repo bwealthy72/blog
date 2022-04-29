@@ -4,15 +4,12 @@ export const state = () => ({
     "/": "Home",
     "/post": "Post",
   },
-  isMobile: false,
+  mobilePostView: "",
 });
 
 export const mutations = {
   setPaths(state, postPaths) {
     state.postPaths = postPaths;
-  },
-  setIsMobile(state, isMobile) {
-    state.isMobile = isMobile;
   },
 };
 

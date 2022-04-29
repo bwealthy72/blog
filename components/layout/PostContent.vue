@@ -30,7 +30,7 @@
       </div>
 
       <nuxt-content :document="post" tag="article" />
-
+      <!--
       <div class="comments">
         <script
           src="https://utteranc.es/client.js"
@@ -41,7 +41,7 @@
           crossorigin="anonymous"
           async
         ></script>
-      </div>
+      </div> -->
     </article>
   </main>
 </template>
