@@ -213,16 +213,14 @@ export default {
     },
   },
 
-  // generate: {
-  //   async routes() {
-  //     const { $content } = require("@nuxt/content");
-  //     const files = await $content({ deep: true }).only(["path"]).fetch();
+  generate: {
+    async routes() {
+      const { $content } = require("@nuxt/content");
+      const files = await $content({ deep: true }).only(["path"]).fetch();
 
-  //     console.log(files);
-
-  //     return files.map((file) => (file.path === "/index" ? "/" : file.path));
-  //   },
-  // },
+      return files.map((file) => "/post" + file.path);
+    },
+  },
   hooks: {
     "content:file:beforeInsert": (document) => {
       if (document.extension === ".md") {
