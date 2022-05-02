@@ -2,9 +2,11 @@
   flex: 1 1 200px;
   background-color: #27282bf0;
   backdrop-filter: blur(10px);
+  margin-top: -$window-head-height;
+  height: calc(100% + #{$window-head-height});
 
   &__head {
-    height: $post-head-height;
+    height: $window-head-height;
   }
 
   &__content {

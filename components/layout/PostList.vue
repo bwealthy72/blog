@@ -27,9 +27,12 @@
       <nuxt-link
         :to="'/post' + p.path"
         class="post-list__box"
-        v-for="p of postList"
+        v-for="(p, index) of postList"
         :key="p.slug"
-        :class="{ 'nuxt-link-active': p.active }"
+        :class="{
+          'nuxt-link-active': p.active,
+          'nuxt-link-active': index == 0 && $route.name,
+        }"
       >
         <div class="text">
           <h4 class="text__category">{{ p.category }}</h4>
@@ -49,6 +52,9 @@
 export default {
   props: ["postList"],
   computed: {
+    isAllPost() {
+      return this.$route.name === "모든 포스트";
+    },
     category() {
       const path = this.$route.path;
       const re = /\/post\/?\w+/gm;

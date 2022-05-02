@@ -9,7 +9,9 @@
 @import "component/search.scss";
 @import "component/sns.scss";
 @import "component/tags.scss";
-@import "component/window_btn.scss";
+
+@import "component/mac/window_btn.scss";
+@import "component/mac/window.scss";
 
 // layout
 @import "layout/default.scss";

@@ -87,7 +87,7 @@ export default {
   css: ["~/assets/scss/index.scss"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/utils.js", "~/plugins/MacTheme.js"],
+  plugins: ["~/plugins/utils.js", "~/plugins/BlogPost.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -166,11 +166,17 @@ export default {
       //   component: resolve(__dirname, "pages/post.vue"),
       // });
 
+      // routes.push({
+      //   path: "/post",
+      //   component: resolve(__dirname, "pages/posts/postCategory.vue"),
+      // });
+
       routes.push({
         path: "/post",
         component: resolve(__dirname, "pages/post.vue"),
       });
 
+      // 모바일에서 모든 포스트가 보이는 리스트
       routes.push({
         path: "/post/all",
         component: resolve(__dirname, "pages/post.vue"),

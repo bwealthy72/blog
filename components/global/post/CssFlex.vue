@@ -41,7 +41,12 @@
               v-show="getPropType(name) == 'select'"
               v-model="controller[type][name]"
             >
-              <option class="prop" :value="p" v-for="p of prop" :key="p">
+              <option
+                class="prop"
+                :value="p"
+                v-for="(p, idx) of prop"
+                :key="idx"
+              >
                 {{ p }}
               </option>
             </select>
@@ -224,10 +229,12 @@ export default {
 
 <style lang="scss" scoped>
 .flex-wrapper {
+  color: black;
   &__title {
     text-align: center;
     margin: 20px 0;
     font-size: 25px;
+    color: white;
   }
   .flex-container {
     display: flex;
@@ -276,6 +283,7 @@ export default {
       &__title {
         margin-top: 10px;
         text-align: center;
+        color: white;
       }
 
       &__list {
@@ -285,6 +293,8 @@ export default {
           width: 100%;
           margin-top: 10px;
           height: 40px;
+          background-color: white;
+          border-radius: 8px;
         }
       }
 
