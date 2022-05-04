@@ -9,7 +9,6 @@
     </MacWindow>
   </div>
 </template>
-
 <script>
 export default {
   async asyncData(ctx) {

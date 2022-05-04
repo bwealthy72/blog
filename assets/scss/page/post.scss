@@ -24,3 +24,50 @@
     border-right: 0.2px solid #565656;
   }
 }
+
+@media (max-width: $desktop-width) {
+  .post-wrapper {
+    width: 100%;
+    height: 100%;
+    .window-btns {
+      display: none;
+    }
+
+    .post-cate,
+    .post-list,
+    .post-content {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(19, 19, 19);
+      display: none;
+    }
+
+    &.mode-category {
+      .post-cate {
+        display: flex;
+        backdrop-filter: none;
+      }
+    }
+
+    &.mode-list {
+      .post-list {
+        display: flex;
+      }
+    }
+
+    &.mode-post {
+      .post-content {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .post-wrapper {
+    display: none;
+  }
+}
