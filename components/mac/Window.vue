@@ -191,6 +191,10 @@ export default {
 
         this.left += dx;
         this.top += dy;
+        const headerHeight = this.$getScssVariable("headerHeight");
+        if (this.top < headerHeight) {
+          this.top = headerHeight;
+        }
 
         this.startX = e.clientX;
         this.startY = e.clientY;

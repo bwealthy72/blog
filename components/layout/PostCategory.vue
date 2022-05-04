@@ -35,7 +35,11 @@ export default {
     activeCategory(path) {
       const re = /\/post\/?\w*/gm;
       const result = re.exec(this.$route.path);
-      const currPath = result ? result[0] : "";
+      let currPath = result ? result[0] : "";
+
+      if (currPath == "/post") {
+        currPath += "/all";
+      }
 
       return { active: currPath == path };
     },

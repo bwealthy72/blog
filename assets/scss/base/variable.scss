@@ -1,5 +1,4 @@
-$header-height: 3rem;
-$header-item-gap: 1.7rem;
+$header-height: 25px;
 $header-bg-color: #17263d;
 
 $dock-width: 35px;
@@ -13,6 +12,7 @@ $window-head-height: 50px;
 $desktop-width: $post-width;
 
 :export {
+  headerHeight: $header-height;
   dockWidth: $dock-width;
   desktopWidth: 800px;
 }

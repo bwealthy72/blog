@@ -1,13 +1,11 @@
 <template>
   <header class="site-header">
-    <div class="site-header__group">
-      <img class="main-logo" src="/favicon.ico" alt="logo" />
-      <p class="main-title">Frontend Blogger</p>
-    </div>
-    <div class="site-header__group right">
-      <CommonSns></CommonSns>
-      <p class="datetime">{{ datetime }}</p>
-    </div>
+    <img class="main-logo" src="/favicon.ico" alt="logo" />
+    <p class="main-title">Frontend Blogger</p>
+    <HeaderMusicPlayer></HeaderMusicPlayer>
+    <HeaderTwitter></HeaderTwitter>
+    <!-- <CommonSns></CommonSns> -->
+    <p class="datetime">{{ datetime }}</p>
   </header>
 </template>
 

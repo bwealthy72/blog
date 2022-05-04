@@ -2,6 +2,7 @@
 @import "base/reset.scss";
 @import "base/font.scss";
 @import "base/mixins.scss";
+@import "base/keyframes.scss";
 @import "base/base.scss";
 
 // Component
@@ -9,6 +10,7 @@
 @import "component/search.scss";
 @import "component/sns.scss";
 @import "component/tags.scss";
+@import "component/music_player.scss";
 
 @import "component/mac/window_btn.scss";
 @import "component/mac/window.scss";

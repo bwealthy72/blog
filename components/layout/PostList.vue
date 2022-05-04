@@ -31,7 +31,8 @@
         :key="p.slug"
         :class="{
           'nuxt-link-active': p.active,
-          'nuxt-link-active': index == 0 && $route.name,
+          'nuxt-link-active':
+            index == 0 && ($route.name || $route.path === '/post'),
         }"
       >
         <div class="text">

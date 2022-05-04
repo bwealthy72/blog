@@ -1,6 +1,8 @@
 .site-header {
   width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: flex-end;
   background-color: $header-bg-color;
   backdrop-filter: blur(6px);
   height: $header-height;
@@ -8,39 +10,46 @@
   color: white;
   padding: 0 1rem;
   box-sizing: border-box;
+  position: relative;
+  z-index: 100000;
 
-  &__group {
+  > * {
     height: 100%;
     display: flex;
     align-items: center;
-    gap: $header-item-gap;
+  }
 
-    .main-logo {
-      height: 50%;
-      filter: invert(1);
+  .header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 1.2rem;
+    border-radius: 4px;
+    margin-left: -0.2rem;
+    margin-right: -0.2rem;
+    &:active {
+      background-color: rgba(255, 255, 255, 0.15);
     }
-
-    .main-title {
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .sns {
+    img {
       height: 60%;
-      gap: $header-item-gap;
     }
+  }
+  .main-logo {
+    height: 50%;
+    filter: invert(1);
+  }
 
-    .site-search {
-      height: 50%;
-    }
+  .main-title {
+    font-weight: bold;
+    white-space: nowrap;
+    margin-right: auto;
+    margin-left: 2rem;
+  }
 
-    &.right {
-      margin-left: auto;
-
-      .datetime {
-        font-weight: bold;
-      }
-    }
+  .datetime {
+    font-weight: bold;
+    margin-left: 1rem;
   }
 }
 

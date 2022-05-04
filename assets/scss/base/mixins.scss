@@ -7,3 +7,11 @@
   -webkit-line-clamp: $line; /* 표시하고자 하는 라인 수 */
   -webkit-box-orient: vertical;
 }
+
+@mixin macWindowTheme() {
+  border: 1px solid #666;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px 0px black;
+  border-radius: 8px;
+  background-color: #152038c0;
+}
