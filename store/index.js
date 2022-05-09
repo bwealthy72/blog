@@ -23,9 +23,17 @@ const getPostPath = async function (routes, content) {
 
 export const state = () => ({
   postPaths: {},
-  appPaths: {
-    "/": "Home",
-    "/post": "Post",
+  apps: {
+    post: {
+      name: "Post",
+      to: "/post",
+      img: require("~/assets/images/dock/post.png"),
+    },
+    twitter: {
+      name: "Twitter",
+      to: "/twitter",
+      img: require("~/assets/images/dock/twitter.png"),
+    },
   },
   windowId: 1,
   windows: {},

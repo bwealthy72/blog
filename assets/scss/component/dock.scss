@@ -39,13 +39,14 @@
           object-fit: contain;
           width: 100%;
           filter: drop-shadow(2px 2px 2px black);
+          border-radius: 10px;
         }
         .info {
           display: none;
           margin-left: 1.8rem;
           color: white;
-          font-size: 1.7rem;
-          background-color: #353535;
+          font-size: 1.5rem;
+          background-color: rgba(23, 38, 61, 0.5333333333);
           padding: 0.4em 0.7em;
           border-radius: 5px;
           position: relative;
@@ -61,7 +62,7 @@
             left: 0;
             transform: translate(-100%, -50%);
             border-left: 5px solid transparent;
-            border-right: 7px solid #353535;
+            border-right: 7px solid rgba(23, 38, 61, 0.5333333333);
             border-top: 5px solid transparent;
             border-bottom: 5px solid transparent;
           }

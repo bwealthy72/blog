@@ -12,10 +12,6 @@
         <img src="~/assets/images/audio/next.png" />
       </button>
     </div> -->
-
-    <button class="header-icon">
-      <img src="@/assets/images/sns/twitter.svg" />
-    </button>
   </div>
 </template>
 

@@ -1,18 +1,18 @@
 <template>
   <nav class="site-dock">
     <ul id="dock" class="dock" @mouseleave="mouseLeave" @mousemove="mouseMove">
-      <li v-for="(name, path, idx) of appPaths" :key="path" class="dock__item">
-        <NuxtLink class="link" :to="path">
+      <li v-for="(app, key, idx) of apps" :key="key" class="dock__item">
+        <NuxtLink class="link" :to="app.to">
           <img
-            :src="loadImage(name)"
-            :alt="name"
+            :src="app.img"
+            :alt="app.name"
             class="ico"
             @mousemove.self="$set(flags, idx, true)"
             @mouseleave.self="$set(flags, idx, false)"
           />
           <div class="info" :class="{ active: flags[idx] }">
             <h3 class="info__name">
-              {{ name }}
+              {{ app.name }}
             </h3>
           </div>
         </NuxtLink>
@@ -33,21 +33,18 @@ export default {
     };
   },
   computed: {
-    appPaths() {
-      return this.$store.state.appPaths;
+    apps() {
+      return this.$store.state.apps;
     },
   },
   created() {
     const dockWidth = this.$getScssVariable("dockWidth");
-    for (const c in this.appPaths) {
+    for (const c in this.apps) {
       this.flags.push(false);
       this.widths.push(dockWidth);
     }
   },
   methods: {
-    loadImage(name) {
-      return require(`~/assets/images/dock/${name}.png`);
-    },
     mouseLeave() {
       // 이전 애니메이션 취소
       window.cancelAnimationFrame(this.aniID);

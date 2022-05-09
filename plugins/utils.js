@@ -12,7 +12,7 @@ function dateFormat(date, format = `%Y.%M.%D %h:%m`) {
           str += date.getFullYear().slice(2);
           break;
         case "M":
-          str += ("0" + (date.getMonth() + 1)).slice(-2);
+          str += date.getMonth() + 1;
           break;
         case "m":
           str += ("0" + date.getMinutes()).slice(-2);

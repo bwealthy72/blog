@@ -14,5 +14,5 @@ $desktop-width: $post-width;
 :export {
   headerHeight: $header-height;
   dockWidth: $dock-width;
-  desktopWidth: 800px;
+  desktopWidth: $desktop-width;
 }

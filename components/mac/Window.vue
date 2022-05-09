@@ -138,12 +138,14 @@ export default {
 
     close() {
       this.removeEvents();
-      // https://stackoverflow.com/questions/40445125/how-can-component-delete-itself-in-vue-2-0
-      // destroy the vue listeners, etc
-      this.$destroy();
 
-      // remove the element from the DOM
-      this.$el.parentNode.removeChild(this.$el);
+      this.$router.push("/");
+      // // https://stackoverflow.com/questions/40445125/how-can-component-delete-itself-in-vue-2-0
+      // // destroy the vue listeners, etc
+      // this.$destroy();
+
+      // // remove the element from the DOM
+      // this.$el.parentNode.removeChild(this.$el);
     },
     minimize() {
       this.close();
