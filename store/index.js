@@ -27,7 +27,7 @@ export const state = () => ({
     post: {
       name: "Post",
       to: "/post",
-      img: require("~/assets/images/dock/post.png"),
+      img: require("~/assets/images/dock/Post.png"),
     },
     twitter: {
       name: "Twitter",
