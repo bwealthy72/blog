@@ -2,10 +2,12 @@
   <div class="home-wrapper">
     <div class="mobile">
       <ul class="apps">
-        <li class="apps__item" v-for="(name, path) in appPaths" :key="path">
-          <NuxtLink class="link" :to="path">
-            <img class="link__img" :src="loadImage(name)" :alt="name" />
-            <p class="link__name">{{ name }}</p>
+        <li class="apps__item" v-for="(app, key) in apps" :key="key">
+          <NuxtLink class="link" :to="app.to">
+            <div class="link__icon">
+              <img class="link__img" :src="app.img" :alt="app.name" />
+              <p class="link__name">{{ app.name }}</p>
+            </div>
           </NuxtLink>
         </li>
       </ul>
@@ -15,18 +17,15 @@
 
 <script>
 export default {
-  methods: {
-    loadImage(name) {
-      return require(`~/assets/images/dock/${name}.png`);
+  transition: "app",
+  computed: {
+    apps() {
+      return this.$store.state.apps;
     },
   },
-  computed: {
-    appPaths() {
-      const a = JSON.parse(JSON.stringify(this.$store.state.appPaths));
-      delete a["/"];
-
-      return a;
-    },
+  created() {
+    this.$axios.setToken(process.env.BEARER_TOKEN, "Bearer");
+    this.$axios.$get("/api/users/by/username/blogwealthy");
   },
 };
 </script>

@@ -114,7 +114,23 @@ export default {
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots
     "@nuxtjs/robots",
+    "@nuxtjs/axios",
+    "@nuxtjs/proxy",
   ],
+  axios: {
+    // Do away with the baseUrl when using proxy
+    proxy: true,
+  },
+
+  proxy: {
+    "/api/": {
+      target: "http://api.twitter.com/2/",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/api": "/",
+      },
+    },
+  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
@@ -166,10 +182,10 @@ export default {
       //   component: resolve(__dirname, "pages/post.vue"),
       // });
 
-      // routes.push({
-      //   path: "/post",
-      //   component: resolve(__dirname, "pages/posts/postCategory.vue"),
-      // });
+      routes.push({
+        path: "/twitter",
+        component: resolve(__dirname, "pages/twitter.vue"),
+      });
 
       routes.push({
         path: "/post",
