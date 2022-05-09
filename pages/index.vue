@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   transition: "app",
   computed: {
@@ -23,6 +24,19 @@ export default {
       return this.$store.state.apps;
     },
   },
-  created() {},
+  async created() {
+    // axios.get(
+    //   "/api/test",
+    //   // "https://api.twitter.com/2/users/by/blogwealthy?usernames=twitterdev,twitterapi,adsapi&user.fields=created_at&expansions=pinned_tweet_id&tweet.fields=author_id,created_at",
+    //   {
+    //     headers: {
+    //       Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+    //     },
+    //   }
+    // );
+
+    const data = await axios.get("https://api.hnpwa.com/v0/news/1.json");
+    console.log(data);
+  },
 };
 </script>

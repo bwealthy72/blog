@@ -83,6 +83,18 @@ export default {
     ],
   },
 
+  // $axios의 baseURL을 https://example.com:9000/로 설정
+  axios: {
+    host: "https://example.com",
+    port: "9000",
+    prefix: "/",
+  },
+  // ...(process.env.NODE_ENV === "development" && {
+  //   proxy: {
+  //     "/api": "http://localhost:8000",
+  //   },
+  // }),
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ["~/assets/scss/index.scss"],
 
