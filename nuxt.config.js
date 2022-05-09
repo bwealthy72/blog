@@ -114,23 +114,7 @@ export default {
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots
     "@nuxtjs/robots",
-    "@nuxtjs/axios",
-    "@nuxtjs/proxy",
   ],
-  axios: {
-    // Do away with the baseUrl when using proxy
-    proxy: true,
-  },
-
-  proxy: {
-    "/api/": {
-      target: "http://api.twitter.com/2/",
-      changeOrigin: true,
-      pathRewrite: {
-        "^/api": "/",
-      },
-    },
-  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {

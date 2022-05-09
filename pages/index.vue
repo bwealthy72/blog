@@ -23,9 +23,6 @@ export default {
       return this.$store.state.apps;
     },
   },
-  created() {
-    this.$axios.setToken(process.env.BEARER_TOKEN, "Bearer");
-    this.$axios.$get("/api/users/by/username/blogwealthy");
-  },
+  created() {},
 };
 </script>
