@@ -141,20 +141,21 @@ export default {
     },
     homeMotionMove(e) {
       if (this.isMotionStart) {
+        const x = e.changedTouches[0].clientX;
         const y = e.changedTouches[0].clientY;
-        const percent = y / this.motionStart.y;
-
-        this.width = this.motionStart.width * percent;
-        this.height = this.motionStart.height * percent; // top = 0고 height가 곧 bottom
-        this.left = this.motionStart.width * ((1 - percent) / 2);
-        this.top = this.motionStart.height * ((1 - percent) / 2);
+        const diff = window.innerHeight - y;
+        this.top = diff / 2;
+        this.width = window.innerWidth - diff;
+        this.left = x - this.width / 2;
+        this.height = window.innerHeight - (diff * 3) / 2;
       }
     },
     homeMotionEnd(e) {
       if (this.isMotionStart) {
+        const x = e.changedTouches[0].clientX;
         const y = e.changedTouches[0].clientY;
-        const percent = y / this.motionStart.y;
-        if (percent < 0.7) {
+        const diff = window.innerHeight - y;
+        if (diff > 150) {
           this.$router.push("/");
         } else {
           this.width = this.motionStart.width;
