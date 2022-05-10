@@ -47,7 +47,11 @@
       </div>
       <div class="window__sound">
         <img class="sound-ico" src="~/assets/images/audio/mute.svg" />
-        <div class="sound-bar" @mousedown.self="volumeControl">
+        <div
+          class="sound-bar"
+          @touchstart.stop="volumeControl"
+          @mousedown="volumeControl"
+        >
           <div class="curr-bar" :style="{ width: volume * 100 + '%' }"></div>
           <div class="curr-dot" :style="{ left: volume * 100 + '%' }"></div>
         </div>
@@ -211,11 +215,11 @@ export default {
 
       changeVolume(e);
       if (this.isMobile) {
-        window.addEventListener("touchmove", changeVolume, { passive: true });
-        window.addEventListener("touchend", _checkEnd, { passive: true });
+        window.addEventListener("touchmove", changeVolume);
+        window.addEventListener("touchend", _checkEnd);
       } else {
-        window.addEventListener("mousemove", changeVolume, { passive: true });
-        window.addEventListener("mouseup", _checkEnd, { passive: true });
+        window.addEventListener("mousemove", changeVolume);
+        window.addEventListener("mouseup", _checkEnd);
       }
     },
     onended() {

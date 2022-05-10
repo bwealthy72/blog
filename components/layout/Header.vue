@@ -3,7 +3,7 @@
     <NuxtLink to="/">
       <img class="main-logo" src="/favicon.ico" alt="logo" />
     </NuxtLink>
-    <p class="main-title">{{ $store.state.title }}</p>
+    <p class="main-title">{{ title }}</p>
     <HeaderMusicPlayer></HeaderMusicPlayer>
     <!-- <HeaderTwitter></HeaderTwitter> -->
     <!-- <CommonSns></CommonSns> -->
@@ -17,6 +17,11 @@ export default {
     return {
       datetime: null,
     };
+  },
+  computed: {
+    title() {
+      return this.$store.state.title ? this.$store.state.title : "";
+    },
   },
   mounted() {
     const desktopWidth = this.$getScssVariable("desktopWidth");

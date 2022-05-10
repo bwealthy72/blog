@@ -125,7 +125,6 @@ export default {
   methods: {
     homeMotionStart(e) {
       const y = e.changedTouches[0].clientY;
-      console.log("down");
 
       if (y > window.innerHeight - this.homeMotionLimit) {
         this.isMotionStart = true;
@@ -142,7 +141,6 @@ export default {
     },
     homeMotionMove(e) {
       if (this.isMotionStart) {
-        console.log("move");
         const y = e.changedTouches[0].clientY;
         const percent = y / this.motionStart.y;
 
@@ -150,8 +148,6 @@ export default {
         this.height = this.motionStart.height * percent; // top = 0고 height가 곧 bottom
         this.left = this.motionStart.width * ((1 - percent) / 2);
         this.top = this.motionStart.height * ((1 - percent) / 2);
-        console.log(percent);
-        console.log(this.width, this.height, this.left, this.top);
       }
     },
     homeMotionEnd(e) {
@@ -167,7 +163,6 @@ export default {
           this.top = this.motionStart.top;
         }
 
-        console.log("up");
         this.isMotionStart = false;
         this.borderRadius = 0;
         document.querySelector(".site-header").style.opacity = 1;
