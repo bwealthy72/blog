@@ -94,7 +94,7 @@ export default {
 
   computed: {
     isMobile() {
-      return this.$store.state.isMobile;
+      return this.$store.state.isMobile ? this.$store.state.isMobile : false;
     },
   },
 
