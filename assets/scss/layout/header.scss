@@ -55,8 +55,11 @@
 
 @media (max-width: $desktop-width) {
   .site-header {
-    background-color: transparent;
+    background-color: #1e1e1e;
     font-size: 1.5rem;
-    height: 35px;
+    height: $header-mobile-height;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 }

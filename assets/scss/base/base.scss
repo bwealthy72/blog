@@ -74,3 +74,12 @@ a {
     transform: translateY(-50%);
   }
 }
+
+@media (max-width: $desktop-width) {
+  .app-leave-active {
+    transition: all 10.2s;
+    .mac-window {
+      transition: all 10.2s linear;
+    }
+  }
+}

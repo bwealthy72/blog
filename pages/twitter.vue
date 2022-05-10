@@ -72,6 +72,9 @@
         </section>
       </div>
     </MacWindow>
+
+
+    </script>
   </div>
 </template>
 
@@ -101,6 +104,7 @@ export default {
   transition() {
     return "app";
   },
+
   async asyncData({ $dateFormat }) {
     const result = {};
 
