@@ -24,6 +24,7 @@ const getPostPath = async function (routes, content) {
 export const state = () => ({
   postPaths: {},
   title: "Frontend Blogger",
+  isMobile: false,
   apps: {
     post: {
       name: "Post",
@@ -41,8 +42,11 @@ export const state = () => ({
 });
 
 export const mutations = {
+  setIsMobile(state, isMobile) {
+    state.isMobile = isMobile;
+  },
   setTitle(state, title) {
-    return (state.title = title);
+    state.title = title;
   },
   setPaths(state, postPaths) {
     state.postPaths = postPaths;

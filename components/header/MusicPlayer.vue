@@ -17,7 +17,11 @@
         <h2 class="title">{{ track[trackIdx].title }}</h2>
         <p class="artist">{{ track[trackIdx].artist }}</p>
       </div>
-      <div class="window__progress" @mousedown.self="progressControl">
+      <div
+        class="window__progress"
+        @touchstart.stop="progressControl"
+        @mousedown="progressControl"
+      >
         <div class="curr-bar" :style="{ width: progressBar + '%' }"></div>
         <div class="curr-dot" :style="{ left: progressBar + '%' }"></div>
       </div>
@@ -79,9 +83,15 @@ export default {
       currentTime: "00:00",
       totalTime: "00:00",
       isPlaying: false,
-      volume: 0.0,
+      volume: 0,
       isVolumeChanging: false,
     };
+  },
+
+  computed: {
+    isMobile() {
+      return this.$store.state.isMobile;
+    },
   },
 
   methods: {
@@ -137,12 +147,17 @@ export default {
 
       const changeCurrTime = (e) => {
         let percent = 0;
-        if (e.clientX < rect.left) {
+        let x = e.clientX;
+        if (e.type === "touchmove" || e.type === "touchstart") {
+          x = e.changedTouches[0].clientX;
+        }
+
+        if (x < rect.left) {
           percent = 0;
         } else if (rect.right < e.clientX) {
           percent = 0.99;
         } else {
-          percent = (e.clientX - rect.left) / rect.width;
+          percent = (x - rect.left) / rect.width;
         }
 
         this.audio.pause();
@@ -151,33 +166,57 @@ export default {
       const _checkEnd = (e) => {
         this.audio.play();
 
-        window.removeEventListener("mousemove", changeCurrTime);
-        window.removeEventListener("mouseup", _checkEnd);
+        if (this.isMobile) {
+          window.removeEventListener("touchmove", changeCurrTime);
+          window.removeEventListener("touchend", _checkEnd);
+        } else {
+          window.removeEventListener("mousemove", changeCurrTime);
+          window.removeEventListener("mouseup", _checkEnd);
+        }
       };
-
       changeCurrTime(e);
-      window.addEventListener("mousemove", changeCurrTime);
-      window.addEventListener("mouseup", _checkEnd);
+
+      if (this.isMobile) {
+        window.addEventListener("touchmove", changeCurrTime);
+        window.addEventListener("touchend", _checkEnd);
+      } else {
+        window.addEventListener("mousemove", changeCurrTime);
+        window.addEventListener("mouseup", _checkEnd);
+      }
     },
     volumeControl(e) {
       const rect = e.target.getBoundingClientRect();
       const changeVolume = (e) => {
-        if (e.clientX < rect.left) {
+        let x = e.clientX;
+        if (e.type === "touchmove" || e.type === "touchstart") {
+          x = e.changedTouches[0].clientX;
+        }
+        if (x < rect.left) {
           this.volume = 0;
-        } else if (rect.right < e.clientX) {
+        } else if (rect.right < x) {
           this.volume = 1;
         } else {
-          this.volume = (e.clientX - rect.left) / rect.width;
+          this.volume = (x - rect.left) / rect.width;
         }
       };
       const _checkEnd = (e) => {
-        window.removeEventListener("mousemove", changeVolume);
-        window.removeEventListener("mouseup", _checkEnd);
+        if (this.isMobile) {
+          window.removeEventListener("touchmove", changeVolume);
+          window.removeEventListener("touchend", _checkEnd);
+        } else {
+          window.removeEventListener("mousemove", changeVolume);
+          window.removeEventListener("mouseup", _checkEnd);
+        }
       };
 
       changeVolume(e);
-      window.addEventListener("mousemove", changeVolume, { passive: true });
-      window.addEventListener("mouseup", _checkEnd, { passive: true });
+      if (this.isMobile) {
+        window.addEventListener("touchmove", changeVolume, { passive: true });
+        window.addEventListener("touchend", _checkEnd, { passive: true });
+      } else {
+        window.addEventListener("mousemove", changeVolume, { passive: true });
+        window.addEventListener("mouseup", _checkEnd, { passive: true });
+      }
     },
     onended() {
       this.nextTrack();
@@ -235,7 +274,7 @@ export default {
     this.audio.onended = this.onended;
     this.audio.volume = this.volume;
 
-    window.addEventListener("click", this.firstPlay, { once: true });
+    // window.addEventListener("click", this.firstPlay, { once: true });
     window.addEventListener("mousedown", this.showOrHide);
   },
 };

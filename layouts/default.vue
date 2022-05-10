@@ -9,3 +9,14 @@
     <Nuxt />
   </div>
 </template>
+
+<script>
+export default {
+  beforeMount() {
+    this.$store.commit(
+      "setIsMobile",
+      window.innerWidth < this.$getScssVariable("desktopWidth")
+    );
+  },
+};
+</script>

@@ -1,5 +1,11 @@
 <template>
-  <section class="mac-window" :style="windowStyle">
+  <section
+    class="mac-window"
+    @touchstart="homeMotionStart"
+    @touchmove="homeMotionMove"
+    @touchend="homeMotionEnd"
+    :style="windowStyle"
+  >
     <div
       class="mac-window__header"
       @dblclick.self="returnInitialPos"
@@ -48,6 +54,17 @@ export default {
       // 움직이고 있는지 여부
       isMoving: false,
       zIndex: 0,
+
+      // 홈으로 이동하기 위한 제스쳐 시작 위치(y)
+      homeMotionLimit: 50,
+      isMotionStart: false,
+      motionStart: {
+        y: null,
+        top: null,
+        left: null,
+        width: null,
+        height: null,
+      },
     };
   },
   computed: {
@@ -93,10 +110,62 @@ export default {
       this.left = this.boundary.left;
     }
 
+    if (this.$store.state.isMobile) {
+      this.width = window.innerWidth;
+      this.height = window.innerHeight;
+      this.top = 0;
+      this.left = 0;
+    }
+
     this.addEvents();
   },
 
   methods: {
+    homeMotionStart(e) {
+      const y = e.changedTouches[0].clientY;
+      console.log("down");
+
+      if (y > window.innerHeight - this.homeMotionLimit) {
+        this.isMotionStart = true;
+        this.motionStart.y = y;
+        this.motionStart.top = this.top;
+        this.motionStart.left = this.left;
+        this.motionStart.width = this.width;
+        this.motionStart.height = this.height;
+        console.log("Start");
+      }
+    },
+    homeMotionMove(e) {
+      if (this.isMotionStart) {
+        console.log("move");
+        const y = e.changedTouches[0].clientY;
+        const percent = y / this.motionStart.y;
+
+        this.width = this.motionStart.width * percent;
+        this.height = this.motionStart.height * percent; // top = 0고 height가 곧 bottom
+        this.left = this.motionStart.width * ((1 - percent) / 2);
+        this.top = this.motionStart.height * ((1 - percent) / 2);
+        console.log(percent);
+        console.log(this.width, this.height, this.left, this.top);
+      }
+    },
+    homeMotionEnd(e) {
+      if (this.isMotionStart) {
+        const y = e.changedTouches[0].clientY;
+        const percent = y / this.motionStart.y;
+        if (percent < 0.7) {
+          this.$router.push("/");
+        } else {
+          this.width = this.motionStart.width;
+          this.height = this.motionStart.height;
+          this.left = this.motionStart.left;
+          this.top = this.motionStart.top;
+        }
+
+        console.log("up");
+        this.isMotionStart = false;
+      }
+    },
     updateInfo() {
       this.$store.commit("saveWindows", {
         uid: this.uid,

@@ -1,6 +1,8 @@
 <template>
   <header class="site-header">
-    <img class="main-logo" src="/favicon.ico" alt="logo" />
+    <NuxtLink to="/">
+      <img class="main-logo" src="/favicon.ico" alt="logo" />
+    </NuxtLink>
     <p class="main-title">{{ $store.state.title }}</p>
     <HeaderMusicPlayer></HeaderMusicPlayer>
     <!-- <HeaderTwitter></HeaderTwitter> -->

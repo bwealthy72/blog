@@ -69,8 +69,19 @@ const getPosts = async function () {
   return { post, postList };
 };
 
+const postScreen = function () {
+  if (this.route.params.post) {
+    return "content";
+  } else if (this.route.name) {
+    return "list";
+  } else if (this.route.path == "/post") {
+    return "category";
+  }
+};
+
 export default ({ app }, inject) => {
   inject("getPostList", getPostList);
   inject("getPostContent", getPostContent);
   inject("getPosts", getPosts);
+  inject("postScreen", postScreen);
 };

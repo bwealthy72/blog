@@ -49,13 +49,7 @@ a {
   outline: none;
 }
 
-.app-leave-active {
-  transition: all 0.2s;
-  .mac-window {
-    transition: all 0.2s linear;
-  }
-}
-
+.app-leave-active,
 .app-enter-active {
   transition: all 0.2s;
   .mac-window {
@@ -76,10 +70,22 @@ a {
 }
 
 @media (max-width: $desktop-width) {
+  .app-enter-active,
   .app-leave-active {
-    transition: all 10.2s;
+    transition: all 0.1s;
     .mac-window {
-      transition: all 10.2s linear;
+      transition: all 0.1s linear;
+    }
+  }
+
+  .app-enter,
+  .app-leave-to {
+    .mac-window {
+      top: 50% !important;
+      left: 50% !important;
+      width: 0 !important;
+      height: 0 !important;
+      overflow: hidden !important;
     }
   }
 }

@@ -136,14 +136,12 @@ export default {
         if (result) {
           t.text = result[1];
           t.mediaURL = result[2];
-          console.log(result[1], result[2]);
         }
         if (t.entities) {
           for (const u of t.entities.urls) {
             t.text = t.text.replace(u.url, u.display_url);
           }
         }
-        console.log(t.id);
         t.url = `https://twitter.com/${user.data.data.username}/status/${t.id}`;
         t.created_at = $dateFormat(new Date(t.created_at), "%Y. %M. %D %h:%m");
       }

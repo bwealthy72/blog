@@ -1,5 +1,5 @@
 <template>
-  <div class="post-wrapper">
+  <div class="post-wrapper" :class="postScreen">
     <MacWindow windowWidth="1080" windowHeight="700" uid="post">
       <div class="post-window" slot="body">
         <LayoutPostCategory></LayoutPostCategory>
@@ -17,13 +17,18 @@ export default {
     const t = re.exec(to.path);
     if (f && t && f[0] == t[0]) {
       return "app";
-    } else return "page";
+    } else {
+      return "";
+    }
   },
   beforeCreate() {
     this.$store.commit("setTitle", "Blog post");
   },
   async asyncData(ctx) {
-    return await ctx.$getPosts();
+    const { post, postList } = await ctx.$getPosts();
+    const postScreen = ctx.$postScreen();
+
+    return { post, postList, postScreen };
   },
 };
 </script>
