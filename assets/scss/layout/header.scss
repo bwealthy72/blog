@@ -12,6 +12,7 @@
   box-sizing: border-box;
   position: relative;
   z-index: 100000;
+  transition: opacity 0.5s;
 
   > * {
     height: 100%;

@@ -54,6 +54,7 @@ export default {
       // 움직이고 있는지 여부
       isMoving: false,
       zIndex: 0,
+      borderRadius: 0,
 
       // 홈으로 이동하기 위한 제스쳐 시작 위치(y)
       homeMotionLimit: 50,
@@ -75,6 +76,7 @@ export default {
         width: this.width ? this.width + "px" : "auto",
         height: this.height ? this.height + "px" : "auto",
         "z-index": this.zIndex,
+        borderRadius: this.borderRadius + "px",
       };
 
       return style;
@@ -132,7 +134,10 @@ export default {
         this.motionStart.left = this.left;
         this.motionStart.width = this.width;
         this.motionStart.height = this.height;
-        console.log("Start");
+        this.borderRadius = 15;
+        document.querySelector(".site-header").style.opacity = 0;
+        document.querySelector(".container .blur-bg").style.backdropFilter =
+          "blur(10px)";
       }
     },
     homeMotionMove(e) {
@@ -164,6 +169,10 @@ export default {
 
         console.log("up");
         this.isMotionStart = false;
+        this.borderRadius = 0;
+        document.querySelector(".site-header").style.opacity = 1;
+        document.querySelector(".container .blur-bg").style.backdropFilter =
+          "blur(0px)";
       }
     },
     updateInfo() {

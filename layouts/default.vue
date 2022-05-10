@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <div class="blur-bg"></div>
+
     <keep-alive>
       <CommonDock></CommonDock>
     </keep-alive>
