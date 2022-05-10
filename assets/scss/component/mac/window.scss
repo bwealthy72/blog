@@ -33,6 +33,7 @@
     border: none;
     box-shadow: none;
     border-radius: 0;
+    transition: border-radius 0.2s;
 
     &.animated {
       transition: none;

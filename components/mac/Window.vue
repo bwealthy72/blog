@@ -144,10 +144,10 @@ export default {
         const x = e.changedTouches[0].clientX;
         const y = e.changedTouches[0].clientY;
         const diff = window.innerHeight - y;
-        this.top = diff / 2;
-        this.width = window.innerWidth - diff;
+        this.width = window.innerWidth - (diff * 2) / 5;
+        this.height = window.innerHeight - (diff * 7) / 5;
         this.left = x - this.width / 2;
-        this.height = window.innerHeight - (diff * 3) / 2;
+        this.top = y - this.height;
       }
     },
     homeMotionEnd(e) {
