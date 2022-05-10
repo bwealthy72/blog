@@ -1,7 +1,7 @@
 <template>
   <header class="site-header">
     <img class="main-logo" src="/favicon.ico" alt="logo" />
-    <p class="main-title">Frontend Blogger</p>
+    <p class="main-title">{{ $store.state.title }}</p>
     <HeaderMusicPlayer></HeaderMusicPlayer>
     <!-- <HeaderTwitter></HeaderTwitter> -->
     <!-- <CommonSns></CommonSns> -->

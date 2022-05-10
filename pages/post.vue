@@ -19,6 +19,9 @@ export default {
       return "app";
     } else return "page";
   },
+  beforeCreate() {
+    this.$store.commit("setTitle", "Blog post");
+  },
   async asyncData(ctx) {
     return await ctx.$getPosts();
   },

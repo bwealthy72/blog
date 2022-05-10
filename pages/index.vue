@@ -23,5 +23,8 @@ export default {
       return this.$store.state.apps;
     },
   },
+  beforeCreate() {
+    this.$store.commit("setTitle", "Frontend Blogger");
+  },
 };
 </script>

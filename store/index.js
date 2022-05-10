@@ -23,6 +23,7 @@ const getPostPath = async function (routes, content) {
 
 export const state = () => ({
   postPaths: {},
+  title: "Frontend Blogger",
   apps: {
     post: {
       name: "Post",
@@ -40,6 +41,9 @@ export const state = () => ({
 });
 
 export const mutations = {
+  setTitle(state, title) {
+    return (state.title = title);
+  },
   setPaths(state, postPaths) {
     state.postPaths = postPaths;
   },
