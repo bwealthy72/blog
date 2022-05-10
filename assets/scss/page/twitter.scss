@@ -2,5 +2,99 @@
   .twitter {
     width: 100%;
     height: 100%;
+    color: white;
+    overflow-y: auto;
+
+    .user {
+      display: flex;
+      flex-direction: column;
+      padding: 0 2rem;
+      background-color: #292f33;
+      position: relative;
+      z-index: 1;
+
+      &__profile {
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        margin: 5rem auto 2rem auto;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        background-color: rgb(73 94 122);
+        position: relative;
+      }
+
+      &__name {
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 0px 0px 3px #ffffff99;
+        text-align: center;
+      }
+
+      &__uname {
+        color: rgb(158, 157, 157);
+        margin-top: 0.5rem;
+        font-size: 1.2rem;
+        text-align: center;
+
+        &::before {
+          content: "#";
+        }
+      }
+
+      &__desc {
+        font-size: 1.2rem;
+        margin-top: 0.5rem;
+        text-align: center;
+        line-height: 1.5;
+        color: rgb(189, 189, 189);
+      }
+
+      &__info {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+
+        .info {
+          text-align: center;
+          flex: 1;
+
+          p:first-of-type {
+            font-size: 1.4rem;
+            font-weight: bold;
+          }
+          p:nth-child(2) {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            color: gray;
+          }
+        }
+      }
+    }
+
+    .timeline {
+      margin-top: -4.4rem;
+      position: relative;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #6b6b6b;
+    border-radius: 8px;
+    background-clip: padding-box;
+    // border: 3px solid transparent;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #292f33;
+    border-left: 0.2px solid #565656;
+    border-right: 0.2px solid #565656;
   }
 }

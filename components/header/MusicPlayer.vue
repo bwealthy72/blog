@@ -79,7 +79,7 @@ export default {
       currentTime: "00:00",
       totalTime: "00:00",
       isPlaying: false,
-      volume: 0.3,
+      volume: 0.0,
       isVolumeChanging: false,
     };
   },
