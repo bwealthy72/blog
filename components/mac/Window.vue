@@ -81,6 +81,9 @@ export default {
 
       return style;
     },
+    isMobile() {
+      return this.$store.state.isMobile ? this.$store.state.isMobile : false;
+    },
   },
   watch: {
     top() {
@@ -112,7 +115,7 @@ export default {
       this.left = this.boundary.left;
     }
 
-    if (this.$store.state.isMobile) {
+    if (this.isMobile) {
       this.width = window.innerWidth;
       this.height = window.innerHeight;
       this.top = 0;
