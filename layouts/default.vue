@@ -1,24 +1,7 @@
 <template>
   <div class="container">
-    <div class="blur-bg"></div>
-
-    <keep-alive>
-      <CommonDock></CommonDock>
-    </keep-alive>
-    <keep-alive>
-      <LayoutHeader></LayoutHeader>
-    </keep-alive>
+    <DesktopDock></DesktopDock>
+    <DesktopHeader></DesktopHeader>
     <Nuxt />
   </div>
 </template>
-
-<script>
-export default {
-  beforeMount() {
-    this.$store.commit(
-      "setIsMobile",
-      window.innerWidth < this.$getScssVariable("desktopWidth")
-    );
-  },
-};
-</script>

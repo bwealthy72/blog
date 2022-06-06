@@ -6,21 +6,21 @@
 @import "base/base.scss";
 
 // Component
-@import "component/dock.scss";
 @import "component/search.scss";
 @import "component/sns.scss";
 @import "component/tags.scss";
-@import "component/music_player.scss";
 
-@import "component/mac/window_btn.scss";
-@import "component/mac/window.scss";
+@import "component/desktop/default.scss";
+@import "component/desktop/header.scss";
+@import "component/desktop/dock.scss";
+@import "component/desktop/post_content.scss";
+@import "component/desktop/post_list.scss";
+@import "component/desktop/post_category.scss";
 
-// layout
-@import "layout/default.scss";
-@import "layout/header.scss";
-@import "layout/post_content.scss";
-@import "layout/post_list.scss";
-@import "layout/post_category.scss";
+@import "component/desktop/mac/window_btn.scss";
+@import "component/desktop/mac/window.scss";
+
+@import "component/desktop/header/music_player.scss";
 
 // @import "layout/post_toc.scss";
 // @import "layout/mobile_menu.scss";

@@ -1,0 +1,22 @@
+.mac-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  @include macWindowTheme;
+
+  &.animated {
+    transition: all 0.3s;
+  }
+
+  &__header {
+    flex: 0 0 50px;
+  }
+
+  &__body {
+    height: 100%;
+  }
+}

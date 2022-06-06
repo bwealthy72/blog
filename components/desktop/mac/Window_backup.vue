@@ -1,21 +1,21 @@
 <template>
   <section
     class="mac-window"
-    @touchstart="homeMotionStart"
-    @touchmove="homeMotionMove"
-    @touchend="homeMotionEnd"
+    @mousedown="startDragWindow"
+    @mousemove="dragMoveWindow"
+    @mouseup="endDragWindow"
     :style="windowStyle"
   >
     <div
       class="mac-window__header"
-      @dblclick.self="returnInitialPos"
+      @dblclick.self="resetWindow"
       @mousedown.self="moveStart"
     >
-      <MacWindowBtn
+      <DesktopMacWindowBtn
         @close="close"
         @minimize="minimize"
         @maximize="maximize"
-      ></MacWindowBtn>
+      ></DesktopMacWindowBtn>
       <slot name="header"></slot>
     </div>
 
@@ -38,6 +38,8 @@ export default {
   },
   data() {
     return {
+      headerHeight: null,
+
       isMaximized: false,
       // 최대화 하기 전 위치와 크기
       initial: { x: null, y: null, w: null, h: null },
@@ -49,15 +51,16 @@ export default {
       left: 0,
       width: null,
       height: null,
-      // 창이 있어도 되는 경계
-      boundary: { top: 0, left: 0, right: 5000, bottom: 5000 },
+
+      // 창의 경계
+      boundary: { top: 0, left: 0 },
+
       // 움직이고 있는지 여부
       isMoving: false,
       zIndex: 0,
       borderRadius: 0,
 
       // 홈으로 이동하기 위한 제스쳐 시작 위치(y)
-      homeMotionLimit: 50,
       isMotionStart: false,
       motionStart: {
         y: null,
@@ -80,9 +83,6 @@ export default {
       };
 
       return style;
-    },
-    isMobile() {
-      return this.$store.state.isMobile ? this.$store.state.isMobile : false;
     },
   },
   watch: {
@@ -108,26 +108,18 @@ export default {
       this.top = prevWindow.top;
       this.left = prevWindow.left;
     } else {
-      this.width = this.windowWidth ? this.windowWidth : null;
-      this.height = this.windowHeight ? this.windowHeight : null;
-
+      this.width = this.windowWidth;
+      this.height = this.windowHeight;
       this.top = this.boundary.top;
       this.left = this.boundary.left;
-    }
-
-    if (this.isMobile) {
-      this.width = window.innerWidth;
-      this.height = window.innerHeight;
-      this.top = 0;
-      this.left = 0;
     }
 
     this.addEvents();
   },
 
   methods: {
-    homeMotionStart(e) {
-      const y = e.changedTouches[0].clientY;
+    startDragWindow(e) {
+      const y = e.layerY;
 
       if (y > window.innerHeight - this.homeMotionLimit) {
         this.isMotionStart = true;
@@ -137,12 +129,9 @@ export default {
         this.motionStart.width = this.width;
         this.motionStart.height = this.height;
         this.borderRadius = 15;
-        document.querySelector(".site-header").style.opacity = 0;
-        document.querySelector(".container .blur-bg").style.backdropFilter =
-          "blur(10px)";
       }
     },
-    homeMotionMove(e) {
+    dragMoveWindow(e) {
       if (this.isMotionStart) {
         const x = e.changedTouches[0].clientX;
         const y = e.changedTouches[0].clientY;
@@ -153,7 +142,7 @@ export default {
         this.top = y - this.height;
       }
     },
-    homeMotionEnd(e) {
+    endDragWindow(e) {
       if (this.isMotionStart) {
         const x = e.changedTouches[0].clientX;
         const y = e.changedTouches[0].clientY;
@@ -199,12 +188,7 @@ export default {
         .querySelector(".dock")
         .getBoundingClientRect().right;
 
-      return {
-        top: headerHeight,
-        left: dockRight,
-        right: window.innerWidth,
-        bottom: window.innerHeight,
-      };
+      return { top: headerHeight, left: dockRight };
     },
     activateAni() {
       this.$el.classList.add("animated");
@@ -227,18 +211,7 @@ export default {
     minimize() {
       this.close();
     },
-    returnInitialPos() {
-      if (this.isMaximized) {
-        this.left = this.initial.x;
-        this.top = this.initial.y;
-        this.width = this.initial.w;
-        this.height = this.initial.h;
-        this.activateAni();
-        this.isMaximized = false;
-      } else {
-        this.maximize();
-      }
-    },
+
     maximize() {
       if (window) {
         if (!this.isMaximized) {
@@ -258,6 +231,19 @@ export default {
         }
       }
     },
+    resetWindow() {
+      if (this.isMaximized) {
+        this.left = this.initial.x;
+        this.top = this.initial.y;
+        this.width = this.initial.w;
+        this.height = this.initial.h;
+        this.activateAni();
+        this.isMaximized = false;
+      } else {
+        this.maximize();
+      }
+    },
+
     moveStart(e) {
       this.startX = e.clientX;
       this.startY = e.clientY;

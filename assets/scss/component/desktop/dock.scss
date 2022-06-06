@@ -1,0 +1,44 @@
+.dock {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  top: 50%;
+  left: $dock-margin-left;
+  transform: translateY(-50%);
+
+  width: $dock-width;
+
+  z-index: $dock-z-index;
+
+  background-color: $dock-bg-color;
+  box-shadow: 1px 1px 4px #888;
+  border-radius: 1.4rem;
+  padding: 1rem 0.5rem;
+
+  &__item {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    padding-bottom: 0.7rem;
+    cursor: default;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__ico {
+    filter: drop-shadow(2px 2px 2px black);
+    border-radius: 10px;
+  }
+
+  &__name {
+    margin-left: 1.8rem;
+    color: white;
+    font-size: 1.5rem;
+    background-color: rgba(23, 38, 61, 0.5333333333);
+    padding: 0.4em 0.7em;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px 1px rgb(93, 93, 93);
+  }
+}

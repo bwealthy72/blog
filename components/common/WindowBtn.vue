@@ -1,6 +1,6 @@
 <template>
   <div class="window-btn">
-    <nuxt-link to="/" class="window-btn__item">
+    <nuxt-link to="/" class="window-btn__item" @click="$emit('close')">
       <img
         class="main"
         src="~/assets/images/mac-close-btn.png"
@@ -12,7 +12,7 @@
         alt="close-btn"
       />
     </nuxt-link>
-    <nuxt-link to="/" class="window-btn__item">
+    <nuxt-link class="window-btn__item" @click="$emit('minimize')">
       <img
         class="main"
         src="~/assets/images/mac-min-btn.png"

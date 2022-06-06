@@ -23,8 +23,6 @@ const getPostPath = async function (routes, content) {
 
 export const state = () => ({
   postPaths: {},
-  title: "Frontend Blogger",
-  isMobile: false,
   apps: {
     post: {
       name: "Post",
@@ -37,22 +35,12 @@ export const state = () => ({
       img: require("~/assets/images/dock/twitter.png"),
     },
   },
-  windowId: 1,
-  windows: {},
+  windowRect: {},
 });
 
 export const mutations = {
-  setIsMobile(state, isMobile) {
-    state.isMobile = isMobile;
-  },
-  setTitle(state, title) {
-    state.title = title;
-  },
   setPaths(state, postPaths) {
     state.postPaths = postPaths;
-  },
-  addWindowId(state) {
-    return state.windowId++;
   },
   saveWindows(state, info) {
     state.windows[info.uid] = {
@@ -61,6 +49,10 @@ export const mutations = {
       width: info.width,
       height: info.height,
     };
+  },
+  saveWindowRect(state, rectInfo) {
+    const [uid, rect] = rectInfo;
+    state.windowRect[uid] = JSON.parse(JSON.stringify(rect));
   },
 };
 

@@ -1,9 +1,11 @@
 <template>
   <div class="music-player">
-    <button class="header-icon">
+    <!-- Header에서 보이는 실행 아이콘 -->
+    <button class="header-icon" :class="showPlayer ? 'active' : ''">
       <img src="~/assets/images/audio/music.png" />
     </button>
 
+    <!-- 실행아이콘 클릭시 보이는 플레이어 화면 -->
     <div class="window" v-show="showPlayer">
       <img
         class="window__background"
@@ -47,11 +49,7 @@
       </div>
       <div class="window__sound">
         <img class="sound-ico" src="~/assets/images/audio/mute.svg" />
-        <div
-          class="sound-bar"
-          @touchstart.stop="volumeControl"
-          @mousedown="volumeControl"
-        >
+        <div class="sound-bar" @mousedown="volumeControl">
           <div class="curr-bar" :style="{ width: volume * 100 + '%' }"></div>
           <div class="curr-dot" :style="{ left: volume * 100 + '%' }"></div>
         </div>
@@ -90,12 +88,6 @@ export default {
       volume: 0,
       isVolumeChanging: false,
     };
-  },
-
-  computed: {
-    isMobile() {
-      return this.$store.state.isMobile ? this.$store.state.isMobile : false;
-    },
   },
 
   methods: {
@@ -152,9 +144,6 @@ export default {
       const changeCurrTime = (e) => {
         let percent = 0;
         let x = e.clientX;
-        if (e.type === "touchmove" || e.type === "touchstart") {
-          x = e.changedTouches[0].clientX;
-        }
 
         if (x < rect.left) {
           percent = 0;
@@ -170,31 +159,19 @@ export default {
       const _checkEnd = (e) => {
         this.audio.play();
 
-        if (this.isMobile) {
-          window.removeEventListener("touchmove", changeCurrTime);
-          window.removeEventListener("touchend", _checkEnd);
-        } else {
-          window.removeEventListener("mousemove", changeCurrTime);
-          window.removeEventListener("mouseup", _checkEnd);
-        }
+        window.removeEventListener("mousemove", changeCurrTime);
+        window.removeEventListener("mouseup", _checkEnd);
       };
       changeCurrTime(e);
 
-      if (this.isMobile) {
-        window.addEventListener("touchmove", changeCurrTime);
-        window.addEventListener("touchend", _checkEnd);
-      } else {
-        window.addEventListener("mousemove", changeCurrTime);
-        window.addEventListener("mouseup", _checkEnd);
-      }
+      window.addEventListener("mousemove", changeCurrTime);
+      window.addEventListener("mouseup", _checkEnd);
     },
     volumeControl(e) {
       const rect = e.target.getBoundingClientRect();
       const changeVolume = (e) => {
         let x = e.clientX;
-        if (e.type === "touchmove" || e.type === "touchstart") {
-          x = e.changedTouches[0].clientX;
-        }
+
         if (x < rect.left) {
           this.volume = 0;
         } else if (rect.right < x) {
@@ -204,23 +181,13 @@ export default {
         }
       };
       const _checkEnd = (e) => {
-        if (this.isMobile) {
-          window.removeEventListener("touchmove", changeVolume);
-          window.removeEventListener("touchend", _checkEnd);
-        } else {
-          window.removeEventListener("mousemove", changeVolume);
-          window.removeEventListener("mouseup", _checkEnd);
-        }
+        window.removeEventListener("mousemove", changeVolume);
+        window.removeEventListener("mouseup", _checkEnd);
       };
 
       changeVolume(e);
-      if (this.isMobile) {
-        window.addEventListener("touchmove", changeVolume);
-        window.addEventListener("touchend", _checkEnd);
-      } else {
-        window.addEventListener("mousemove", changeVolume);
-        window.addEventListener("mouseup", _checkEnd);
-      }
+      window.addEventListener("mousemove", changeVolume);
+      window.addEventListener("mouseup", _checkEnd);
     },
     onended() {
       this.nextTrack();

@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Frontend Blogger",
+    title: "MinFEK's World",
     htmlAttrs: {
       lang: "ko",
     },
@@ -17,12 +17,12 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+        content: "블로그에 나의 모든 것을 기록한다.",
       },
       {
         hid: "og:title",
         property: "og:title",
-        content: "BWealthy의 부자 일기",
+        content: "MinFEK의 세상",
       },
       {
         hid: "og:type",
@@ -42,7 +42,7 @@ export default {
       {
         hid: "og:description",
         property: "og:description",
-        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+        content: "블로그에 나의 모든 것을 기록한다.",
       },
       {
         hid: "twitter:card",
@@ -52,12 +52,12 @@ export default {
       {
         hid: "twitter:title",
         name: "twitter:title",
-        content: "BWealthy의 부자 일기",
+        content: "MinFEK의 세상",
       },
       {
         hid: "twitter:description",
         name: "twitter:description",
-        content: "부자가 되고싶은 프론트엔드 블로거 BWealthy",
+        content: "블로그에 나의 모든 것을 기록한다.",
       },
       {
         hid: "twitter:image",
@@ -75,12 +75,6 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    script: [
-      {
-        async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=G-RXEC8C1Z2C",
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -93,11 +87,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/moment", "@nuxtjs/google-analytics"],
-
-  googleAnalytics: {
-    id: "G-RXEC8C1Z2C",
-  },
+  buildModules: ["@nuxtjs/moment"],
 
   // https://www.npmjs.com/package/@nuxtjs/moment
   moment: {
@@ -154,6 +144,7 @@ export default {
       routes.push({
         path: "/",
         component: resolve(__dirname, "pages/index.vue"),
+        name: "Welcome to MinFEK's World",
       });
 
       // routes.push({
@@ -169,25 +160,27 @@ export default {
       routes.push({
         path: "/twitter",
         component: resolve(__dirname, "pages/twitter.vue"),
+        name: "Twitter",
       });
 
       routes.push({
         path: "/post",
         component: resolve(__dirname, "pages/post.vue"),
+        name: "Posts",
       });
 
       // 모바일에서 모든 포스트가 보이는 리스트
       routes.push({
         path: "/post/all",
         component: resolve(__dirname, "pages/post.vue"),
-        name: "모든 포스트",
+        name: "Posts - All",
       });
 
       function addCategory(path, name) {
         routes.push({
           path: "/post/" + path,
           component: resolve(__dirname, "pages/post.vue"),
-          name,
+          name: `Posts - ${name}`,
         });
         routes.push({
           path: "/post/" + path + "/:year/:month/:post",

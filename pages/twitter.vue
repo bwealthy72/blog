@@ -1,7 +1,7 @@
 <template>
   <div class="twitter-wrapper">
-    <MacWindow windowWidth="350" windowHeight="800" uid="twitter">
-      <div slot="body" class="twitter">
+    <DesktopMacWindow :width="350" :height="800" uid="twitter">
+      <!-- <div slot="body" class="twitter">
         <div class="user">
           <a
             class="user__profile"
@@ -47,31 +47,9 @@
             data-chrome="noheader noborders transparent"
             data-align="center"
           ></a>
-
-          <!-- <a :href="t.url" v-for="t of timeline" :key="t.id">
-            <article class="tweet">
-              <p class="tweet__text">{{ t.text }}</p>
-              <div class="tweet__meta">
-                <div class="meta-item">
-                  <img src="~/assets/images/twitter/reply.svg" />
-                  <strong>{{ t.public_metrics.reply_count }}</strong>
-                </div>
-                <div class="meta-item">
-                  <img src="~/assets/images/twitter/retweet.svg" />
-                  <strong>{{ t.public_metrics.retweet_count }}</strong>
-                </div>
-                <div class="meta-item">
-                  <img src="~/assets/images/twitter/like.svg" />
-                  <strong>{{ t.public_metrics.like_count }}</strong>
-                </div>
-                <p class="meta-item">{{ t.created_at }}</p>
-              </div>
-              <div v-html="t.html"></div>
-            </article>
-          </a> -->
         </section>
-      </div>
-    </MacWindow>
+      </div> -->
+    </DesktopMacWindow>
 
 
     </script>
@@ -80,75 +58,84 @@
 
 <script>
 import axios from "axios";
+import TestComp from "~/components/TestComp.vue";
 
 export default {
-  head() {
-    return {
-      script: [
-        {
-          async: true,
-          src: "https://platform.twitter.com/widgets.js",
-          charset: "utf-8",
-        },
-      ],
-    };
+  components: {
+    TestComp,
   },
   data() {
     return {
-      test: null,
-    };
-  },
-  beforeCreate() {
-    this.$store.commit("setTitle", "Twitter");
-  },
-  transition() {
-    return "app";
-  },
-
-  async asyncData({ $dateFormat }) {
-    const result = {};
-
-    const headers = {
-      headers: {
-        Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
-      },
-    };
-    const user = await axios.get(
-      "https://api.twitter.com/2/users/by/username/blogwealthy?user.fields=id,name,username,profile_image_url,location,url,description,public_metrics",
-      headers
-    );
-
-    if (user.status == 200) {
-      user.data.data.profile_image_url =
-        user.data.data.profile_image_url.replace("_normal", "");
-      result["user"] = user.data.data;
+      a: 'TestComp',
     }
-
-    const timeline = await axios.get(
-      `https://api.twitter.com/2/users/${user.data.data.id}/tweets?max_results=5&expansions=attachments.media_keys&exclude=replies,retweets&tweet.fields=attachments,public_metrics,created_at,entities&media.fields=preview_image_url,type,url`,
-      headers
-    );
-
-    if (timeline.status == 200) {
-      for (const t of timeline.data.data) {
-        const re = /(.*)(https:\/\/.*)/gm;
-        const result = re.exec(t.text);
-        if (result) {
-          t.text = result[1];
-          t.mediaURL = result[2];
-        }
-        if (t.entities) {
-          for (const u of t.entities.urls) {
-            t.text = t.text.replace(u.url, u.display_url);
-          }
-        }
-        t.url = `https://twitter.com/${user.data.data.username}/status/${t.id}`;
-        t.created_at = $dateFormat(new Date(t.created_at), "%Y. %M. %D %h:%m");
-      }
-      result["timeline"] = timeline.data.data;
-    }
-
-    return result;
   },
+  created() {
+    console.log(this.a);
+  }
+  // head() {
+  //   return {
+  //     script: [
+  //       {
+  //         async: true,
+  //         src: "https://platform.twitter.com/widgets.js",
+  //         charset: "utf-8",
+  //       },
+  //     ],
+  //   };
+  // },
+  // data() {
+  //   return {
+  //     test: null,
+  //   };
+  // },
+  // transition() {
+  //   return "app";
+  // },
+
+  // async asyncData({ $dateFormat }) {
+  //   const result = {};
+
+  //   const headers = {
+  //     headers: {
+  //       Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
+  //     },
+  //   };
+  //   const user = await axios.get(
+  //     "https://api.twitter.com/2/users/by/username/blogwealthy?user.fields=id,name,username,profile_image_url,location,url,description,public_metrics",
+  //     headers
+  //   );
+
+  //   if (user.status == 200) {
+  //     user.data.data.profile_image_url =
+  //       user.data.data.profile_image_url.replace("_normal", "");
+  //     result["user"] = user.data.data;
+  //   }
+
+  //   const timeline = await axios.get(
+  //     `https://api.twitter.com/2/users/${user.data.data.id}/tweets?max_results=5&expansions=attachments.media_keys&exclude=replies,retweets&tweet.fields=attachments,public_metrics,created_at,entities&media.fields=preview_image_url,type,url`,
+  //     headers
+  //   );
+
+  //   if (timeline.status == 200) {
+  //     for (const t of timeline.data.data) {
+  //       const re = /(.*)(https:\/\/.*)/gm;
+  //       const result = re.exec(t.text);
+  //       if (result) {
+  //         t.text = result[1];
+  //         t.mediaURL = result[2];
+  //       }
+  //       if (t.entities) {
+  //         for (const u of t.entities.urls) {
+  //           t.text = t.text.replace(u.url, u.display_url);
+  //         }
+  //       }
+  //       t.url = `https://twitter.com/${user.data.data.username}/status/${t.id}`;
+  //       t.created_at = $dateFormat(new Date(t.created_at), "%Y. %M. %D %h:%m");
+  //     }
+  //     result["timeline"] = timeline.data.data;
+  //   }
+
+  //   return result;
+  // },
 };
 </script>

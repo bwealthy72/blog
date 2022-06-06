@@ -68,7 +68,12 @@ const getScssVariable = function (scssVar) {
   return v;
 };
 
+const deepCopy = function (obj) {
+  return JSON.parse(JSON.stringify(obj));
+};
+
 export default ({ app }, inject) => {
   inject("dateFormat", dateFormat);
   inject("getScssVariable", getScssVariable);
+  inject("deepCopy", deepCopy);
 };
