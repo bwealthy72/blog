@@ -1,6 +1,10 @@
 <template>
-  <main class="mac-window" :style="windowStyle" @mousedown="moveWindowStart">
-    <div class="mac-window__header" @dblclick.self="maxOrUnMax">
+  <main class="mac-window" :style="windowStyle" @mousedown="focus">
+    <div
+      class="mac-window__header"
+      @dblclick.self="maxOrUnMax"
+      @mousedown="moveWindowStart"
+    >
       <DesktopMacWindowBtn
         @close="close"
         @minimize="minimize"
@@ -25,8 +29,16 @@ export default {
       type: Number,
       required: true,
     },
-    uid: {},
+    name: {
+      type: String,
+      required: true,
+    },
+    zIndex: {
+      type: Number,
+      required: true,
+    },
   },
+
   data() {
     return {
       // 최대화
@@ -34,12 +46,13 @@ export default {
       maximizeDuration: 0.3,
 
       // window
-      windowRect: {
+      rect: {
         x: 0,
         y: 0,
         w: this.width,
         h: this.height,
       },
+
       boundary: {
         top: 0,
         left: 0,
@@ -53,21 +66,26 @@ export default {
       },
     };
   },
+
   computed: {
     windowStyle() {
-      const r = this.windowRect;
+      const r = this.rect;
 
       return {
         left: r.x + "px",
         top: r.y + "px",
         width: r.w + "px",
         height: r.h + "px",
+        "z-index": this.zIndex,
       };
     },
   },
   watch: {
     windowStyle() {
-      this.$store.commit("saveWindowRect", [this.uid, this.windowRect]);
+      this.$store.commit("updateWindowPos", [
+        this.name,
+        [this.rect.x, this.rect.y],
+      ]);
     },
   },
 
@@ -78,12 +96,14 @@ export default {
       this.$getScssVariable("dockWPad") * 2 +
       this.$getScssVariable("dockMarginLeft");
 
-    this.windowRect.x = this.boundary.left;
-    this.windowRect.y = this.boundary.top;
+    const window = this.$store.state.windows[this.name];
 
-    const prevWindow = this.$store.state.windowRect[this.uid];
-    if (prevWindow) {
-      this.windowRect = this.$deepCopy(prevWindow);
+    if (window.x == -1 && window.y == -1) {
+      this.rect.x = this.boundary.left;
+      this.rect.y = this.boundary.top;
+    } else {
+      this.rect.x = window.x;
+      this.rect.y = window.y;
     }
   },
   mounted() {
@@ -95,18 +115,19 @@ export default {
     document.removeEventListener("mousemove", this.moveWindow);
     document.removeEventListener("mouseup", this.moveWindowEnd);
   },
+
   methods: {
     close() {
-      this.$router.push("/");
+      this.$store.commit("closeWindow", this.name);
     },
     minimize() {
       this.close();
     },
     maximize() {
       if (!this.isMaximized) {
-        this.windowRectBackup = this.$deepCopy(this.windowRect);
+        this.windowRectBackup = this.$deepCopy(this.rect);
 
-        this.windowRect = {
+        this.rect = {
           x: this.boundary.left,
           y: this.boundary.top,
           w: window.innerWidth - this.boundary.left,
@@ -117,8 +138,11 @@ export default {
         this.isMaximized = true;
       }
     },
+    focus() {
+      this.$store.commit("focusWindow", this.name);
+    },
     unMaximize() {
-      this.windowRect = this.$deepCopy(this.windowRectBackup);
+      this.rect = this.$deepCopy(this.windowRectBackup);
       this.playAni();
       this.isMaximized = false;
     },
@@ -146,11 +170,11 @@ export default {
         const dx = e.clientX - this.moveStartPos.x;
         const dy = e.clientY - this.moveStartPos.y;
 
-        this.windowRect.x += dx;
-        this.windowRect.y += dy;
+        this.rect.x += dx;
+        this.rect.y += dy;
 
-        if (this.windowRect.y < this.boundary.top) {
-          this.windowRect.y = this.boundary.top;
+        if (this.rect.y < this.boundary.top) {
+          this.rect.y = this.boundary.top;
         }
 
         this.moveStartPos = {
@@ -169,5 +193,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

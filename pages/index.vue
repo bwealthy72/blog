@@ -1,40 +1,54 @@
 <template>
-  <div class="home-wrapper">
-    <button type="button" @click="click">추가추가</button>
+  <div class="window-wrapper">
     <DesktopMacWindow
-      v-for="(w, i) of windows"
-      :key="i"
-      :width="300"
-      :height="300"
-      uid="test"
+      :width="postWindow.width"
+      :height="postWindow.height"
+      :zIndex="postWindow.zIndex"
+      name="Post"
+      v-show="postWindow.open"
     >
-      <component :is="w"></component>
+      <Post slot="body" :post="post" :postList="postList"></Post>
+    </DesktopMacWindow>
+    <DesktopMacWindow
+      v-for="(window, name) in windows"
+      :key="name"
+      :width="window.width"
+      :height="window.height"
+      :zIndex="window.zIndex"
+      :name="name"
+      v-show="window.open"
+    >
+      <component slot="body" :is="name"></component>
     </DesktopMacWindow>
   </div>
 </template>
 
 <script>
-import TestComp from "~/components/TestComp.vue";
+import Post from "~/components/desktop/windows/Post.vue";
+import Twitter from "@/components/desktop/windows/Twitter.vue";
+
 export default {
-  data() {
-    return {
-      windows: [],
-    };
+  async asyncData(ctx) {
+    const { post, postList } = await ctx.$getPosts();
+    return { post, postList };
   },
-  components: { TestComp },
-  methods: {
-    click() {
-      this.windows.push("TestComp");
+  computed: {
+    windows() {
+      const w = {};
+
+      // 열려있는 window만 값을 가져온다.
+      for (const [key, val] of Object.entries(this.$store.state.windows)) {
+        if (val.open && key != "Post") {
+          w[key] = val;
+        }
+      }
+      return w;
+    },
+    postWindow() {
+      return this.$store.state.windows["Post"];
     },
   },
+
+  components: { Post, Twitter },
 };
 </script>
-
-<style scoped>
-button {
-  width: 100px;
-  height: 40px;
-  background-color: gray;
-  color: white;
-}
-</style>

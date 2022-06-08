@@ -143,8 +143,7 @@ export default {
 
       routes.push({
         path: "/",
-        component: resolve(__dirname, "pages/index.vue"),
-        name: "Welcome to MinFEK's World",
+        redirect: "/post",
       });
 
       // routes.push({
@@ -158,33 +157,26 @@ export default {
       // });
 
       routes.push({
-        path: "/twitter",
-        component: resolve(__dirname, "pages/twitter.vue"),
-        name: "Twitter",
-      });
-
-      routes.push({
         path: "/post",
-        component: resolve(__dirname, "pages/post.vue"),
-        name: "Posts",
+        component: resolve(__dirname, "pages/index.vue"),
       });
 
       // 모바일에서 모든 포스트가 보이는 리스트
       routes.push({
         path: "/post/all",
-        component: resolve(__dirname, "pages/post.vue"),
-        name: "Posts - All",
+        component: resolve(__dirname, "pages/index.vue"),
+        name: "전체보기",
       });
 
       function addCategory(path, name) {
         routes.push({
           path: "/post/" + path,
-          component: resolve(__dirname, "pages/post.vue"),
-          name: `Posts - ${name}`,
+          component: resolve(__dirname, "pages/index.vue"),
+          name: name,
         });
         routes.push({
           path: "/post/" + path + "/:year/:month/:post",
-          component: resolve(__dirname, "pages/post.vue"),
+          component: resolve(__dirname, "pages/index.vue"),
         });
       }
 

@@ -35,24 +35,45 @@ export const state = () => ({
       img: require("~/assets/images/dock/twitter.png"),
     },
   },
-  windowRect: {},
+  // Mac window들에 대한 정보를 담고있다.
+  windows: {
+    Post: {
+      open: true,
+      x: -1,
+      y: -1,
+      width: 1080,
+      height: 700,
+      zIndex: 0,
+    },
+    Twitter: {
+      open: true,
+      x: -1,
+      y: -1,
+      width: 300,
+      height: 700,
+      zIndex: -1,
+    },
+  },
+  windowIdx: 1,
 });
 
 export const mutations = {
   setPaths(state, postPaths) {
     state.postPaths = postPaths;
   },
-  saveWindows(state, info) {
-    state.windows[info.uid] = {
-      top: info.top,
-      left: info.left,
-      width: info.width,
-      height: info.height,
-    };
+  updateWindowPos(state, [name, [x, y]]) {
+    state.windows[name].x = x;
+    state.windows[name].y = y;
   },
-  saveWindowRect(state, rectInfo) {
-    const [uid, rect] = rectInfo;
-    state.windowRect[uid] = JSON.parse(JSON.stringify(rect));
+  closeWindow(state, name) {
+    state.windows[name].open = false;
+  },
+  openWindow(state, name) {
+    state.windows[name].open = true;
+    state.windows[name].zIndex = state.windowIdx++;
+  },
+  focusWindow(state, name) {
+    state.windows[name].zIndex = state.windowIdx++;
   },
 };
 

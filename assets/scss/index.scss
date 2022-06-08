@@ -13,20 +13,22 @@
 @import "component/desktop/default.scss";
 @import "component/desktop/header.scss";
 @import "component/desktop/dock.scss";
-@import "component/desktop/post_content.scss";
-@import "component/desktop/post_list.scss";
-@import "component/desktop/post_category.scss";
 
 @import "component/desktop/mac/window_btn.scss";
 @import "component/desktop/mac/window.scss";
 
 @import "component/desktop/header/music_player.scss";
 
+@import "component/desktop/windows/post.scss";
+@import "component/desktop/windows/twitter.scss";
+
+@import "component/desktop/windows/post/post_content.scss";
+@import "component/desktop/windows/post/post_list.scss";
+@import "component/desktop/windows/post/post_category.scss";
+
 // @import "layout/post_toc.scss";
 // @import "layout/mobile_menu.scss";
 
 // page
 // @import "page/postlist";
-@import "page/post";
-@import "page/home";
-@import "page/twitter";
+@import "page/index.scss";

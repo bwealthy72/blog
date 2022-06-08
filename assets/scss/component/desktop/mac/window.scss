@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  box-sizing: content-box;
 
   @include macWindowTheme;
 
@@ -13,10 +14,12 @@
   }
 
   &__header {
-    flex: 0 0 50px;
+    flex: 0 0 $window-head-height;
+    background-color: #343637;
   }
 
   &__body {
-    height: 100%;
+    height: calc(100% - $window-head-height);
+    display: flex;
   }
 }

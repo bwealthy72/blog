@@ -4,6 +4,9 @@
   display: flex;
   flex-direction: column;
   user-select: text;
+  overflow-y: auto;
+
+  @include macWindowScrollTheme;
 
   &__head {
     display: flex;
@@ -19,6 +22,7 @@
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 1rem;
+    color: white;
   }
 
   .subject {
@@ -72,7 +76,6 @@
     font-size: 1.5rem;
     line-height: 1.4;
     height: 100%;
-    overflow: hidden auto;
 
     .nuxt-content {
       color: white;
@@ -153,8 +156,7 @@
         position: relative;
         font-size: 1.6em;
         font-weight: bold;
-        margin: 6rem -3rem 2rem -3rem;
-        padding-left: 3rem;
+        margin: 6rem 0 2rem 0;
 
         &:after {
           content: "";
@@ -298,55 +300,6 @@
           display: block;
           padding-right: 0.8em;
           text-align: right;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: $desktop-width) {
-  .post-content {
-    &__head {
-      background-color: transparent;
-      padding: 0 1rem;
-    }
-
-    .subject {
-      display: inline-flex;
-      margin: 0;
-      margin-left: 0.1rem;
-
-      &__arrow {
-        display: inline-block;
-        height: 90%;
-        margin-right: 0.5rem;
-        margin-left: -1rem;
-        filter: invert(1);
-      }
-
-      &__text {
-        font-size: 2rem;
-      }
-    }
-
-    &__date {
-      position: relative;
-      text-align: center;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    .tags {
-      font-size: 1.5rem;
-    }
-
-    &__main {
-      padding: 0rem 1.5rem 1rem 1.5rem;
-      font-size: 1.7rem;
-
-      .nuxt-content {
-        p {
-          line-height: 1.9;
         }
       }
     }

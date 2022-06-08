@@ -1,10 +1,10 @@
 <template>
   <nav class="dock" @mousemove="mouseMove" @mouseleave="mouseLeave">
-    <NuxtLink
+    <div
       class="dock__item"
-      :to="app.to"
       v-for="(app, key, idx) in apps"
       :key="key"
+      @click="openWindow(app.name)"
     >
       <img
         :src="app.img"
@@ -18,7 +18,7 @@
       <div class="dock__name" v-show="nameShow[idx]">
         {{ app.name }}
       </div>
-    </NuxtLink>
+    </div>
   </nav>
 </template>
 
@@ -46,6 +46,9 @@ export default {
     }
   },
   methods: {
+    openWindow(name) {
+      this.$store.commit("openWindow", name);
+    },
     changeIcoWidth(goalWidths) {
       // 움직이고 있던 애니메이션 제거
       window.cancelAnimationFrame(this.animationId);
