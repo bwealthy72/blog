@@ -1,6 +1,6 @@
 <template>
   <div class="window-wrapper">
-    <!-- <DesktopMacWindow
+    <DesktopMacWindow
       :width="postWindow.width"
       :height="postWindow.height"
       :zIndex="postWindow.zIndex"
@@ -8,7 +8,7 @@
       v-show="postWindow.open"
     >
       <Post slot="body" :post="post" :postList="postList"></Post>
-    </DesktopMacWindow> -->
+    </DesktopMacWindow>
     <DesktopMacWindow
       v-for="(window, name) in windows"
       :key="name"

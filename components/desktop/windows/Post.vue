@@ -2,7 +2,7 @@
   <div class="post-wrapper">
     <PostCategory></PostCategory>
     <PostList :postList="postList"></PostList>
-    <PostContent :post="post"></PostContent>
+    <!-- <PostContent :post="post"></PostContent> -->
   </div>
 </template>
 
