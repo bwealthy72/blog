@@ -29,12 +29,13 @@ export const state = () => ({
       to: "/post",
       img: require("~/assets/images/dock/Post.png"),
     },
-    twitter: {
-      name: "Twitter",
-      to: "/twitter",
-      img: require("~/assets/images/dock/twitter.png"),
-    },
+    // twitter: {
+    //   name: "Twitter",
+    //   to: "/twitter",
+    //   img: require("~/assets/images/dock/twitter.png"),
+    // },
   },
+  twitterInfo: {},
   // Mac window들에 대한 정보를 담고있다.
   windows: {
     Post: {
@@ -45,14 +46,14 @@ export const state = () => ({
       height: 700,
       zIndex: 0,
     },
-    Twitter: {
-      open: true,
-      x: -1,
-      y: -1,
-      width: 300,
-      height: 700,
-      zIndex: -1,
-    },
+    // Twitter: {
+    //   open: true,
+    //   x: -1,
+    //   y: -1,
+    //   width: 300,
+    //   height: 700,
+    //   zIndex: -1,
+    // },
   },
   windowIdx: 1,
   focusedWindow: "Post",
@@ -77,6 +78,11 @@ export const mutations = {
   focusWindow(state, name) {
     state.windows[name].zIndex = state.windowIdx++;
     state.focusedWindow = name;
+  },
+
+  // Twitter
+  saveTwitterInfo(state, info) {
+    state.twitterInfo = info;
   },
 };
 
