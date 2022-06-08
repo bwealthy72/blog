@@ -65,7 +65,7 @@ export default {
     return {
       script: [
         {
-          async: true,
+          // async: true,
           src: "https://platform.twitter.com/widgets.js",
           charset: "utf-8",
         },
