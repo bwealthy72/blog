@@ -11,7 +11,7 @@
         <img :src="post.coverImg" alt="Cover Image" />
       </div>
 
-      <nuxt-content :document="post" tag="article" />
+      <!-- <nuxt-content :document="post" tag="article" /> -->
     </article>
   </main>
 </template>
