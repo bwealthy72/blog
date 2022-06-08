@@ -12,18 +12,6 @@
       </div>
 
       <nuxt-content :document="post" tag="article" />
-
-      <div class="comments">
-        <script
-          src="https://utteranc.es/client.js"
-          repo="bwealthy72/blog"
-          issue-term="title"
-          label="Comment"
-          theme="github-dark"
-          crossorigin="anonymous"
-          async
-        ></script>
-      </div>
     </article>
   </main>
 </template>

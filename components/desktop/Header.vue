@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     title() {
-      return this.$route.name || "";
+      return this.$store.state.focusedWindow || "";
     },
   },
   mounted() {

@@ -85,8 +85,6 @@ export default {
       },
     };
 
-    console.log(this);
-
     const user = await axios.get(
       "https://api.twitter.com/2/users/by/username/blogwealthy?user.fields=id,name,username,profile_image_url,location,url,description,public_metrics",
       headers
@@ -124,8 +122,6 @@ export default {
       }
       this.timeline = timeline.data.data;
     }
-
-    console.log(this.user, this.timeline);
   },
 };
 </script>

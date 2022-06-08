@@ -55,6 +55,7 @@ export const state = () => ({
     },
   },
   windowIdx: 1,
+  focusedWindow: "Post",
 });
 
 export const mutations = {
@@ -71,9 +72,11 @@ export const mutations = {
   openWindow(state, name) {
     state.windows[name].open = true;
     state.windows[name].zIndex = state.windowIdx++;
+    state.focusedWindow = name;
   },
   focusWindow(state, name) {
     state.windows[name].zIndex = state.windowIdx++;
+    state.focusedWindow = name;
   },
 };
 
