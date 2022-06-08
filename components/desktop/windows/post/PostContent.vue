@@ -1,6 +1,6 @@
 <template>
   <main class="post-content">
-    <article class="post-content__main">
+    <secion class="post-content__main">
       <p class="post-content__date">{{ post.createdAt }}</p>
       <h2 class="post-content__title">{{ post.title }}</h2>
       <div class="post-content__info">
@@ -11,8 +11,8 @@
         <img :src="post.coverImg" alt="Cover Image" />
       </div>
 
-      <!-- <nuxt-content :document="post" tag="article" /> -->
-    </article>
+      <nuxt-content :document="post" tag="article" />
+    </secion>
   </main>
 </template>
 
