@@ -237,10 +237,11 @@
       .nuxt-content-highlight {
         position: relative;
         display: grid;
-        grid-template-columns: auto 1fr;
-        margin: 2rem -2rem;
         align-items: flex-end;
         overflow: hidden;
+        margin: 1rem;
+
+        @include macWindowScrollTheme;
 
         .filename {
           position: absolute;
@@ -258,49 +259,54 @@
         }
 
         pre[class*="language-"] {
-          grid-column: 1 / -1;
+          border-radius: 10px;
           margin: 0;
-          font-size: 1em;
-          order: 3;
-          background-color: #36353a;
-        }
-        code[class*="language-"] {
-          background-color: #36353a;
-        }
-        pre[class*="language-"].line-numbers {
-          position: relative;
-          padding-left: 3.8em;
-          counter-reset: linenumber;
         }
 
-        pre[class*="language-"].line-numbers > code {
-          position: relative;
-          white-space: inherit;
-        }
+        // pre[class*="language-"] {
+        //   grid-column: 1 / -1;
+        //   margin: 0;
+        //   font-size: 1em;
+        //   order: 3;
+        //   background-color: #36353a;
+        // }
+        // code[class*="language-"] {
+        //   background-color: #36353a;
+        // }
+        // pre[class*="language-"].line-numbers {
+        //   position: relative;
+        //   padding-left: 3.8em;
+        //   counter-reset: linenumber;
+        // }
 
-        .line-numbers .line-numbers-rows {
-          position: absolute;
-          pointer-events: none;
-          top: 0;
-          font-size: 100%;
+        // pre[class*="language-"].line-numbers > code {
+        //   position: relative;
+        //   white-space: inherit;
+        // }
 
-          left: -3.8em;
-          width: 3em; /* works for line-numbers below 1000 lines */
-          letter-spacing: -1px;
-        }
+        // .line-numbers .line-numbers-rows {
+        //   position: absolute;
+        //   pointer-events: none;
+        //   top: 0;
+        //   font-size: 100%;
 
-        .line-numbers-rows > span {
-          display: block;
-          counter-increment: linenumber;
-        }
+        //   left: -3.8em;
+        //   width: 3em; /* works for line-numbers below 1000 lines */
+        //   letter-spacing: -1px;
+        // }
 
-        .line-numbers-rows > span:before {
-          content: counter(linenumber);
-          color: #999;
-          display: block;
-          padding-right: 0.8em;
-          text-align: right;
-        }
+        // .line-numbers-rows > span {
+        //   display: block;
+        //   counter-increment: linenumber;
+        // }
+
+        // .line-numbers-rows > span:before {
+        //   content: counter(linenumber);
+        //   color: #999;
+        //   display: block;
+        //   padding-right: 0.8em;
+        //   text-align: right;
+        // }
       }
     }
   }

@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import Prism from "prismjs";
-import "prismjs/plugins/line-numbers/prism-line-numbers.js";
+// import Prism from "prismjs";
+// import "prismjs/plugins/line-numbers/prism-line-numbers.js";
 export default {
   props: ["post"],
-  mounted() {
-    Prism.highlightAll();
-  },
+  // mounted() {
+  //   Prism.highlightAll();
+  // },
 };
 </script>
