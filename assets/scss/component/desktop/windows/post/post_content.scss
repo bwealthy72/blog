@@ -239,14 +239,14 @@
         display: grid;
         align-items: flex-end;
         overflow: hidden;
-        margin: 1rem;
+        margin: 2rem;
 
         @include macWindowScrollTheme;
 
         .filename {
           position: absolute;
           top: 0;
-          right: 0;
+          left: 0;
           color: white;
           box-sizing: border-box;
           display: flex;
@@ -259,54 +259,9 @@
         }
 
         pre[class*="language-"] {
-          border-radius: 10px;
           margin: 0;
+          padding-top: 2em;
         }
-
-        // pre[class*="language-"] {
-        //   grid-column: 1 / -1;
-        //   margin: 0;
-        //   font-size: 1em;
-        //   order: 3;
-        //   background-color: #36353a;
-        // }
-        // code[class*="language-"] {
-        //   background-color: #36353a;
-        // }
-        // pre[class*="language-"].line-numbers {
-        //   position: relative;
-        //   padding-left: 3.8em;
-        //   counter-reset: linenumber;
-        // }
-
-        // pre[class*="language-"].line-numbers > code {
-        //   position: relative;
-        //   white-space: inherit;
-        // }
-
-        // .line-numbers .line-numbers-rows {
-        //   position: absolute;
-        //   pointer-events: none;
-        //   top: 0;
-        //   font-size: 100%;
-
-        //   left: -3.8em;
-        //   width: 3em; /* works for line-numbers below 1000 lines */
-        //   letter-spacing: -1px;
-        // }
-
-        // .line-numbers-rows > span {
-        //   display: block;
-        //   counter-increment: linenumber;
-        // }
-
-        // .line-numbers-rows > span:before {
-        //   content: counter(linenumber);
-        //   color: #999;
-        //   display: block;
-        //   padding-right: 0.8em;
-        //   text-align: right;
-        // }
       }
     }
   }
