@@ -72,8 +72,17 @@ const deepCopy = function (obj) {
   return JSON.parse(JSON.stringify(obj));
 };
 
+const getMousePos = function (e, el) {
+  const bounds = el.getBoundingClientRect();
+  const x = e.clientX - bounds.left;
+  const y = e.clientY - bounds.top;
+
+  return [x, y];
+};
+
 export default ({ app }, inject) => {
   inject("dateFormat", dateFormat);
   inject("getScssVariable", getScssVariable);
   inject("deepCopy", deepCopy);
+  inject("getMousePos", getMousePos);
 };

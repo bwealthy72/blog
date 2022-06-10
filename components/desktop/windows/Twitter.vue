@@ -41,15 +41,6 @@
           </div>
         </div>
       </div>
-      <!-- <section class="timeline">
-        <a
-          class="twitter-timeline"
-          data-theme="dark"
-          href="https://twitter.com/BlogWealthy?ref_src=twsrc%5Etfw"
-          data-chrome="noheader noborders transparent"
-          data-align="center"
-        ></a>
-      </section> -->
     </div>
   </div>
 </template>
@@ -57,18 +48,11 @@
 <script>
 import axios from "axios";
 export default {
-  // head() {
-  //   return {
-  //     script: [
-  //       {
-  //         // async: true,
-  //         src: "https://platform.twitter.com/widgets.js",
-  //         charset: "utf-8",
-  //       },
-  //     ],
-  //   };
-  // },
-
+  data() {
+    return {
+      userData: {},
+    };
+  },
   computed: {
     user() {
       let user = {
@@ -80,63 +64,26 @@ export default {
           followers_count: 0,
           following_count: 0,
         },
-        ...this.$store.state.twitterInfo["user"],
+        ...this.userData,
       };
       return user;
     },
-    // timeline() {
-    //   return this.$store.state.twitterInfo["timeline"];
-    // },
   },
-
   async fetch() {
-    let user, timeline;
-
     const headers = {
       headers: {
         Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
       },
     };
-
     const userResp = await axios.get(
       "https://api.twitter.com/2/users/by/username/blogwealthy?user.fields=id,name,username,profile_image_url,location,url,description,public_metrics",
       headers
     );
-
     if (userResp.status == 200) {
       userResp.data.data.profile_image_url =
         userResp.data.data.profile_image_url.replace("_normal", "");
-      user = userResp.data.data;
+      this.userData = userResp.data.data;
     }
-
-    // const timelineResp = await axios.get(
-    //   `https://api.twitter.com/2/users/${user.data.data.id}/tweets?max_results=5&expansions=attachments.media_keys&exclude=replies,retweets&tweet.fields=attachments,public_metrics,created_at,entities&media.fields=preview_image_url,type,url`,
-    //   headers
-    // );
-
-    // if (timelineResp.status == 200) {
-    //   for (const t of timelineResp.data.data) {
-    //     const re = /(.*)(https:\/\/.*)/gm;
-    //     const result = re.exec(t.text);
-    //     if (result) {
-    //       t.text = result[1];
-    //       t.mediaURL = result[2];
-    //     }
-    //     if (t.entities) {
-    //       for (const u of t.entities.urls) {
-    //         t.text = t.text.replace(u.url, u.display_url);
-    //       }
-    //     }
-    //     t.url = `https://twitter.com/${user.data.data.username}/status/${t.id}`;
-    //     t.created_at = this.$dateFormat(
-    //       new Date(t.created_at),
-    //       "%Y. %M. %D %h:%m"
-    //     );
-    //   }
-    //   timeline = timelineResp.data.data;
-    // }
-
-    this.$store.commit("saveTwitterInfo", { user });
   },
 };
 </script>

@@ -12,7 +12,15 @@ import PostList from "./post/PostList.vue";
 import PostContent from "./post/PostContent.vue";
 
 export default {
-  props: ["post", "postList"],
+  props: ["props"],
+  computed: {
+    post() {
+      return this.props["post"];
+    },
+    postList() {
+      return this.props["postList"];
+    },
+  },
   components: { PostCategory, PostList, PostContent },
 };
 </script>

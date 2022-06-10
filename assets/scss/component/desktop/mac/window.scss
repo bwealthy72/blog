@@ -5,9 +5,20 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-sizing: content-box;
+  border: 1px solid #666;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px 0px black;
+  border-radius: 8px;
+  background-color: rgb(43, 43, 43, 0.7);
 
-  @include macWindowTheme;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 5px;
+  }
 
   &.animated {
     transition: all 0.3s;

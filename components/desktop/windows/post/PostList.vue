@@ -1,5 +1,11 @@
 <template>
-  <aside class="post-list">
+  <aside
+    class="post-list"
+    @mousedown="mousedownHandler"
+    @mousemove="mousemoveHandler"
+    @mouseup="mouseupHandler"
+    :style="style"
+  >
     <div class="post-list__wrap" ref="postlist">
       <nuxt-link
         :to="'/post' + p.path"
@@ -29,6 +35,13 @@
 <script>
 export default {
   props: ["postList"],
+  data() {
+    return {
+      resizing: false,
+      width: 350,
+      cursor: "inherit",
+    };
+  },
   computed: {
     category() {
       const path = this.$route.path;
@@ -45,6 +58,60 @@ export default {
         return c.name;
       }
     },
+    prevInfo() {
+      return this.$store.state.postWindow.postList;
+    },
+    style() {
+      return {
+        width: this.width + "px",
+        cursor: this.cursor,
+      };
+    },
+  },
+  watch: {
+    style() {
+      this.$store.commit("savePostWindowList", this.width);
+    },
+  },
+  methods: {
+    isResizable(x) {
+      const bound = this.$el.getBoundingClientRect();
+      return Math.abs(x - bound.right) < 10;
+    },
+    mousedownHandler(e) {
+      this.resizing = this.isResizable(e.clientX);
+    },
+    mousemoveHandler(e) {
+      if (this.resizing) {
+        const rect = this.$el.getBoundingClientRect();
+        this.width = e.clientX - rect.left;
+
+        // 일정 이하 크기로 줄어드면 그냥 접히게 하기
+        this.closed = this.width < this.activeCloseWidth;
+      } else {
+        if (this.isResizable(e.clientX)) {
+          this.cursor = "ew-resize";
+        } else {
+          this.cursor = "inherit";
+        }
+      }
+    },
+    mouseupHandler(e) {
+      this.resizing = false;
+      this.cursor = "inherit";
+    },
+  },
+  created() {
+    this.closed = this.prevInfo.closed;
+    this.width = this.prevInfo.width;
+  },
+  mounted() {
+    document.addEventListener("mousemove", this.mousemoveHandler);
+    document.addEventListener("mouseup", this.mouseupHandler);
+  },
+  beforeUnmount() {
+    document.removeEventListener("mousemove", this.mousemoveHandler);
+    document.removeEventListener("mouseup", this.mouseupHandler);
   },
   // mounted() {
   //   const activedPost = this.$el.querySelector(".nuxt-link-active");

@@ -29,13 +29,7 @@ export const state = () => ({
       to: "/post",
       img: require("~/assets/images/dock/Post.png"),
     },
-    // twitter: {
-    //   name: "Twitter",
-    //   to: "/twitter",
-    //   img: require("~/assets/images/dock/twitter.png"),
-    // },
   },
-  twitterInfo: {},
   // Mac window들에 대한 정보를 담고있다.
   windows: {
     Post: {
@@ -46,26 +40,35 @@ export const state = () => ({
       height: 700,
       zIndex: 0,
     },
-    // Twitter: {
-    //   open: true,
-    //   x: -1,
-    //   y: -1,
-    //   width: 300,
-    //   height: 700,
-    //   zIndex: -1,
-    // },
   },
   windowIdx: 1,
   focusedWindow: "Post",
+
+  // Post.vue 크기
+  postWindow: {
+    category: {
+      width: 200,
+      closed: false,
+    },
+    postList: {
+      width: 350,
+    },
+  },
 });
 
 export const mutations = {
   setPaths(state, postPaths) {
     state.postPaths = postPaths;
   },
+
+  // Windows
   updateWindowPos(state, [name, [x, y]]) {
     state.windows[name].x = x;
     state.windows[name].y = y;
+  },
+  updateWindowSize(state, [name, [w, h]]) {
+    state.windows[name].width = w;
+    state.windows[name].height = h;
   },
   closeWindow(state, name) {
     state.windows[name].open = false;
@@ -80,9 +83,17 @@ export const mutations = {
     state.focusedWindow = name;
   },
 
-  // Twitter
-  saveTwitterInfo(state, info) {
-    state.twitterInfo = info;
+  // postWindow
+  savePostWindowCate(state, [width, closed]) {
+    state.postWindow.category = {
+      width,
+      closed,
+    };
+  },
+  savePostWindowList(state, width) {
+    state.postWindow.postList = {
+      width,
+    };
   },
 };
 

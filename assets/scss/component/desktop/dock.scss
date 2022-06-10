@@ -15,13 +15,13 @@
   box-shadow: 1px 1px 4px #888;
   border-radius: 1.4rem;
   padding: 1rem 0.5rem;
+  cursor: default;
 
   &__item {
     display: flex;
     width: fit-content;
     align-items: center;
     padding-bottom: 0.7rem;
-    cursor: default;
     &:last-child {
       margin-bottom: 0;
       padding-bottom: 0;

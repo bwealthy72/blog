@@ -1,6 +1,6 @@
 <template>
   <main class="post-content">
-    <secion class="post-content__main">
+    <section class="post-content__main">
       <p class="post-content__date">{{ post.createdAt }}</p>
       <h2 class="post-content__title">{{ post.title }}</h2>
       <div class="post-content__info">
@@ -12,7 +12,7 @@
       </div>
 
       <nuxt-content :document="post" tag="article" />
-    </secion>
+    </section>
   </main>
 </template>
 
