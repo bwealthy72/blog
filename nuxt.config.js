@@ -67,7 +67,7 @@ export default {
       { name: "format-detection", content: "telephone=no" },
       {
         async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=G-RXEC8C1Z2C",
+        src: "https://www.googletagmanager.com/gtag/js?id=G-6CDC8DXMP3",
       },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
