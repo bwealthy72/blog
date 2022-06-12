@@ -69,10 +69,6 @@ export default {
         name: "google-site-verification",
         content: "ATpYT_Au2DP8g9uGoqHtH4vr3mRnviGGddp8STio4RA",
       },
-      {
-        async: true,
-        src: "https://www.googletagmanager.com/gtag/js?id=G-6CDC8DXMP3",
-      },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
   },

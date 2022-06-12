@@ -307,7 +307,6 @@ export default {
       } else if (mousePos == "resize-l" || mousePos == "resize-r") {
         cursor = "ew-resize";
       }
-      console.log(cursor);
       this.cursor = cursor;
     },
   },

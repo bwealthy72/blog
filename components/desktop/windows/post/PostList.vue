@@ -108,20 +108,25 @@ export default {
   mounted() {
     document.addEventListener("mousemove", this.mousemoveHandler);
     document.addEventListener("mouseup", this.mouseupHandler);
+
+    const activedPost = this.$el.querySelector(".nuxt-link-active");
+    if (activedPost) {
+      const pos = activedPost.getBoundingClientRect();
+      const windowHeadHeight = this.$getScssVariable("windowHeadHeight");
+      const headerHeight = this.$getScssVariable("headerHeight");
+      const margin = 10;
+
+      this.$el.scrollTo({
+        top: pos.top - windowHeadHeight - headerHeight - margin,
+      });
+    }
   },
   beforeUnmount() {
     document.removeEventListener("mousemove", this.mousemoveHandler);
     document.removeEventListener("mouseup", this.mouseupHandler);
   },
   // mounted() {
-  //   const activedPost = this.$el.querySelector(".nuxt-link-active");
-  //   if (activedPost) {
-  //     const pos = activedPost.getBoundingClientRect();
 
-  //     this.$refs.postlist.scrollTo({
-  //       top: pos.top - this.$refs.head.clientHeight - 10,
-  //     });
-  //   }
   // },
 };
 </script>
