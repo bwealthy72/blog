@@ -83,7 +83,11 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/moment", "@nuxtjs/google-analytics"],
+  buildModules: [
+    "@nuxtjs/moment",
+    "@nuxtjs/google-analytics",
+    "@nuxtjs/device",
+  ],
 
   googleAnalytics: {
     // Options
@@ -105,7 +109,6 @@ export default {
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots
     "@nuxtjs/robots",
-    "@nuxtjs/device",
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

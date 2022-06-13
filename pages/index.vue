@@ -25,6 +25,7 @@ import PostVue from "~/components/desktop/windows/Post.vue";
 
 export default {
   layout: (ctx) => {
+    console.log(ctx);
     return ctx.$device.isMobile ? "mobile" : "default";
   },
   async asyncData(ctx) {
