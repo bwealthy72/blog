@@ -19,5 +19,62 @@
 <script>
 export default {
   props: ["post"],
+  head() {
+    return {
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.description,
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: this.post.title,
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.post.coverImg
+            ? this.post.coverImg
+            : "https://www.blogwealthy.com/logo.png",
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: this.post.path
+            ? this.post.path
+            : "https://www.blogwealthy.com/",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: "summary_large_image",
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.post.title,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.post.description,
+        },
+        {
+          hid: "twitter:image",
+          name: "twitter:image",
+          content: this.post.coverImg
+            ? this.post.coverImg
+            : "https://www.blogwealthy.com/logo.png",
+        },
+      ],
+    };
+  },
 };
 </script>
