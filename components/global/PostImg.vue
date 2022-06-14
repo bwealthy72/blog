@@ -9,7 +9,7 @@
       <img
         class="lightbox__img fade-img"
         @click.stop="lbImgClick"
-        :src="src"
+        :src="`${src}?nf_resize=fit&w=527&h=500`"
         :alt="alt"
       />
     </div>
