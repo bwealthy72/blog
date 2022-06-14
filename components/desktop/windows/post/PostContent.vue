@@ -7,8 +7,8 @@
         <CommonTags :tags="post.tags"></CommonTags>
       </div>
 
-      <div class="post-content__cover-img" v-show="post.coverImg">
-        <img :src="post.coverImg" alt="Cover Image" />
+      <div class="post-content__cover-img" v-if="post.coverImg">
+        <img :src="`${post.coverImg}?nf_resize=fit&h=400`" alt="Cover Image" />
       </div>
 
       <nuxt-content :document="post" tag="article" />

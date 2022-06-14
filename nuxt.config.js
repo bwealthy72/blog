@@ -83,11 +83,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    "@nuxtjs/moment",
-    "@nuxtjs/google-analytics",
-    "@nuxtjs/device",
-  ],
+  buildModules: ["@nuxtjs/moment", "@nuxtjs/google-analytics"],
 
   googleAnalytics: {
     // Options

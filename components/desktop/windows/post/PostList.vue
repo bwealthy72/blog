@@ -24,8 +24,8 @@
           <p class="text__date">{{ p.createdAt }}</p>
           <p class="text__desc">{{ p.description }}</p>
         </div>
-        <div class="img" v-show="p.coverImg">
-          <img :src="p.coverImg" alt="cover-image" />
+        <div class="img" v-if="p.coverImg">
+          <img :src="`${p.coverImg}?nf_resize=fit&h=400`" alt="cover-image" />
         </div>
       </nuxt-link>
     </div>
