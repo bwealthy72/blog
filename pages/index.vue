@@ -1,22 +1,17 @@
 <template>
   <div class="window-wrapper">
-    <div v-if="!isMobile">
-      <DesktopMacWindow
-        v-for="(window, name) in windows"
-        :key="name"
-        :width="window.width"
-        :height="window.height"
-        :zIndex="window.zIndex"
-        :name="name"
-        v-show="window.open"
-      >
-        <!-- <component slot="body" :is="name" :props="window.props"></component> -->
-        <PostVue slot="body" :props="window.props"></PostVue>
-      </DesktopMacWindow>
-    </div>
-    <div v-else>
-      <h2>Hello</h2>
-    </div>
+    <DesktopMacWindow
+      v-for="(window, name) in windows"
+      :key="name"
+      :width="window.width"
+      :height="window.height"
+      :zIndex="window.zIndex"
+      :name="name"
+      v-show="window.open"
+    >
+      <!-- <component slot="body" :is="name" :props="window.props"></component> -->
+      <PostVue slot="body" :props="window.props"></PostVue>
+    </DesktopMacWindow>
   </div>
 </template>
 
@@ -24,14 +19,9 @@
 import PostVue from "~/components/desktop/windows/Post.vue";
 
 export default {
-  layout: (ctx) => {
-    console.log(ctx);
-    return ctx.$device.isMobile ? "mobile" : "default";
-  },
   async asyncData(ctx) {
     const { post, postList } = await ctx.$getPosts();
-    const isMobile = ctx.$device.isMobile;
-    return { post, postList, isMobile };
+    return { post, postList };
   },
   computed: {
     windows() {
