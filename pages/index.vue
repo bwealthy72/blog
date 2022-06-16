@@ -1,22 +1,25 @@
 <template>
   <div class="window-wrapper">
-    <DesktopMacWindow
-      v-for="(window, name) in windows"
-      :key="name"
-      :width="window.width"
-      :height="window.height"
-      :zIndex="window.zIndex"
-      :name="name"
-      v-show="window.open"
-    >
-      <!-- <component slot="body" :is="name" :props="window.props"></component> -->
-      <PostVue slot="body" :props="window.props"></PostVue>
-    </DesktopMacWindow>
+    <div v-if="$device.isDesktop">
+      <DesktopMacWindow
+        v-for="(window, name) in windows"
+        :key="name"
+        :width="window.width"
+        :height="window.height"
+        :zIndex="window.zIndex"
+        :name="name"
+        v-show="window.open"
+      >
+        <component slot="body" :is="name" :props="window.props"></component>
+      </DesktopMacWindow>
+    </div>
+
+    <div v-else></div>
   </div>
 </template>
 
 <script>
-import PostVue from "~/components/desktop/windows/Post.vue";
+import Post from "~/components/desktop/windows/Post.vue";
 
 export default {
   async asyncData(ctx) {
@@ -44,6 +47,6 @@ export default {
     },
   },
 
-  components: { PostVue },
+  components: { Post },
 };
 </script>

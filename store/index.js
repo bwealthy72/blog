@@ -30,6 +30,7 @@ export const state = () => ({
       img: require("~/assets/images/dock/Post.png"),
     },
   },
+
   // Mac window들에 대한 정보를 담고있다.
   windows: {
     Post: {

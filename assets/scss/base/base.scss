@@ -38,23 +38,19 @@ img {
   outline: none;
 }
 
-// 라우터 변경시 애니메이션
-.app-leave-active,
-.app-enter-active {
-  transition: all 0.2s;
-  .mac-window {
-    transition: all 0.2s linear;
-  }
-}
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(~/assets/images/bg.jpg);
+  background-size: cover;
+  background-position: center;
 
-.app-enter,
-.app-leave-to {
-  .mac-window {
-    top: 50% !important;
-    left: $dock-width !important;
-    width: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
-    transform: translateY(-50%);
+  user-select: none;
+
+  &.mobile {
+    background-image: none;
   }
 }

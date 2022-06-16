@@ -105,6 +105,8 @@ export default {
     "@nuxtjs/sitemap",
     // https://www.npmjs.com/package/@nuxtjs/robots
     "@nuxtjs/robots",
+
+    "@nuxtjs/device",
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
